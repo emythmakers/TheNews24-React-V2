@@ -61,10 +61,16 @@ export default function Home() {
                         <div className="video-area">
                             <div className="container">
                                 <VideoSec />
-                                {/* fresh field ads */}
-                                <VideoSecBotmR1 />
-                                {/* Life bd ads */}
-                                <VideoSecBotmR2 />
+                                <div className='row'>
+                                    <div className='col-lg-6 mt-2'>
+                                        {/* fresh field ads */}
+                                        <VideoSecBotmR1 />
+                                    </div>
+                                    <div className='col-lg-6 mt-2'>
+                                        {/* Life bd ads */}
+                                        <VideoSecBotmR2 />
+                                    </div>
+                                </div>
                                  
                             </div>
                         </div>
