@@ -6,7 +6,7 @@ const HeaderBottomAds = () => {
             <div className="col-lg-12 col-12">
                 <div className='ads-area'>
                     <a href="https://www.shwapno.com/" target='blank'>
-                        <img src={homeBanner} alt="The News 24" title='The News 24' /></a>
+                        <img src={homeBanner} alt="The News 24" title='The News 24' className='img-fluid' /></a>
                 </div>
             </div>
 

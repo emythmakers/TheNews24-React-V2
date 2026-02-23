@@ -4477,7 +4477,8 @@ picture img {
 		border-right :none !important;
 	}
 	.DBannerAdd2{
-		display: none !important;
+		margin-top: 0 !important;
+		padding-top: 0 !important;
 	}
 	.DCatTop3tList {
 		border-bottom: 1px solid #eee;
