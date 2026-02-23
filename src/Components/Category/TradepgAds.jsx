@@ -1,5 +1,5 @@
 import React from 'react'
-import Ads from '../../assets/media/Advertisement/HomepageAds.png';
+import Ads from '../../assets/media/Advertisement/life-bd.png';
 
 const TradepgAds = () => {
     return (

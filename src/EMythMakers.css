@@ -1525,7 +1525,8 @@ picture img {
 
 /* ====others-two-area==== */
 .others-two-area {
-	padding: 30px 0;
+	/* padding: 30px 0; */
+	padding-bottom: 30px;
 }
 
 .others-two-area .col-lg-8 {
@@ -1866,6 +1867,7 @@ picture img {
 	text-align: center;
 }
 .ads-area{text-align: center; margin-top: 10px;}
+.ads-area-FreshField{text-align: center; margin-top: 20px;}
 .life-style-list .Desc {
 	position: absolute;
 	bottom: 0;

@@ -13,6 +13,7 @@ import LeadLatestNews from '../HomeContent/LeadLatestNews';
 import InternationalpgAds from './InternationalpgAds';
 import PoliticsPgAds from './PoliticsPgAds';
 import TradepgAds from './TradepgAds';
+import HeaderBottomAds from '../HomeContent/HeaderBottomAds';
 // import RLoader from '../RLoader';
 // import RLoader from '../RLoader';
 
@@ -146,13 +147,13 @@ export default function Category() {
                             <DocumentTitle title={`${catName.CategoryName} | ${catName.CategoryName} সর্বশেষ খবর ::  দ্য নিউজ ২৪`} />
                             <CatLdJson CatNames={catName.CategoryName} CatNameSlug={catName.Slug} />
                         </h2>
-
                         <section>
                             <div className="row">
                                 <div className="col-lg-9 col-sm-12 DBorderRight">
                                     <>
                                         {catSlug === 'country' && <DivisionDistricName />}
                                     </>
+
                                     <div className="DcatTopArea">
                                         <div className="row">
                                             <div className="col-lg-8 col-12 d-flex ">
@@ -229,60 +230,79 @@ export default function Category() {
                                         </div>
                                     </div>
                                     {catSlug === 'international' ?
-                                        <div className="DBannerAdd2 d-flex justify-content-center mt-5 pt-5">
-                                            <Link to="/">
+                                        <div className="DBannerAdd2 d-flex justify-content-center mt-3 pb-3">
+                                            {/* <Link to="/">
                                                 <img src="/media/Advertisement/Advertisement(728X90).png" alt="Advertisement" title="Advertisement"
                                                     className="img-fluid img100" />
-                                            </Link>
+                                            </Link> */}
+                                            {/* ads placement */}
+                                            <HeaderBottomAds />
+
                                         </div>
                                         :
                                         ""
                                     }
                                     {catSlug === 'politics' ?
                                         <div className="DBannerAdd2 d-flex justify-content-center mt-5 pt-5">
-                                            <Link to="/">
+                                            {/* <Link to="/">
                                                 <img src="/media/Advertisement/Advertisement(728X90).png" alt="Advertisement" title="Advertisement"
                                                     className="img-fluid img100" />
-                                            </Link>
+                                            </Link> */}
+                                            {/* ads placement */}
+                                            <HeaderBottomAds />
                                         </div>
                                         :
                                         ""
                                     }
-                                     {catSlug === 'trade' ?
-                                        <div className="DBannerAdd2 d-flex justify-content-center mt-5 pt-5">
-                                            <Link to="/">
+                                    {catSlug === 'trade' ?
+                                        <div className="DBannerAdd2 d-flex justify-content-center mt-4 pb-3">
+                                            {/* <Link to="/">
                                                 <img src="/media/Advertisement/Advertisement(728X90).png" alt="Advertisement" title="Advertisement"
                                                     className="img-fluid img100" />
-                                            </Link>
+                                            </Link> */}
+                                            {/* ads placement */}
+                                            <HeaderBottomAds />
+                                        </div>
+                                        :
+                                        ""
+                                    }
+                                    {catSlug === 'lifestyle' ?
+                                        <div className="DBannerAdd2 d-flex justify-content-center mt-5 pt-5">
+                                            {/* <Link to="/">
+                                                <img src="/media/Advertisement/Advertisement(728X90).png" alt="Advertisement" title="Advertisement"
+                                                    className="img-fluid img100" />
+                                            </Link> */}
+                                            {/* ads placement */}
+                                            <HeaderBottomAds />
                                         </div>
                                         :
                                         ""
                                     }
                                 </div>
                                 <div className="col-lg-3 col-sm-12">
-                                    {catSlug === 'international' ? (
+                                    {catSlug === 'lifestyle' ? (
                                         <InternationalpgAds />
                                     ) : catSlug === 'politics' ? (
                                         <PoliticsPgAds />)
-                                    : catSlug === 'trade' ? (<TradepgAds />) 
-                                     : (
-                                        <div className="DRightSideAdd d-flex justify-content-center mb-3 mt-3">
-                                            <Link to="/">
-                                                <img
-                                                    src="/media/Advertisement/Advertisement(300X90).png"
-                                                    alt="Advertisement"
-                                                    title="Advertisement"
-                                                />
-                                            </Link>
-                                        </div>
-                                    )}
+                                        : catSlug === 'trade' ? (<TradepgAds />)
+                                            : (
+                                                <div className="DRightSideAdd d-flex justify-content-center mb-3 mt-3">
+                                                    <Link to="/">
+                                                        <img
+                                                            src="/media/Advertisement/Advertisement(300X90).png"
+                                                            alt="Advertisement"
+                                                            title="Advertisement"
+                                                        />
+                                                    </Link>
+                                                </div>
+                                            )}
 
                                     <LeadLatestNews />
                                 </div>
 
                             </div>
                         </section>
-                        {catSlug !== 'international' && catSlug !== 'politics' && catSlug !== 'trade' && (
+                        {catSlug !== 'international' && catSlug !== 'politics' && catSlug !== 'trade' && catSlug !== 'lifestyle' && (
                             <div className="DBannerAdd d-flex justify-content-center">
                                 <Link to="/">
                                     <img

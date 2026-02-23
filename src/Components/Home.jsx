@@ -16,7 +16,7 @@ import PhotoSection from './HomeContent/PhotoSection'
 import HomeLdJson from './HomeContent/HomeLdJson'
 import DTrade from './HomeContent/DTrade'
 // import HomepageAds from '../assets/media/Advertisement/HomepageAds.png'
-import HeaderBottomAds from './HomeContent/HeaderBottomAds'
+// import HeaderBottomAds from './HomeContent/HeaderBottomAds'
 import VideoSecBotmR1 from './HomeContent/VideoSecBotmR1'
 import VideoSecBotmR2 from './HomeContent/VideoSecBotmR2'
 // import Ramadan from './HomeContent/Ramadan'
@@ -55,21 +55,18 @@ export default function Home() {
                     <DocumentTitle title='The News 24 ::  দ্য নিউজ ২৪' />
                     <HomeLdJson />
                     {/* Header Bottom Ads  */}
-                    <HeaderBottomAds />
+                    {/* <HeaderBottomAds /> */}
                     <LeadNewsSection />
                     <>
                         <div className="video-area">
                             <div className="container">
                                 <VideoSec />
                                 <div className='row'>
-                                    <div className='col-lg-6 mt-2'>
+                                    <div className='col-lg-12'>
                                         {/* fresh field ads */}
                                         <VideoSecBotmR1 />
                                     </div>
-                                    <div className='col-lg-6 mt-2'>
-                                        {/* Life bd ads */}
-                                        <VideoSecBotmR2 />
-                                    </div>
+                                    
                                 </div>
                                  
                             </div>
