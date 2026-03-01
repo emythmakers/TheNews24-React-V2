@@ -5704,7 +5704,10 @@ p.img-caption {
 .MostPopularTabList:hover .Desc .Title {
 	color: var(--primary);
 }
-
+.adsarea {
+	text-align: center;
+	padding: 10px 0;
+}
 /* Latest News */
 h2.LatestNewsH {
 	font-size: 22px;

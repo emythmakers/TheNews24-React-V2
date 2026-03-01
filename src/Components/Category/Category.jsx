@@ -14,6 +14,7 @@ import InternationalpgAds from './InternationalpgAds';
 import PoliticsPgAds from './PoliticsPgAds';
 import TradepgAds from './TradepgAds';
 import HeaderBottomAds from '../HomeContent/HeaderBottomAds';
+import shopnoADS from '../../assets/media/Advertisement/shopno-ads.png'
 // import RLoader from '../RLoader';
 // import RLoader from '../RLoader';
 
@@ -303,17 +304,17 @@ export default function Category() {
                             </div>
                         </section>
                         {catSlug !== 'international' && catSlug !== 'politics' && catSlug !== 'trade' && catSlug !== 'lifestyle' && (
-                            <div className="DBannerAdd d-flex justify-content-center">
-                                <Link to="/">
+                            <div className="adsarea">
+                                <a href="https://www.shwapno.com/" target='blank'>
                                     <img
-                                        src="/media/Advertisement/Advertisement(970X90).png"
+                                        src={shopnoADS}
                                         alt="The News 24"
                                         title="The News 24"
                                         className="img-fluid img100"
                                         width={970}
                                         height={90}
                                     />
-                                </Link>
+                                </a>
                             </div>
                         )}
 
