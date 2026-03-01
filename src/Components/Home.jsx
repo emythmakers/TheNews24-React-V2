@@ -18,10 +18,11 @@ import DTrade from './HomeContent/DTrade'
 // import HomepageAds from '../assets/media/Advertisement/HomepageAds.png'
 // import HeaderBottomAds from './HomeContent/HeaderBottomAds'
 import VideoSecBotmR1 from './HomeContent/VideoSecBotmR1'
-import VideoSecBotmR2 from './HomeContent/VideoSecBotmR2'
+import shopnoADS from '../assets/media/Advertisement/shopno-ads.png'
+// import VideoSecBotmR2 from './HomeContent/VideoSecBotmR2'
 // import Ramadan from './HomeContent/Ramadan'
 // import LazyLoaderGIF from '../icon/lazyComponentLoaderGIF.gif'
-
+import HomeDesktopPopUp from '../Components/HomeContent/HomeDesktopPopUp'
 // var allComponentsLoaded = false
 export default function Home() {
     // useEffect(() => {
@@ -54,8 +55,24 @@ export default function Home() {
                 <>
                     <DocumentTitle title='The News 24 ::  দ্য নিউজ ২৪' />
                     <HomeLdJson />
+                    {/* popup */}
+                    <HomeDesktopPopUp />
                     {/* Header Bottom Ads  */}
-                    {/* <HeaderBottomAds /> */}
+                    <div className="container">
+                        <div className="adsarea">
+                            <a href="https://www.shwapno.com/" target='blank'>
+                                <img
+                                    src={shopnoADS}
+                                    alt="The News 24"
+                                    title="The News 24"
+                                    className="img-fluid img100"
+                                    width={970}
+                                    height={90}
+                                />
+                            </a>
+                        </div>
+                    </div>
+
                     <LeadNewsSection />
                     <>
                         <div className="video-area">
@@ -66,9 +83,9 @@ export default function Home() {
                                         {/* fresh field ads */}
                                         <VideoSecBotmR1 />
                                     </div>
-                                    
+
                                 </div>
-                                 
+
                             </div>
                         </div>
                         <section className="others-two-area">
