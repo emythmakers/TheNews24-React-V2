@@ -15,6 +15,8 @@ import PoliticsPgAds from './PoliticsPgAds';
 import TradepgAds from './TradepgAds';
 import HeaderBottomAds from '../HomeContent/HeaderBottomAds';
 import shopnoADS from '../../assets/media/Advertisement/shopno-ads.png'
+import TradepgAdsBottm from './TradepgAdsBottm';
+import EduAdsTop from './EduAdsTop';
 // import RLoader from '../RLoader';
 // import RLoader from '../RLoader';
 
@@ -150,9 +152,11 @@ export default function Category() {
                         </h2>
                         <section>
                             <div className="row">
+                                {catSlug === 'education' && <EduAdsTop />}
                                 <div className="col-lg-9 col-sm-12 DBorderRight">
                                     <>
                                         {catSlug === 'country' && <DivisionDistricName />}
+
                                     </>
 
                                     <div className="DcatTopArea">
@@ -355,6 +359,7 @@ export default function Category() {
                                 </div>
                                 <div className="col-lg-3 col-sm-12">
                                     <CategoryPopular catLatest={catLatest} catSlug={catSlug} />
+                                    {catSlug === 'trade' && <TradepgAdsBottm />}
                                 </div>
                             </div>
                         </section>
