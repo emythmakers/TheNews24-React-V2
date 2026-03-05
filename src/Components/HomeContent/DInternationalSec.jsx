@@ -14,7 +14,7 @@ export default function DInternationalSec() {
             .then(({ data }) => {
 
                 setInternational(data.data.slice(0, 6))
-                setInternational2(data.data[7])
+                setInternational2(data.data[6])
 
                 setTimeout(function () {
                     lazyloaded = false
@@ -75,6 +75,7 @@ export default function DInternationalSec() {
                         </div>
                     </div>
                 </div>
+                {international2 ? 
                 <div className="col-lg-4 order-lg-2 order-1">
                     <div className="others-Two-lead-wrap">
                         <div className="others-Two-lead">
@@ -98,6 +99,7 @@ export default function DInternationalSec() {
                         </div>
                     </div>
                 </div>
+                :""}
             </div>
 
         </>
