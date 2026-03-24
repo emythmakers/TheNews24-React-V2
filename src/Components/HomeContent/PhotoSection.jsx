@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { scrollTop, ForLazyLoaderImg } from '../AllFunctions'
-import Ads from '../../assets/media/Advertisement/life-bdHome.png'
+// import Ads from '../../assets/media/Advertisement/life-bdHome.png'
+import { ForLazyLoaderImg, scrollTop } from '../AllFunctions'
 var lazyloaded = false
 
 export default function PhotoSection() {
@@ -13,7 +13,7 @@ export default function PhotoSection() {
             .get(`${process.env.REACT_APP_API_URL}json/file/generatePhotoFeature.json`)
             .then(({ data }) => {
                 setPhotoStory(data.data[0])
-                setPhotoStory2(data.data.slice(1, 2))
+                setPhotoStory2(data.data.slice(1, 3))
                 setTimeout(function () {
                     lazyloaded = false
                     ForLazyLoaderImg(lazyloaded)
@@ -85,9 +85,9 @@ export default function PhotoSection() {
                         </div>
                     </div>
                     {/* ads placement */}
-                    <div className="DRightSideAdd d-flex justify-content-center mb-3 mt-3">
+                    {/* <div className="DRightSideAdd d-flex justify-content-center mb-3 mt-3">
                         <img src={Ads} alt="The News 24" title="The News 24" className='img-fluid' />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>

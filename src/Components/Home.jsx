@@ -1,24 +1,23 @@
 import React, { useEffect } from 'react'
-import LeadNewsSection from './HomeContent/LeadNewsSection'
-import Sports from './HomeContent/Sports'
 import DocumentTitle from 'react-document-title'
-import VideoSec from './HomeContent/VideoSec'
 import DCountry from './HomeContent/DCountry'
-import DNational from './HomeContent/DNational'
-import DInternationalSec from './HomeContent/DInternationalSec'
-import OpinionSec from './HomeContent/OpinionSec'
-import DPoliticsSec from './HomeContent/DPoliticsSec'
-import DJob from './HomeContent/DJob'
 import DEntertainment from './HomeContent/DEntertainment'
+import DInternationalSec from './HomeContent/DInternationalSec'
+import DJob from './HomeContent/DJob'
+import DNational from './HomeContent/DNational'
+import DPoliticsSec from './HomeContent/DPoliticsSec'
+import LeadNewsSection from './HomeContent/LeadNewsSection'
 import Lifestyle from './HomeContent/Lifestyle'
+import OpinionSec from './HomeContent/OpinionSec'
 import PhotoSection from './HomeContent/PhotoSection'
+import Sports from './HomeContent/Sports'
+import VideoSec from './HomeContent/VideoSec'
 // import Event from './HomeContent/Event'
-import HomeLdJson from './HomeContent/HomeLdJson'
 import DTrade from './HomeContent/DTrade'
+import HomeLdJson from './HomeContent/HomeLdJson'
 // import HomepageAds from '../assets/media/Advertisement/HomepageAds.png'
 // import HeaderBottomAds from './HomeContent/HeaderBottomAds'
-import VideoSecBotmR1 from './HomeContent/VideoSecBotmR1'
-import shopnoADS from '../assets/media/Advertisement/shopno-ads.png'
+// import shopnoADS from '../assets/media/Advertisement/shopno-ads.png'
 // import VideoSecBotmR2 from './HomeContent/VideoSecBotmR2'
 // import Ramadan from './HomeContent/Ramadan'
 // import LazyLoaderGIF from '../icon/lazyComponentLoaderGIF.gif'
@@ -58,7 +57,7 @@ export default function Home() {
                     {/* popup */}
                     <HomeDesktopPopUp />
                     {/* Header Bottom Ads  */}
-                    <div className="container">
+                    {/* <div className="container">
                         <div className="adsarea">
                             <a href="https://www.shwapno.com/" target='blank'>
                                 <img
@@ -71,21 +70,19 @@ export default function Home() {
                                 />
                             </a>
                         </div>
-                    </div>
+                    </div> */}
 
                     <LeadNewsSection />
                     <>
                         <div className="video-area">
                             <div className="container">
                                 <VideoSec />
-                                <div className='row'>
-                                    <div className='col-lg-12'>
-                                        {/* fresh field ads */}
-                                        <VideoSecBotmR1 />
-                                    </div>
-
-                                </div>
-
+                                {/* <div className='row'> */}
+                                {/* <div className='col-lg-12'> */}
+                                {/* fresh field ads */}
+                                {/* <VideoSecBotmR1 /> */}
+                                {/* </div> */}
+                                {/* </div> */}
                             </div>
                         </div>
                         <section className="others-two-area">
