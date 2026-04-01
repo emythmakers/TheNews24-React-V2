@@ -3,7 +3,7 @@ import { toBengaliNumber } from 'bengali-number'
 import { format } from 'date-fns'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import waltonAds from '../../assets/media/Advertisement/waltonAds.jpg'
+// import waltonAds from '../../assets/media/Advertisement/waltonAds.jpg'
 import { banglaDateConvetar, ForLazyLoaderImg, scrollTop, timeAgo } from '../AllFunctions'
 import ErrorPage from '../ErrorPage'
 import DCatLatest from './DCatLatest'
@@ -442,14 +442,14 @@ export default function Details() {
                                                             </div>
                                                         </div>
                                                     </div> */}
-                                                    <div className="row">
+                                                    {/* ===================adsvertisement section =================== */}
+                                                    {/* <div className="row">
                                                         <div className="col-md-12">
                                                             <div className="DAdd1 d-flex  justify-content-center">
-                                                                {/* <Link to="/"><img src={"/media/Advertisement/Advertisement (300X250).png"} alt="Advertisement" title="Advertisement" className="img-fluid img100" width={300} height={250} /></Link> */}
                                                                 <img src={waltonAds} alt="Advertisement" title="Advertisement" className="img-fluid img100" width={300} height={250} />
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> */}
                                                 </div>
                                             </div>
                                         </div>
