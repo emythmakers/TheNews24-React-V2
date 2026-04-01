@@ -21,7 +21,7 @@ import HomeLdJson from './HomeContent/HomeLdJson'
 // import VideoSecBotmR2 from './HomeContent/VideoSecBotmR2'
 // import Ramadan from './HomeContent/Ramadan'
 // import LazyLoaderGIF from '../icon/lazyComponentLoaderGIF.gif'
-import HomeDesktopPopUp from '../Components/HomeContent/HomeDesktopPopUp'
+// import HomeDesktopPopUp from '../Components/HomeContent/HomeDesktopPopUp'
 // var allComponentsLoaded = false
 export default function Home() {
     // useEffect(() => {
@@ -55,7 +55,7 @@ export default function Home() {
                     <DocumentTitle title='The News 24 ::  দ্য নিউজ ২৪' />
                     <HomeLdJson />
                     {/* popup */}
-                    <HomeDesktopPopUp />
+                    {/* <HomeDesktopPopUp /> */}
                     {/* Header Bottom Ads  */}
                     {/* <div className="container">
                         <div className="adsarea">

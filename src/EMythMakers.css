@@ -5622,6 +5622,9 @@ p.img-caption {
 .DCatTop3 .col-lg-4:nth-child(3) .DCatTop3tList {
 	border-right: none;
 }
+.DCatTop3 .col-lg-4.col-12.d-flex.border-right-inner:last-child{
+	border-right: none;
+}
 
 
 .DCatTop3tList .Desc {

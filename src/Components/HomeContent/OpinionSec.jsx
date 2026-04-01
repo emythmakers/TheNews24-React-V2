@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { scrollTop, ForLazyLoaderImg } from '../AllFunctions'
 import WriterDefaultImg from '../../assets/media/common/profile.png';
 // import OnlinePoll from './OnlinePoll';
-import JahanAds from './JahanAds';
+// import JahanAds from './JahanAds';
 
 var lazyloaded = false
 export default function OpinionSec() {
@@ -70,7 +70,7 @@ export default function OpinionSec() {
                 </div>
                 <div className="col-lg-3 col-sm-12">
                     {/* <OnlinePoll /> */}
-                    <JahanAds />
+                    {/* <JahanAds /> */}
                 </div>
             </div>
 

@@ -152,7 +152,7 @@ export default function Category() {
                         </h2>
                         <section>
                             <div className="row">
-                                {catSlug === 'education' && <EduAdsTop />}
+                                {/* {catSlug === 'education' && <EduAdsTop />} */}
                                 <div className="col-lg-9 col-sm-12 DBorderRight">
                                     <>
                                         {catSlug === 'country' && <DivisionDistricName />}
@@ -234,58 +234,39 @@ export default function Category() {
                                             })}
                                         </div>
                                     </div>
-                                    {catSlug === 'international' ?
+                                    {/* =================advertisement section=============  */}
+                                    {/* {catSlug === 'international' ?
                                         <div className="DBannerAdd2 d-flex justify-content-center mt-3 pb-3">
-                                            {/* <Link to="/">
-                                                <img src="/media/Advertisement/Advertisement(728X90).png" alt="Advertisement" title="Advertisement"
-                                                    className="img-fluid img100" />
-                                            </Link> */}
-                                            {/* ads placement */}
                                             <HeaderBottomAds />
-
                                         </div>
                                         :
                                         ""
-                                    }
-                                    {catSlug === 'politics' ?
+                                    } */}
+                                    {/* {catSlug === 'politics' ?
                                         <div className="DBannerAdd2 d-flex justify-content-center mt-5 pt-5">
-                                            {/* <Link to="/">
-                                                <img src="/media/Advertisement/Advertisement(728X90).png" alt="Advertisement" title="Advertisement"
-                                                    className="img-fluid img100" />
-                                            </Link> */}
-                                            {/* ads placement */}
                                             <HeaderBottomAds />
                                         </div>
                                         :
                                         ""
-                                    }
-                                    {catSlug === 'trade' ?
+                                    } */}
+                                    {/* {catSlug === 'trade' ?
                                         <div className="DBannerAdd2 d-flex justify-content-center mt-4 pb-3">
-                                            {/* <Link to="/">
-                                                <img src="/media/Advertisement/Advertisement(728X90).png" alt="Advertisement" title="Advertisement"
-                                                    className="img-fluid img100" />
-                                            </Link> */}
-                                            {/* ads placement */}
                                             <HeaderBottomAds />
                                         </div>
                                         :
                                         ""
-                                    }
-                                    {catSlug === 'lifestyle' ?
+                                    } */}
+                                    {/* {catSlug === 'lifestyle' ?
                                         <div className="DBannerAdd2 d-flex justify-content-center mt-5 pt-5">
-                                            {/* <Link to="/">
-                                                <img src="/media/Advertisement/Advertisement(728X90).png" alt="Advertisement" title="Advertisement"
-                                                    className="img-fluid img100" />
-                                            </Link> */}
-                                            {/* ads placement */}
                                             <HeaderBottomAds />
                                         </div>
                                         :
                                         ""
-                                    }
+                                    } */}
                                 </div>
                                 <div className="col-lg-3 col-sm-12">
-                                    {catSlug === 'lifestyle' ? (
+                                      {/* =================advertisement section=============  */}
+                                    {/* {catSlug === 'lifestyle' ? (
                                         <InternationalpgAds />
                                     ) : catSlug === 'politics' ? (
                                         <PoliticsPgAds />)
@@ -300,14 +281,14 @@ export default function Category() {
                                                         />
                                                     </Link>
                                                 </div>
-                                            )}
-
+                                            )} */}
                                     <LeadLatestNews />
                                 </div>
 
                             </div>
                         </section>
-                        {catSlug !== 'international' && catSlug !== 'politics' && catSlug !== 'trade' && catSlug !== 'lifestyle' && (
+                        {/* =================advertisement section=============  */}
+                        {/* {catSlug !== 'international' && catSlug !== 'politics' && catSlug !== 'trade' && catSlug !== 'lifestyle' && (
                             <div className="adsarea">
                                 <a href="https://www.shwapno.com/" target='blank'>
                                     <img
@@ -320,10 +301,10 @@ export default function Category() {
                                     />
                                 </a>
                             </div>
-                        )}
+                        )} */}
 
                         <section>
-                            <div className="row">
+                            <div className="row mt-4">
                                 <div className="col-lg-9 col-sm-12 mt-4 BorderRight">
                                     <h2 className="LatestNewsH ">{catName.CategoryName} বিভাগের সব খবর</h2>
                                     <section className="DCatNewsListArea">
@@ -359,7 +340,7 @@ export default function Category() {
                                 </div>
                                 <div className="col-lg-3 col-sm-12">
                                     <CategoryPopular catLatest={catLatest} catSlug={catSlug} />
-                                    {catSlug === 'trade' && <TradepgAdsBottm />}
+                                    {/* {catSlug === 'trade' && <TradepgAdsBottm />} */}
                                 </div>
                             </div>
                         </section>

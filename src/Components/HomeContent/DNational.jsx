@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import Ads from '../../assets/media/Advertisement/shopno.png'
+// import Ads from '../../assets/media/Advertisement/shopno.png'
 import { ForLazyLoaderImg, getTimeDistance, scrollTop } from '../AllFunctions'
 import FBpagePlugin from '../FBpagePlugin'
 import PrayerTime from './PrayerTime'
@@ -132,9 +132,9 @@ export default function DNational() {
                             <PrayerTime />
                         </div>
                         <FBpagePlugin />
-                        <div className="DRightSideAdd mt-2">
+                        {/* <div className="DRightSideAdd mt-2">
                             <a href="https://www.shwapno.com/" onClick={scrollTop} target='blank'><img src={Ads} alt="ads" title="ads" /></a>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
