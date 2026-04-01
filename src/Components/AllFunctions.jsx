@@ -41,35 +41,67 @@ const scrollTop = (e) => {
 };
 
 
+// const getTimeDistance = (date) => {
+//     // console.log(date);
+//     let publishDateTime = date.replace(/-/g, '/');
+//     let publishTime = new Date(publishDateTime);
+//     let now = new Date();
+//     var diff = new Date(now - publishTime);
+//     var days = parseInt(diff / 1000 / 60 / 60 / 24);
+//     var hours = parseInt(diff / 1000 / 60 / 60);
+//     var minutes = parseInt(diff / 1000 / 60);
+//     var seconds = parseInt(diff / 1000);
+//     if (days >= 1) {
+//         days = banglaDateConvetar(days.toString())
+//         return days + ' দিন আগে';
+//     }
+//     else if (hours >= 1) {
+//         hours = banglaDateConvetar(hours.toString())
+//         return hours + ' ঘন্টা আগে';
+//     }
+//     else if (minutes >= 1) {
+//         minutes = banglaDateConvetar(minutes.toString())
+//         return minutes + ' মিনিট আগে';
+//     }
+//     else {
+//         seconds = banglaDateConvetar(seconds.toString())
+//         return seconds + ' সেকেন্ড আগে';
+//     }
+// }
+
 const getTimeDistance = (date) => {
-    // console.log(date);
-    let publishDateTime = date.replace(/-/g, '/');
-    let publishTime = new Date(publishDateTime);
+    if (!date) return '';
+
+    let publishTime = new Date(date);
+
+    // fallback if invalid
+    if (isNaN(publishTime.getTime())) {
+        publishTime = new Date(date.replace(/-/g, '/'));
+    }
+
+    if (isNaN(publishTime.getTime())) return '';
+
     let now = new Date();
-    var diff = new Date(now - publishTime);
-    var days = parseInt(diff / 1000 / 60 / 60 / 24);
-    var hours = parseInt(diff / 1000 / 60 / 60);
-    var minutes = parseInt(diff / 1000 / 60);
-    var seconds = parseInt(diff / 1000);
+    let diffMs = now - publishTime;
+
+    let days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    let hours = Math.floor(diffMs / (1000 * 60 * 60));
+    let minutes = Math.floor(diffMs / (1000 * 60));
+    let seconds = Math.floor(diffMs / 1000);
+
     if (days >= 1) {
-        days = banglaDateConvetar(days.toString())
-        return days + ' দিন আগে';
-    }
+        return banglaDateConvetar(days.toString()) + ' দিন আগে';
+    } 
     else if (hours >= 1) {
-        hours = banglaDateConvetar(hours.toString())
-        return hours + ' ঘন্টা আগে';
-    }
+        return banglaDateConvetar(hours.toString()) + ' ঘন্টা আগে';
+    } 
     else if (minutes >= 1) {
-        minutes = banglaDateConvetar(minutes.toString())
-        return minutes + ' মিনিট আগে';
-    }
+        return banglaDateConvetar(minutes.toString()) + ' মিনিট আগে';
+    } 
     else {
-        seconds = banglaDateConvetar(seconds.toString())
-        return seconds + ' সেকেন্ড আগে';
+        return banglaDateConvetar(seconds.toString()) + ' সেকেন্ড আগে';
     }
-}
-
-
+};
 function banglaDateConvetar(engDate) {
     var mapObj = {
         1: "১",
