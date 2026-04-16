@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { scrollTop } from '../AllFunctions'
+
 export default function DCatLatest({ catLatest, catName, catSlug }) {
     return (
         <>
+            {/* ===================adsvertisement section =================== */}
+           
             <div className="DSecTitle2">
                 <h2>আজকের গুরুত্বপূর্ণ {catName} খবর</h2>
             </div>

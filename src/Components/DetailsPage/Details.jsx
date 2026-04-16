@@ -3,7 +3,7 @@ import { toBengaliNumber } from 'bengali-number'
 import { format } from 'date-fns'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-// import waltonAds from '../../assets/media/Advertisement/waltonAds.jpg'
+import waltonAds from '../../assets/media/Advertisement/waltonR1.jpeg'
 import { banglaDateConvetar, ForLazyLoaderImg, scrollTop, timeAgo } from '../AllFunctions'
 import ErrorPage from '../ErrorPage'
 import DCatLatest from './DCatLatest'
@@ -324,8 +324,6 @@ export default function Details() {
                                                     <h1>{news.DetailsHeading ? news.DetailsHeading : news.ContentHeading}</h1>
                                                     {news.ContentShoulder && <h4 className='DHeadingContentShoulder'>{news.ContentShoulder}</h4>}
                                                 </div>
-                                            </div>
-                                            <div className="col-lg-8 col-12">
                                                 {news.VideoID !== null && news.VideoID !== '' && news.ShowVideo === 1 ?
                                                     <>
                                                         <div className={allTags === null ? "col-sm-12 video-container mt-2" : "col-sm-12 video-container"}>
@@ -361,7 +359,7 @@ export default function Details() {
                                                                 <p className="DTopImgCaption">{dateArray[i] && banglaDateConvetar(format(new Date(dateArray[i]), 'dd MMMM yyyy, H:mm'))}</p>
                                                             </div>
                                                         </div>
-                                                        <div className="mt-2 d-contents d-sm-flex justify-content-between align-items-center d-print-none">
+                                                        <div className="mt-2 mb-4 d-contents d-sm-flex justify-content-between align-items-center d-print-none">
                                                             {(writer[i] || news.WriterName !== "") ?
                                                                 <DWriters writer={writer[i]} writersName={news.WriterName} />
                                                                 : false}
@@ -372,13 +370,7 @@ export default function Details() {
                                                         </div>
                                                     </>
                                                 }
-                                            </div>
-                                            <div className="col-lg-4 col-12 d-none d-lg-block detailsPage">
-                                                <DCatLatest catLatest={catLatest} catName={catName.CategoryName} catSlug={catSlug} />
-                                            </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-lg-8 col-12 mt-3">
+
                                                 {news.is_live_content === 1 && news.is_live_now === 1 ?
                                                     <div className="row">
                                                         <div className="col-lg-12 mb-3">
@@ -432,7 +424,25 @@ export default function Details() {
                                                     })}
                                                 </div>
                                                 <DfbComment contentID={news.ContentID} />
+
+
                                             </div>
+
+                                            <div className="col-lg-4 col-12 d-none d-lg-block detailsPage">
+                                                {/* =========advertisement for desktop version ============ */}
+                                                <div className="row">
+                                                    <div className="col-md-12 pb-3 ">
+                                                        <a href="https://waltonbd.com/" target='blank'>
+                                                            <div className="DAdd1 d-flex  justify-content-center">
+                                                                <img src={waltonAds} alt="Advertisement" title="Advertisement" className="img-fluid img100" width={300} height={250} />
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <DCatLatest catLatest={catLatest} catName={catName.CategoryName} catSlug={catSlug} />
+                                            </div>
+                                        </div>
+                                        <div className="row">
                                             <div className="col-lg-4 col-12 d-print-none">
                                                 <div className="DRightAds">
                                                     {/* <div className="row">
@@ -451,6 +461,16 @@ export default function Details() {
                                                         </div>
                                                     </div> */}
                                                 </div>
+                                            </div>
+                                        </div>
+                                        {/* =========advertisement for mobile device============ */}
+                                        <div className="row d-block d-lg-none">
+                                            <div className="col-md-12 pb-3 ">
+                                                <a href="https://waltonbd.com/" target='blank'>
+                                                    <div className="DAdd1 d-flex  justify-content-center">
+                                                        <img src={waltonAds} alt="Advertisement" title="Advertisement" className="img-fluid img100" width={300} height={250} />
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
                                         <div className="col-sm-12 d-print-none">

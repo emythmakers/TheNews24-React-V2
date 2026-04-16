@@ -13,7 +13,7 @@ export default function DCountry() {
             .get(`${process.env.REACT_APP_API_URL}json/file/generateCategory2.json`)
             .then(({ data }) => {
                 setCountry(data.data.slice(0, 6))
-                setCountry2(data.data[7])
+                setCountry2(data.data[6])
                 setTimeout(function () {
                     lazyloaded = false
                     ForLazyLoaderImg(lazyloaded)
@@ -155,29 +155,31 @@ export default function DCountry() {
                         </div>
                     </div>
                 </div>
-                <div className="col-lg-4 order-lg-2 order-1">
-                    <div className="others-Two-lead-wrap">
-                        <div className="others-Two-lead">
-                            <Link to={"/" + country2.Slug + "/news/" + country2.ContentID} onClick={scrollTop}>
-                                <div className="other-Two-lead-img">
-                                    {country2.ImageBgPath ?
-                                        <img src={process.env.REACT_APP_IMG_Path + country2.ImageBgPath} alt={country2.ContentHeading} title={country2.ContentHeading} className="img-fluid w-100" width={400} height={254} /> :
-                                        <img src={process.env.REACT_APP_LAZYL_IMG} alt={country2.ContentHeading} title={country2.ContentHeading} className="img-fluid w-100" width={400} height={254} />}
+                {country2 ?
+                    <div className="col-lg-4 order-lg-2 order-1">
+                        <div className="others-Two-lead-wrap">
+                            <div className="others-Two-lead">
+                                <Link to={"/" + country2.Slug + "/news/" + country2.ContentID} onClick={scrollTop}>
+                                    <div className="other-Two-lead-img">
+                                        {country2.ImageBgPath ?
+                                            <img src={process.env.REACT_APP_IMG_Path + country2.ImageBgPath} alt={country2.ContentHeading} title={country2.ContentHeading} className="img-fluid w-100" width={400} height={254} /> :
+                                            <img src={process.env.REACT_APP_LAZYL_IMG} alt={country2.ContentHeading} title={country2.ContentHeading} className="img-fluid w-100" width={400} height={254} />}
 
-                                    {country2.ShowVideo === 1 && <div className="card-video-icon big transition"> <i className="fa-solid fa-play"></i> </div>}
-                                </div>
-                                <div className="Desc">
-                                    <h3 className="Title">{country2.ContentSubHeading ? (country2.ContentSubHeading + "/" + country2.ContentHeading) : (country2.ContentHeading)}</h3>
-                                    <p className="Brief">{country2.ContentBrief}</p>
-                                    <div className="news-Time">
-                                        <span className="time">{getTimeDistance(country2.created_at ? country2.created_at : "")}</span>
-                                        <span>{country2.CategoryName}</span>
+                                        {country2.ShowVideo === 1 && <div className="card-video-icon big transition"> <i className="fa-solid fa-play"></i> </div>}
                                     </div>
-                                </div>
-                            </Link>
+                                    <div className="Desc">
+                                        <h3 className="Title">{country2.ContentSubHeading ? (country2.ContentSubHeading + "/" + country2.ContentHeading) : (country2.ContentHeading)}</h3>
+                                        <p className="Brief">{country2.ContentBrief}</p>
+                                        <div className="news-Time">
+                                            <span className="time">{getTimeDistance(country2.created_at ? country2.created_at : "")}</span>
+                                            <span>{country2.CategoryName}</span>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    : ""}
             </div>
 
         </>
