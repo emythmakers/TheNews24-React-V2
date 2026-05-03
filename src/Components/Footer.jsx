@@ -49,8 +49,10 @@ export default function Footer() {
                             <div className="col-lg-4 col-md-6 d-flex justify-content-md-center justify-content-start border-right-inner">
                                 <div className="footer-info">
                                     <address className="address">
-                                        <p><a href="#" target="_blank"  rel="noreferrer" >কর্পোরেট অফিস: বাড়ি : ২১ (৮ তলা), <br /> ব্লক : এ, রোড : ০১, মহানগর প্রজেক্ট, হাতিরঝিল, ঢাকা-১২১৯ ৷</a></p>
-                                        <p>ফোন:<a href="tel:+৮৮০৯৬১১১৭১৯৮০">+৮৮০৯৬১১১৭১৯৮০</a>,<a href="tel:+৮৮০১৩৩২৫০২৩০০">+৮৮০১৩৩২৫০২৩০০</a></p>
+                                        <p><a href="#" target="_blank" rel="noreferrer" >কর্পোরেট অফিস: বাড়ি : ২১ (৮ তলা), <br /> ব্লক : এ, রোড : ০১, মহানগর প্রজেক্ট, হাতিরঝিল, ঢাকা-১২১৯ ৷</a></p>
+                                        <p>ফোন:<a href="tel:+৮৮০৯৬১১১৭১৯৮০">+৮৮০৯৬১১১৭১৯৮০</a>
+                                            {/* ,<a href="tel:+৮৮০১৩৩২৫০২৩০০">+৮৮০১৩৩২৫০২৩০০</a> */}
+                                        </p>
                                         <p>ই-মেইল:<a href="mailto:hello@thenews24.com">hello@thenews24.com </a>,<a href="mailto:info@thenews24.com">info@thenews24.com</a></p>
                                     </address>
                                 </div>
@@ -58,11 +60,11 @@ export default function Footer() {
                             <div className="col-md-12 col-lg-4 col-md-6 d-flex justify-content-md-center justify-content-start align-items-center">
                                 <div>
                                     <div className="FooterSocialIcon mt-3">
-                                        <a className="twitter" href="#" target="_blank"  rel="noreferrer"><i className="fa-brands fa-x-twitter"></i></a>
-                                        <a className="facebook" href="https://www.facebook.com/thenews24digital/" target="_blank"  rel="noreferrer"><i className="fa-brands fa-facebook-f"></i></a>
+                                        <a className="twitter" href="#" target="_blank" rel="noreferrer"><i className="fa-brands fa-x-twitter"></i></a>
+                                        <a className="facebook" href="https://www.facebook.com/thenews24digital/" target="_blank" rel="noreferrer"><i className="fa-brands fa-facebook-f"></i></a>
                                         <a className="youtube" href="https://www.youtube.com/@thenewsdhaka/" target="_blank"><i className="fa-brands fa-youtube"></i></a>
-                                        <a className="instagram" href="#" target="_blank"  rel="noreferrer"><i className="fa-brands fa-instagram"></i></a>
-                                        <a className="whatsapp" href="#" target="_blank"  rel="noreferrer"><i className="fa-brands fa-whatsapp"></i></a>
+                                        <a className="instagram" href="#" target="_blank" rel="noreferrer"><i className="fa-brands fa-instagram"></i></a>
+                                        <a className="whatsapp" href="#" target="_blank" rel="noreferrer"><i className="fa-brands fa-whatsapp"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +99,7 @@ export default function Footer() {
                         <div className="row">
                             <div className="col-sm-12 text-center">
                                 <p><span className="En"></span> &copy; {toBengaliNumber(years)} | <a href="/"> দ্য নিউজ ২৪ ডটকম</a>।
-                                    সর্বসত্ব ® সংরক্ষিত। রেজি. নং: ২৪৬ । প্রতিষ্ঠাতা ও প্রধান নির্বাহী: মো. আনোয়ারুল ইসলাম । উন্নয়নে:<a href="https://www.emythmakers.com/" target="_blank"  rel="noreferrer">
+                                    সর্বসত্ব ® সংরক্ষিত। রেজি. নং: ২৪৬ । প্রতিষ্ঠাতা ও প্রধান নির্বাহী: মো. আনোয়ারুল ইসলাম । উন্নয়নে:<a href="https://www.emythmakers.com/" target="_blank" rel="noreferrer">
                                         ইমিথমেকারস</a>
                                 </p>
                             </div>
