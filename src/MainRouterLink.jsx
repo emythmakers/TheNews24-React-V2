@@ -26,7 +26,7 @@ import AboutUs from './Components/AboutUs';
 import PrivacyPolicy from './Components/Privacy-policy';
 import Terms from './Components/Terms'
 import AdvertisementPage from './Components/AdvertisementPage';
-import DPrayerTime from './Components/DPrayerTime';
+// import DPrayerTime from './Components/DPrayerTime';
 import OpinionPoll from './Components/OpinionPoll';
 import TheNews from './Components/TheNews';
 import ContactUs from './Components/ContactUs';
@@ -75,7 +75,7 @@ export default function MainRouterLink() {
                 <Route path="/fileComplaint" element={<FileComplaint />}/>
                 <Route path="/sitemep" element={<Sitemap />} />
                 <Route path="/subscription" element={<Subscription />} />
-                <Route path="/namaj" element={<DPrayerTime />} />
+                {/* <Route path="/namaj" element={<DPrayerTime />} /> */}
                 <Route path="/*" element={<ErrorPage />} />
             </Routes>
             <Footer />

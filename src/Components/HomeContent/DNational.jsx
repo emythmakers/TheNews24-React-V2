@@ -39,6 +39,7 @@ export default function DNational() {
                         <div className="national-lead-wrap">
                             <div className="row">
                                 <div className="col-lg-8">
+                                    {national ? 
                                     <div className="national-lead">
                                         <Link to={"/" + national.Slug + "/news/" + national.ContentID} onClick={scrollTop}>
                                             <div className="national-img">
@@ -57,6 +58,7 @@ export default function DNational() {
                                             </div>
                                         </Link>
                                     </div>
+                                    : "" }
                                 </div>
                                 <div className="col-lg-4">
                                     {national1 ?
