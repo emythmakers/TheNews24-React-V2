@@ -4,6 +4,8 @@ import { format } from 'date-fns'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import waltonAds from '../../assets/media/Advertisement/waltonR1.jpeg'
+import psi from '../../assets/media/Advertisement/psi.jpeg'
+import psiPdf from '../../assets/Final __PSI_____6  X 4.pdf'
 import { banglaDateConvetar, ForLazyLoaderImg, scrollTop, timeAgo } from '../AllFunctions'
 import ErrorPage from '../ErrorPage'
 import DCatLatest from './DCatLatest'
@@ -440,6 +442,15 @@ export default function Details() {
                                                     </div>
                                                 </div>
                                                 <DCatLatest catLatest={catLatest} catName={catName.CategoryName} catSlug={catSlug} />
+                                                <div className="row">
+                                                    <div className="col-md-12 pb-3 ">
+                                                        <a  href={psiPdf} download="Final __PSI_____6  X 4.pdf" target='blank'>
+                                                            <div className="DAdd1 d-flex  justify-content-center">
+                                                                <img src={psi} alt="Advertisement" title="Advertisement" className="img-fluid img100" width={300} height={250} />
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div className="row">
