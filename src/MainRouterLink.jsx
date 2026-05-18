@@ -36,7 +36,7 @@ import FileComplaint from './Components/FileComplaint';
 import Sitemap from './Components/Sitemap';
 import Subscription from './Components/Subscription';
 import EditorialPolicy from './Components/EditorialPolicy';
-
+import DPrayerTime from './Components/DPrayerTime'
 
 export default function MainRouterLink() {
     return (
@@ -75,7 +75,7 @@ export default function MainRouterLink() {
                 <Route path="/fileComplaint" element={<FileComplaint />}/>
                 <Route path="/sitemep" element={<Sitemap />} />
                 <Route path="/subscription" element={<Subscription />} />
-                {/* <Route path="/namaj" element={<DPrayerTime />} /> */}
+                <Route path="/namaj" element={<DPrayerTime />} />
                 <Route path="/*" element={<ErrorPage />} />
             </Routes>
             <Footer />

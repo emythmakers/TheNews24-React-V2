@@ -50,7 +50,7 @@ export default function DPrayerTime() {
                <div className="row">
                 <div className="col-md-6 m-auto mt-4">
                 <div className="DPrayersTime2 table-responsive">
-                <p>ঢাকা, {banglaDateConvetar(currentDay)}, {banglaDateConvetar(currentDate)} </p>
+                {/* <p>ঢাকা, {banglaDateConvetar(currentDay)}, {banglaDateConvetar(currentDate)} </p> */}
                     <table className="table">
                         <tbody>
                             <tr>
