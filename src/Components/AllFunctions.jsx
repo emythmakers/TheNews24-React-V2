@@ -103,56 +103,71 @@ const getTimeDistance = (date) => {
     }
 };
 function banglaDateConvetar(engDate) {
-    var mapObj = {
-        1: "১",
-        2: "২",
-        3: "৩",
-        4: "৪",
-        5: "৫",
-        6: "৬",
-        7: "৭",
-        8: "৮",
-        9: "৯",
-        0: "০",
-        January: "জানুয়ারি",
-        February: "ফেব্রুয়ারি",
-        March: "মার্চ",
-        April: "এপ্রিল",
-        May: "মে",
-        June: "জুন",
-        July: "জুলাই",
-        August: "আগস্ট",
-        September: "সেপ্টেম্বর",
-        October: "অক্টোবর",
-        November: "নভেম্বর",
-        December: "ডিসেম্বর",
-        am: "সকাল",
-        pm: "দুপুর",
-        Saturday: "শনিবার",
-        Sunday: "রোববার",
-        Monday: "সোমবার",
-        Tuesday: "মঙ্গলবার",
-        Wednesday: "বুধবার",
-        Thursday: "বৃহস্পতিবার",
-        Friday: "শুক্রবার",
-        'جمادى الأولى': "জামাদিউল আউয়াল",
-        'جمادى الآخرة': "জামাদিউছ ছানি",
-        'رجب': "রজব",
-        'شعبان': "শা’বান",
-        'رمضان': "রমজান",
-        'شوال': "শাওয়াল",
-        'ذو القعدة': "জুল কাইদাহ",
-        'ذو الحجة': "জুল হিজ্জাহ",
-        'محرم ': "মুহররম ",
-        'صفر': "সফর",
-        'ربيع الأول': "রবিউল আউয়াল",
-        'ربيع الثاني': "রবিউছ ছানি",
+    if (!engDate) return "";
+
+    engDate = String(engDate);
+
+    const mapObj = {
+        "1": "১",
+        "2": "২",
+        "3": "৩",
+        "4": "৪",
+        "5": "৫",
+        "6": "৬",
+        "7": "৭",
+        "8": "৮",
+        "9": "৯",
+        "0": "০",
+
+        "January": "জানুয়ারি",
+        "February": "ফেব্রুয়ারি",
+        "March": "মার্চ",
+        "April": "এপ্রিল",
+        "May": "মে",
+        "June": "জুন",
+        "July": "জুলাই",
+        "August": "আগস্ট",
+        "September": "সেপ্টেম্বর",
+        "October": "অক্টোবর",
+        "November": "নভেম্বর",
+        "December": "ডিসেম্বর",
+
+        "am": "সকাল",
+        "pm": "দুপুর",
+
+        "Saturday": "শনিবার",
+        "Sunday": "রোববার",
+        "Monday": "সোমবার",
+        "Tuesday": "মঙ্গলবার",
+        "Wednesday": "বুধবার",
+        "Thursday": "বৃহস্পতিবার",
+        "Friday": "শুক্রবার",
+
+        "جمادى الأولى": "জামাদিউল আউয়াল",
+        "جمادى الآخرة": "জামাদিউছ ছানি",
+        "رجب": "রজব",
+        "شعبان": "শা’বান",
+        "رمضان": "রমজান",
+        "شوال": "শাওয়াল",
+        "ذو القعدة": "জুল কাইদাহ",
+        "ذو الحجة": "জুল হিজ্জাহ",
+        "محرم": "মুহররম",
+        "صفر": "সফর",
+        "ربيع الأول": "রবিউল আউয়াল",
+        "ربيع الثاني": "রবিউছ ছানি"
     };
-    let replaceString = /1|2|3|4|5|6|7|8|9|0|January|February|March|April|May|June|July|August|September|October|November|December|am|pm|Saturday|Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|جمادى الأولى|جمادى الآخرة|رجب|شعبان|رمضان|شوال|ذو القعدة|ذو الحجة|محرم |ربيع الأول|صفر|ربيع الثاني/gi;
-    engDate = engDate.replace(replaceString, function (matched) {
-        return mapObj[matched];
+
+    const replaceString = new RegExp(
+        Object.keys(mapObj)
+            .sort((a, b) => b.length - a.length)
+            .map(key => key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+            .join("|"),
+        "gi"
+    );
+
+    return engDate.replace(replaceString, matched => {
+        return mapObj[matched] || matched;
     });
-    return (engDate)
 }
 // function timeAgo(earlier, later = new Date()) {
 //     // Parse both as UTC timestamps

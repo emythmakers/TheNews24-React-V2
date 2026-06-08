@@ -1,10 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import DocumentTitle from 'react-document-title'
 import { Link } from 'react-router-dom'
-import { scrollTop } from './AllFunctions'
+import { scrollTop, ForLazyLoaderImg, banglaDateConvetar } from './AllFunctions'
 import FBpagePlugin from './FBpagePlugin'
+import axios from 'axios'
 
+var lazyloaded = false
 export default function AboutUs() {
+    const [state, setState] = useState([])
+    const [state2, setState2] = useState([])
+    useEffect(() => {
+        axios
+            .get(`${process.env.REACT_APP_API_URL}team-members`)
+            .then(({ data }) => {
+                if (data.length > 0) {
+                    setState(data[0]);
+                    setState2(data.slice(1));
+                    setTimeout(function () {
+                        lazyloaded = false
+                        ForLazyLoaderImg(lazyloaded)
+                    }, 1000);
+                }
+            });
+    }, [])
+
     return (
         <div className='page-bangla'>
 
@@ -13,6 +32,7 @@ export default function AboutUs() {
                     <div className="TopHomeSection"></div>
                     <DocumentTitle title='আমাদের সম্পর্কে :: দ্য নিউজ ২৪' />
                     <div className="SectionTitle"><h3><Link to="/the-news" onClick={scrollTop}><span className="ColorBox"></span>আমাদের সম্পর্কে</Link></h3></div>
+                    {/* the news about us section */}
                     <div className='row mt-4'>
                         <div className='col-lg-8 col-12'>
                             <div className="news-details">
@@ -54,6 +74,48 @@ export default function AboutUs() {
                             <FBpagePlugin />
                         </div>
                     </div>
+                    {/* team members */}
+                    <section className='about-us-sec'>
+                    <div className="SectionTitle"><h3><Link to="/the-news" onClick={scrollTop}><span className="ColorBox"></span>আমাদের টিম মেম্বার</Link></h3></div>
+                        <div className="about-us-area2 mt-4">
+                            {/* <Link to='/' key={state.id} onClick={scrollTop}> */}
+                                <div className="about-img">
+                                    <img src={'/media/common/profile.png'} data-src={process.env.REACT_APP_DOMAIN_URL + state.image} alt={state.name} title={state.name} className="img-fluid  " />
+                                </div>
+                                <div className="about-us-desc">
+                                    <h3 className="Title">{state.name}</h3>
+                                    <p className='design'>{state.designation}</p>
+                                    <p className='design'>কর্মচারী আইডি : {banglaDateConvetar(state.id)}  </p>
+                                </div>
+
+                            {/* </Link> */}
+                        </div>
+                        <div className="row">
+                            {state2.map((nc) => {
+                                return (
+                                    <div className="col-lg-3 col-sm-12">
+                                        <div className="about-us-area">
+                                            {/* <Link to='/' key={nc.id} onClick={scrollTop} > */}
+                                                <div className="about-img">
+                                                    <img src={'/media/common/profile.png'} data-src={process.env.REACT_APP_DOMAIN_URL + nc.image} alt={nc.name} title={nc.name} className="img-fluid " />
+                                                </div>
+                                                <div className="about-us-desc">
+                                                    <h3 className="Title">{nc.name}</h3>
+                                                    <p className='design'>{nc.designation}</p>
+                                                    <p className='design'>কর্মচারী আইডি : {banglaDateConvetar(nc.id)} </p>
+                                                </div>
+
+                                            {/* </Link> */}
+
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                        </div>
+
+
+                    </section>
+
                 </div>
             </main>
         </div>
