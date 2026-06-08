@@ -93,7 +93,7 @@ export default function AboutUs() {
                         <div className="row">
                             {state2.map((nc) => {
                                 return (
-                                    <div className="col-lg-3 col-sm-12">
+                                    <div className="col-lg-3 col-6">
                                         <div className="about-us-area">
                                             {/* <Link to='/' key={nc.id} onClick={scrollTop} > */}
                                                 <div className="about-img">
