@@ -299,8 +299,10 @@ export default function Header() {
                                                     <div className="extr">
                                                         <a href="#"> <img src={ePper} alt="ই-পেপার" title='ই-পেপার' />ই-পেপার</a>
                                                         <Link to="/archives" onClick={scrollTop}> <img src={archive} alt="আর্কাইভ" title='আর্কাইভ' />আর্কাইভ</Link>
-                                                        <a className="langu" href="#"> <img src={map}
-                                                            alt="English" title='English' />English</a>
+                                                        {/* <Link className="langu" to="/english"> <img src={map}
+                                                            alt="English" title='English' />English</Link> */}
+                                                        <Link className="langu" to="#"> <img src={map}
+                                                            alt="English" title='English' />English</Link>
                                                     </div>
                                                     <div className="header-search">
                                                         <form onSubmit={handelSubmit} action="/search" method="get">

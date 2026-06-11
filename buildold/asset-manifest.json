@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c0250863.css",
+    "main.js": "/static/js/main.65a5e306.js",
+    "static/media/loading.gif": "/static/media/loading.e5008de81a41c959f1c2.gif",
+    "static/media/HomepageAds.png": "/static/media/HomepageAds.754a2cb81d1a1cd455b7.png",
+    "static/media/rajnitiAdsR1.png": "/static/media/rajnitiAdsR1.276eb7422d10dfe3386c.png",
+    "static/media/profile.png": "/static/media/profile.010c878d664294074887.png",
+    "static/media/life-bd.png": "/static/media/life-bd.48fb4205082c1e3d83b5.png",
+    "static/media/shopno-ads.png": "/static/media/shopno-ads.3ba2d326c6e8708dde93.png",
+    "static/media/shopno-728X90.png": "/static/media/shopno-728X90.9f8df220b85ad65dcdca.png",
+    "static/media/education-ads.jpg": "/static/media/education-ads.93ec10e36657f45e9e8a.jpg",
+    "static/media/namaz.png": "/static/media/namaz.5df485b86df57ddfad8c.png",
+    "static/media/AdsR1.jpg": "/static/media/AdsR1.9a8c6fcc331760e665e8.jpg",
+    "static/media/Advertisement (300X250).png": "/static/media/Advertisement (300X250).c0e875b2ed0ef4ffd6b8.png",
+    "static/media/lg.svg?22t19m": "/static/media/lg.adb7aeef16adb8599e2d.svg",
+    "static/media/lg.woff?22t19m": "/static/media/lg.0add59587d07387b771f.woff",
+    "static/media/lg.ttf?22t19m": "/static/media/lg.a53dcc5ea47fe7d1d9fc.ttf",
+    "index.html": "/index.html",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff"
+  },
+  "entrypoints": [
+    "static/css/main.c0250863.css",
+    "static/js/main.65a5e306.js"
+  ]
+}

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import DocumentTitle from 'react-document-title'
 import DCountry from './HomeContent/DCountry'
 import DEntertainment from './HomeContent/DEntertainment'
 import DInternationalSec from './HomeContent/DInternationalSec'
@@ -52,7 +51,7 @@ export default function Home() {
             <main>
                 {/* <Event /> */}
                 <>
-                    <DocumentTitle title='The News 24 ::  দ্য নিউজ ২৪' />
+                    <title>The News 24 ::  দ্য নিউজ ২৪</title>
                     <HomeLdJson />
                     {/* popup */}
                     {/* <HomeDesktopPopUp /> */}
