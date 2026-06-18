@@ -147,8 +147,8 @@ export default function Header() {
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-6 d-flex align-items-center">
-                                <div className="header-date">
-                                    <i className="fas fa-calendar"></i>&nbsp;{banglaDateConvetar(currentDay)}, {banglaDateConvetar(currentDate)}, {BNDATEs}
+                                <div className="header-dateEn">
+                                    <i className="fas fa-calendar"></i>&nbsp;{currentDay}, {currentDate}
                                 </div>
                             </div>
                             <div className="col-lg-6 d-flex align-items-center justify-content-end">
@@ -187,37 +187,40 @@ export default function Header() {
                                             <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                                                 <ul className="navbar-nav">
                                                     <li className="nav-item">
-                                                        <Link className="nav-link" onClick={scrollTop} to="/national">জাতীয়</Link>
+                                                        <Link className="nav-link" onClick={scrollTop} to="/english/national">National</Link>
                                                     </li>
                                                     <li className="nav-item">
-                                                        <Link className="nav-link" onClick={scrollTop} to="/politics">রাজনীতি</Link>
+                                                        <Link className="nav-link" onClick={scrollTop} to="/english/world">World</Link>
                                                     </li>
                                                     <li className="nav-item">
-                                                        <Link className="nav-link" onClick={scrollTop} to="/international">আন্তর্জাতিক</Link>
+                                                        <Link className="nav-link" onClick={scrollTop} to="/english/business">Business</Link>
                                                     </li>
                                                     <li className="nav-item">
-                                                        <Link className="nav-link" onClick={scrollTop} to="/country">সারাদেশ</Link>
+                                                        <Link className="nav-link" onClick={scrollTop} to="/english/politics">Politics</Link>
                                                     </li>
                                                     <li className="nav-item">
-                                                        <Link className="nav-link" onClick={scrollTop} to="/crime">অপরাধ</Link>
+                                                        <Link className="nav-link" onClick={scrollTop} to="/english/economy">Economy</Link>
                                                     </li>
                                                     <li className="nav-item">
-                                                        <Link className="nav-link" onClick={scrollTop} to="/trade">বাণিজ্য</Link>
+                                                        <Link className="nav-link" onClick={scrollTop} to="/english/technology">Technology</Link>
                                                     </li>
                                                     <li className="nav-item">
-                                                        <Link className="nav-link" onClick={scrollTop} to="/entertainment">বিনোদন</Link>
+                                                        <Link className="nav-link" onClick={scrollTop} to="/english/science">Science</Link>
                                                     </li>
                                                     <li className="nav-item">
-                                                        <Link className="nav-link" onClick={scrollTop} to="/sports">খেলাধুলা</Link>
+                                                        <Link className="nav-link" onClick={scrollTop} to="/english/sports">Sports</Link>
                                                     </li>
                                                     <li className="nav-item">
-                                                        <Link className="nav-link" onClick={scrollTop} to="/lifestyle">জীবনযাপন</Link>
+                                                        <Link className="nav-link" onClick={scrollTop} to="/english/lifestyle">Lifestyle</Link>
                                                     </li>
                                                     <li className="nav-item">
-                                                        <Link className="nav-link" onClick={scrollTop} to="/opinion">মতামত</Link>
+                                                        <Link className="nav-link" onClick={scrollTop} to="/english/entertainment">Entertainment</Link>
+                                                    </li>
+                                                    <li className="nav-item">
+                                                        <Link className="nav-link" onClick={scrollTop} to="/english/opinion">Opinion</Link>
                                                     </li>
 
-                                                    <li className="nav-item dropdown">
+                                                    {/* <li className="nav-item dropdown">
                                                         <Link className="nav-link dropdown-toggle" to="#" onClick={scrollTop} data-bs-toggle="dropdown" aria-expanded="false">অন্যান্য</Link>
                                                         <div className="dropdown-menu megamenu" role="menu" >
                                                             <div className="container">
@@ -267,14 +270,14 @@ export default function Header() {
                                                                     <div className="col-md-3" style={{ flex: "0 0 20%", maxWidth: "20%" }}>
                                                                         <ul className="nav flex-column">
 
-                                                                            <li><Link className="dropdown-item" to="/archives" onClick={scrollTop}>আর্কাইভ</Link>
+                                                                            <li><Link className="dropdown-item" to="/english/archives" onClick={scrollTop}>Archive</Link>
                                                                             </li>
                                                                         </ul>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </li>
+                                                    </li> */}
 
                                                     <li className="nav-item search-sticky">
                                                         <div className="search-btn" >
@@ -286,7 +289,7 @@ export default function Header() {
                                                                         <input type="text" name="q" className="form-control" aria-describedby="button-addon3"
                                                                             id="search-terms" placeholder="লিখুন..." />
                                                                         <button type="submit" id="button-addon3"
-                                                                            className="btn srch-sub-btn" aria-label="submit">খুঁজুন</button>
+                                                                            className="btn srch-sub-btn" aria-label="submit">Search</button>
                                                                     </form>
                                                                 </span>
                                                                 <Link className="nav-link search-button" to="#"> <i className="fas fa-search" onClick={() => setIsSearchBoxActive(true)}></i>
@@ -297,8 +300,8 @@ export default function Header() {
                                                 </ul>
                                                 <div className="header-extra-wrap">
                                                     <div className="extr">
-                                                        <a href="#"> <img src={ePper} alt="ই-পেপার" title='ই-পেপার' />ই-পেপার</a>
-                                                        <Link to="/archives" onClick={scrollTop}> <img src={archive} alt="আর্কাইভ" title='আর্কাইভ' />আর্কাইভ</Link>
+                                                        <a href="#"> <img src={ePper} alt="E-Paper" title='E-Paper' />E-Paper</a>
+                                                        <Link to="/english/archives" onClick={scrollTop}> <img src={archive} alt="আর্কাইভ" title='আর্কাইভ' />Archive</Link>
                                                         <a className="languBn
                                                         " href="/"> <img src={map}
                                                             alt="English" title='English' />বাংলা</a>
@@ -312,7 +315,7 @@ export default function Header() {
                                                                 <div className="header-search-icon">
                                                                     <i className="fa-solid fa-magnifying-glass"></i>
                                                                 </div>
-                                                                <button className="input-group-text" type="submit" aria-label="submit" id="basic-addon2">খুঁজুন</button>
+                                                                <button className="input-group-text" type="submit" aria-label="submit" id="basic-addon2">Search</button>
                                                             </div>
                                                         </form>
                                                     </div>
@@ -326,7 +329,7 @@ export default function Header() {
                         </div>
                     </div>
                     {/* marquee section */}
-                    <div className="DScroll d-none d-lg-block">
+                    {/* <div className="DScroll d-none d-lg-block">
                         <div className="container">
                             <div className="row">
                                 <div className="col-lg-10 m-auto">
@@ -372,7 +375,7 @@ export default function Header() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                   
                     {/* <!--mobile-navbar-part-start--> */}
                     <div className="mobile-menu-area d-block d-lg-none hide" id="myHeader2">
@@ -395,7 +398,7 @@ export default function Header() {
                                                         <form onSubmit={handelSubmit} action="/search" method="get">
                                                             <span className="srch-close-btn" onClick={() => setIsSearchBoxActive(false)}><i className="far fa-times-circle"></i></span>
                                                             <input type="text" name="q" className="form-control" placeholder="লিখুন..." />
-                                                            <button type="submit" className="btn srch-sub-btn" >খুঁজুন</button>
+                                                            <button type="submit" className="btn srch-sub-btn" >Search</button>
                                                         </form>
                                                     </span>
                                                     <Link className="nav-link search-button" to={"#"} onClick={() => setIsSearchBoxActive(true)}>

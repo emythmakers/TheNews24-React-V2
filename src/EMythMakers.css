@@ -11,7 +11,7 @@
 }
 
 body {
-	font-family: "Noto Serif Bengali", serif;
+	font-family: "Noto Serif Bengali", serif !important;
 	font-size: 20px;
 	background: #fff;
 	color: var(--black-color);
@@ -27,7 +27,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "Noto Serif Bengali", serif;
+	font-family: "Noto Serif Bengali", serif !important;
 	margin-bottom: 0;
 	font-size: 16px;
 	line-height: 20px

@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BanglaRouterLink from './BanglaRouterLink'
-import EnglishRouterLink from './EnglishRouterLink';
+// import EnglishRouterLink from './EnglishRouterLink';
 
 
 export default function RouterLink() {

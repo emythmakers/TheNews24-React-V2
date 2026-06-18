@@ -10,8 +10,8 @@
 	--red-color: #f00000;
 }
 
-body {
-	font-family: "Noto Serif Bengali", serif;
+.eng-site body {
+	font-family: "Roboto",sans-serif;
 	font-size: 20px;
 	background: #fff;
 	color: var(--black-color);
@@ -21,13 +21,13 @@ body {
 	margin: 0;
 }
 
-h1,
+.eng-site h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-	font-family: "Noto Serif Bengali", serif;
+	font-family: "Roboto",sans-serif;
 	margin-bottom: 0;
 	font-size: 16px;
 	line-height: 20px
@@ -211,11 +211,11 @@ picture img {
 	padding: 3px 0;
 }
 
-.header-date {
+.header-dateEn {
 	font-size: 14px;
 }
 
-.header-date i {
+.header-dateEn i {
 	margin-right: 8px;
 	color: var(--gray-color);
 }
@@ -342,7 +342,7 @@ picture img {
 	padding-right: 0;
 }
 .languBn {
-	font-family: "Noto Serif Bengali", serif !important;
+	font-family: "Noto Serif Bengali",sans-serif !important;
 	font-weight: 600;
 }
 
@@ -398,14 +398,14 @@ picture img {
 	padding: 0;
 }
 
-.main-menu .navbar-light .navbar-nav .nav-link {
+.eng-site .main-menu .navbar-light .navbar-nav .nav-link {
 	color: var(--black-color);
 	font-weight: 700;
 	font-size: 16px;
-	padding: 10px 11px;
+	padding: 10px 5px;
 }
 
-.main-menu .navbar-light .navbar-nav .nav-link:hover {
+.eng-site .main-menu .navbar-light .navbar-nav .nav-link:hover {
 	color: var(--primary);
 }
 
@@ -2395,19 +2395,19 @@ picture img {
 	flex-wrap: wrap;
 }
 
-.DFooterMiddleListBg .DFooterMiddleListItems li {
-	padding: 0 10px;
+.eng-site .DFooterMiddleListBg .DFooterMiddleListItems li {
+	padding: 0 9px;
 	position: relative;
 }
 
-.DFooterMiddleListBg .DFooterMiddleListItems li>a {
+.eng-site .DFooterMiddleListBg .DFooterMiddleListItems li>a {
 	font-size: 15px;
 	line-height: 1.4;
 	color: var(--primary);
 	font-weight: 600;
 }
 
-.DFooterMiddleListBg .DFooterMiddleListItems li::after {
+.eng-site .DFooterMiddleListBg .DFooterMiddleListItems li::after {
 	content: ' ';
 	position: absolute;
 	right: 1px;
@@ -2417,26 +2417,26 @@ picture img {
 	background: var(--primary);
 }
 
-.DFooterMiddleListBg .DFooterMiddleListItems li:last-child::after {
+.eng-site .DFooterMiddleListBg .DFooterMiddleListItems li:last-child::after {
 	padding-right: 0px;
 	content: unset;
 }
 
-.DFooterMiddleListBg .DFooterMiddleListItems li>a:hover {
+.eng-site .DFooterMiddleListBg .DFooterMiddleListItems li>a:hover {
 	color: var(--black-color);
 	transition: 0.3s;
-}
+}	
 
-.DFooterBottomBg {
+.eng-site .DFooterBottomBg {
 	padding: 15px 0;
 	border-top: 1px solid var(--gray-color);
 }
 
-.DFooterBottomBg h2 {
+.eng-site .DFooterBottomBg h2 {
 	color: var(--black-color);
 }
 
-.DFooterBottomBg p {
+.eng-site .DFooterBottomBg p {
 	color: var(--black-color);
 	font-size: 15px;
 }
@@ -6695,7 +6695,7 @@ span.DFeatureIcon i.fa-solid.fa-expand {
 	line-height: 27px;
 	font-weight: 400;
 	letter-spacing: .3px;
-	font-family: "Noto Serif Bengali", serif;
+	font-family: "Roboto",sans-serif;
 }
 
 .news-area h3 {
@@ -6704,7 +6704,7 @@ span.DFeatureIcon i.fa-solid.fa-expand {
 	color: #000;
 	padding-bottom: 5px;
 	font-weight: 600;
-	font-family: "Noto Serif Bengali", serif;
+	font-family: "Roboto",sans-serif;
 }
 
 .news-area p {
@@ -6713,7 +6713,7 @@ span.DFeatureIcon i.fa-solid.fa-expand {
 	color: #333;
 	padding-bottom: 10px;
 	font-weight: 400;
-	font-family: "Noto Serif Bengali", serif;
+	font-family: "Roboto",sans-serif;
 }
 
 .news-area p a {
@@ -6733,7 +6733,7 @@ span.DFeatureIcon i.fa-solid.fa-expand {
 	line-height: 26px;
 	color: #333;
 	font-weight: 400;
-	font-family: "Noto Serif Bengali", serif;
+	font-family: "Roboto",sans-serif;
 }
 
 /* contact page */
@@ -6743,7 +6743,7 @@ span.DFeatureIcon i.fa-solid.fa-expand {
 	color: #000;
 	padding-bottom: 5px;
 	font-weight: 600;
-	font-family: "Noto Serif Bengali", serif;
+	font-family: "Roboto",sans-serif;
 }
 
 .contact-area p {
@@ -6759,7 +6759,7 @@ span.DFeatureIcon i.fa-solid.fa-expand {
 	line-height: 26px;
 	color: #333;
 	font-weight: 400;
-	font-family: "Noto Serif Bengali", serif;
+	font-family: "Roboto",sans-serif;
 }
 
 .contact-area ul li {
@@ -6767,7 +6767,7 @@ span.DFeatureIcon i.fa-solid.fa-expand {
 	line-height: 26px;
 	color: #333;
 	font-weight: 400;
-	font-family: "Noto Serif Bengali", serif;
+	font-family: "Roboto",sans-serif;
 }
 
 .contact-area ul {
@@ -7012,7 +7012,7 @@ span.DFeatureIcon i.fa-solid.fa-expand {
 	line-height: 26px;
 	color: #333;
 	font-weight: 400;
-	font-family: "Noto Serif Bengali", serif;
+	font-family: "Roboto",sans-serif;
 }
 
 .policy-list-area ul ol {
@@ -7020,7 +7020,7 @@ span.DFeatureIcon i.fa-solid.fa-expand {
 	line-height: 26px;
 	color: #333;
 	font-weight: 400;
-	font-family: "Noto Serif Bengali", serif;
+	font-family: "Roboto",sans-serif;
 }
 
 .policy-details .links {

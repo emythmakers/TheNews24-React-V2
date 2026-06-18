@@ -8,7 +8,7 @@ import ErrorPage from './Components/ErrorPage';
 
 export default function EnglishRouterLink() {
     return (
-        <div className="main-site">
+        <div className="eng-site">
             <Header />
             <Routes>
                 <Route path="/" element={<Home />} />
