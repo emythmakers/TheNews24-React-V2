@@ -23,11 +23,11 @@ export default function Ldjson({ news, catName, catSlug }) {
                             "width":"800",
                             "height":"450"
                         },
-                        "url":"${process.env.REACT_APP_FONT_DOMAIN_URL}${catSlug}/news/${news.ContentID}",
+                        "url":"${process.env.REACT_APP_FONT_DOMAIN_URL}/english/${catSlug}/news/${news.ContentID}",
                         "datePublished":"${news.create_date}",
                         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"${process.env.REACT_APP_FONT_DOMAIN_URL}${catSlug}/news/${news.ContentID}"
+                            "@id":"${process.env.REACT_APP_FONT_DOMAIN_URL}/english/${catSlug}/news/${news.ContentID}"
                         },
                         "publisher":{
                             "@type":"Organization",
@@ -63,7 +63,7 @@ export default function Ldjson({ news, catName, catSlug }) {
                         "isAccessibleForFree":true,
                         "isPartOf":{
                             "@type":"WebPage",
-                            "url":"${process.env.REACT_APP_FONT_DOMAIN_URL}${catSlug}/news/${news.ContentID}",
+                            "url":"${process.env.REACT_APP_FONT_DOMAIN_URL}/english/${catSlug}/news/${news.ContentID}",
                             "primaryImageOfPage":{
                                 "@type":"ImageObject",
                                 "url":"${process.env.REACT_APP_IMG_Path + news.ImageBgPath}",
@@ -87,7 +87,7 @@ export default function Ldjson({ news, catName, catSlug }) {
                                 "@type": "ListItem",
                                 "position":1,
                                 "item":{
-                                    "@id":"${process.env.REACT_APP_FONT_DOMAIN_URL}",
+                                    "@id":"${process.env.REACT_APP_FONT_DOMAIN_URL}/english",
                                     "name":"Home"
                                 }
                             },
@@ -95,7 +95,7 @@ export default function Ldjson({ news, catName, catSlug }) {
                                 "@type": "ListItem",
                                 "position":2,
                                 "item":{
-                                    "@id":"${process.env.REACT_APP_FONT_DOMAIN_URL}${catName.Slug}",
+                                    "@id":"${process.env.REACT_APP_FONT_DOMAIN_URL}/english/${catName.Slug}",
                                     "name":"${catName.CategoryName}"
                                 }
                             },
@@ -104,7 +104,7 @@ export default function Ldjson({ news, catName, catSlug }) {
                                 "position":3,
                                 "item":{
                                     "name" : "${newHeader}",
-                                    "@id":"${process.env.REACT_APP_FONT_DOMAIN_URL}${catSlug}/news/${news.ContentID}"
+                                    "@id":"${process.env.REACT_APP_FONT_DOMAIN_URL}/english/${catSlug}/news/${news.ContentID}"
                                 }
                             }
                         ]
@@ -121,17 +121,17 @@ export default function Ldjson({ news, catName, catSlug }) {
                             "width":"800",
                             "height":"450"
                         },
-                        "url":"${process.env.REACT_APP_FONT_DOMAIN_URL}${catSlug}/news/${news.ContentID}",
+                        "url":"${process.env.REACT_APP_FONT_DOMAIN_URL}/english/${catSlug}/news/${news.ContentID}",
                         "datePublished":"${news.create_date}",
                         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"${process.env.REACT_APP_FONT_DOMAIN_URL}${catSlug}/news/${news.ContentID}"
+                            "@id":"${process.env.REACT_APP_FONT_DOMAIN_URL}/english/${catSlug}/news/${news.ContentID}"
                         },
                         "publisher":{
                             "@type":"Organization",
                             "@context":"http://schema.org",
                             "name":"The News 24",
-                            "url":"${process.env.REACT_APP_FONT_DOMAIN_URL}",
+                            "url":"${process.env.REACT_APP_FONT_DOMAIN_URL}/english",
                             "logo":{
                                 "@context":"http://schema.org",
                                 "@type":"ImageObject",
@@ -143,7 +143,7 @@ export default function Ldjson({ news, catName, catSlug }) {
                                 "height":"109"
                             },
                             "sameAs":["https://www.facebook.com/thenews24digital/"],
-                            "id":"${process.env.REACT_APP_FONT_DOMAIN_URL}"
+                            "id":"${process.env.REACT_APP_FONT_DOMAIN_URL}/english"
                         },
                         "author":[
                             {
@@ -161,7 +161,7 @@ export default function Ldjson({ news, catName, catSlug }) {
                         "isAccessibleForFree":true,
                         "isPartOf":{
                             "@type":"WebPage",
-                            "url":"${process.env.REACT_APP_FONT_DOMAIN_URL}${catSlug}/news/${news.ContentID}",
+                            "url":"${process.env.REACT_APP_FONT_DOMAIN_URL}/english/${catSlug}/news/${news.ContentID}",
                             "primaryImageOfPage":{
                                 "@type":"ImageObject",
                                 "url":"${process.env.REACT_APP_IMG_Path + news.ImageBgPath}",

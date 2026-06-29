@@ -21,7 +21,7 @@ export default function TagPage() {
         offset = 0
         setPageURL(window.location.href);
         axios
-            .get(`${process.env.REACT_APP_API_URL}tagsname/${TagTitle}`)
+            .get(`${process.env.REACT_APP_API_URL}en/tagsname/${TagTitle}`)
             .then(({ data }) => {
                 if (data.tags.length !== 0) {
                     setTags(data.tags)
@@ -30,7 +30,7 @@ export default function TagPage() {
                 }
             })
         axios
-            .get(`${process.env.REACT_APP_API_URL}tag-content/${TagTitle}/${limit}/${offset}`)
+            .get(`${process.env.REACT_APP_API_URL}en/tag-content/${TagTitle}/${limit}/${offset}`)
             .then(({ data }) => {
                 if (data.tag_content.length < limit) {
                     showMore = false
@@ -50,7 +50,7 @@ export default function TagPage() {
         // var length = document.querySelectorAll('.countclass').length;
         offset += limit
         axios
-            .get(`${process.env.REACT_APP_API_URL}tag-content/${TagTitle}/${limit}/${offset}`)
+            .get(`${process.env.REACT_APP_API_URL}en/tag-content/${TagTitle}/${limit}/${offset}`)
             .then(({ data }) => {
                 if (data.tag_content.length < limit) {
                     showMore = false
@@ -159,7 +159,7 @@ export default function TagPage() {
                                 return (
                                     <div className="col-lg-6 col-sm-12">
                                         <div className="archiveListNews" >
-                                            <Link to={"/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
+                                            <Link to={"/english/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
                                                 <div className="row">
                                                     <div className="col-sm-4 col-5 card-video-part">
                                                         <div className="DImgZoomBlock">
@@ -184,7 +184,7 @@ export default function TagPage() {
                             {showMore &&
                                 <div id="btnDiv" className="text-center my-4">
                                     <button type="submit" name="btnSubmit" className="btn btn-lg btn-block ButtonBG" onClick={toggleButtonState}>
-                                        আরো পড়ুন
+                                        Read More
                                     </button>
                                 </div>}
                         </div>

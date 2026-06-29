@@ -3,7 +3,7 @@ import axios from 'axios'
 import { scrollTop } from './AllFunctions';
 import { Link } from 'react-router-dom';
 
-const { toBengaliNumber } = require('bengali-number');
+
 
 const years = new Date().getFullYear()
 export default function Footer() {
@@ -76,18 +76,18 @@ export default function Footer() {
                         <div className="row">
                             <div className="col-12">
                                 <ul className="DFooterMiddleListItems">
-                                    <li><Link onClick={scrollTop} to="/the-news">The News</Link></li>
-                                    <li><Link onClick={scrollTop} to="/aboutUs">About Us</Link></li>
-                                    <li><Link onClick={scrollTop} to="/contact-us">Contact Us</Link></li>
-                                    <li><Link onClick={scrollTop} to="/advertise">Advertisement</Link></li>
-                                    <li><Link onClick={scrollTop} to="/editorial-policy">Editorial Policy</Link></li>
-                                    <li><Link onClick={scrollTop} to="/privacy-policy">Privacy Policy</Link></li>
-                                    <li><Link onClick={scrollTop} to="/terms-service">Terms Service</Link></li>
-                                    <li><Link onClick={scrollTop} to="/copyright">Copyright</Link></li>
-                                    <li><Link onClick={scrollTop} to="/reader-right">Reader Right</Link></li>
-                                    <li><Link onClick={scrollTop} to="/fileComplaint">File Complaint</Link></li>
-                                    <li><Link onClick={scrollTop} to="/sitemep">Sitemap</Link></li>
-                                    <li><Link onClick={scrollTop} to="/subscription">Subscription</Link></li>
+                                    <li><Link onClick={scrollTop} to="/english/the-news">The News</Link></li>
+                                    <li><Link onClick={scrollTop} to="/english/aboutUs">About Us</Link></li>
+                                    <li><Link onClick={scrollTop} to="/english/contact-us">Contact Us</Link></li>
+                                    <li><Link onClick={scrollTop} to="/english/advertise">Advertisement</Link></li>
+                                    <li><Link onClick={scrollTop} to="/english/editorial-policy">Editorial Policy</Link></li>
+                                    <li><Link onClick={scrollTop} to="/english/privacy-policy">Privacy Policy</Link></li>
+                                    <li><Link onClick={scrollTop} to="/english/terms-service">Terms Service</Link></li>
+                                    <li><Link onClick={scrollTop} to="/english/copyright">Copyright</Link></li>
+                                    <li><Link onClick={scrollTop} to="/english/reader-right">Reader Right</Link></li>
+                                    <li><Link onClick={scrollTop} to="/english/fileComplaint">File Complaint</Link></li>
+                                    <li><Link onClick={scrollTop} to="/english/sitemep">Sitemap</Link></li>
+                                    <li><Link onClick={scrollTop} to="/english/subscription">Subscription</Link></li>
                                 </ul>
                             </div>
                         </div>

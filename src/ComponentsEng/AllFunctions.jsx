@@ -70,38 +70,39 @@ const scrollTop = (e) => {
 // }
 
 const getTimeDistance = (date) => {
-    if (!date) return '';
-
+    if (!date) return "";
+  
     let publishTime = new Date(date);
-
-    // fallback if invalid
+  
+    // Fallback for Safari and invalid date formats
     if (isNaN(publishTime.getTime())) {
-        publishTime = new Date(date.replace(/-/g, '/'));
+      publishTime = new Date(date.replace(/-/g, "/"));
     }
-
-    if (isNaN(publishTime.getTime())) return '';
-
-    let now = new Date();
-    let diffMs = now - publishTime;
-
-    let days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-    let hours = Math.floor(diffMs / (1000 * 60 * 60));
-    let minutes = Math.floor(diffMs / (1000 * 60));
-    let seconds = Math.floor(diffMs / 1000);
-
+  
+    if (isNaN(publishTime.getTime())) return "";
+  
+    const now = new Date();
+    const diffMs = now - publishTime;
+  
+    const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(diffMs / (1000 * 60 * 60));
+    const minutes = Math.floor(diffMs / (1000 * 60));
+    const seconds = Math.floor(diffMs / 1000);
+  
     if (days >= 1) {
-        return banglaDateConvetar(days.toString()) + ' দিন আগে';
-    } 
-    else if (hours >= 1) {
-        return banglaDateConvetar(hours.toString()) + ' ঘন্টা আগে';
-    } 
-    else if (minutes >= 1) {
-        return banglaDateConvetar(minutes.toString()) + ' মিনিট আগে';
-    } 
-    else {
-        return banglaDateConvetar(seconds.toString()) + ' সেকেন্ড আগে';
+      return `${days} ${days === 1 ? "day" : "days"} ago`;
     }
-};
+  
+    if (hours >= 1) {
+      return `${hours} ${hours === 1 ? "hour" : "hours"} ago`;
+    }
+  
+    if (minutes >= 1) {
+      return `${minutes} ${minutes === 1 ? "minute" : "minutes"} ago`;
+    }
+  
+    return `${seconds} ${seconds === 1 ? "second" : "seconds"} ago`;
+  };
 function banglaDateConvetar(engDate) {
     if (!engDate) return "";
 

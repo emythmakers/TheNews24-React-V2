@@ -9,8 +9,7 @@ export default function CategoryPopular({ catLatest, catSlug }) {
                 <div className="panel-heading">
                     <ul className="nav nav-tabs" role="tablist">
                         <li className="nav-item"><a className="nav-link active" data-bs-toggle="tab" role="tab"
-                            aria-selected="true" href="/national#tabs-1">এই বিভাগের সর্বাধিক
-                            পঠিত</a></li>
+                            aria-selected="true" href="/national#tabs-1">This Categories Latest News</a></li>
                     </ul>
                 </div>
                 <div className="panel-body PanelHeight">
@@ -20,7 +19,7 @@ export default function CategoryPopular({ catLatest, catSlug }) {
                                 {catLatest.map((nc) => {
                                     return (
                                         <div className="MostPopularTabList" key={nc.ContentID}>
-                                            <Link to={"/" + catSlug + "/news/" + nc.ContentID} onClick={scrollTop}>
+                                            <Link to={"/english/" + catSlug + "/news/" + nc.ContentID} onClick={scrollTop}>
                                                 <div className="row">
                                                     <div className="col-lg-5 col-sm-4 col-5">
                                                         <div className="DImgZoomBlock">

@@ -9,7 +9,7 @@ export default function Lifestyle() {
 
     useEffect(() => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}json/file/generateCategory11.json`)
+            .get(`${process.env.REACT_APP_API_URL}en/json/file/generateCategory10.json`)
             .then(({ data }) => {
 
                 setLifeStyle(data.data.slice(0, 4))
@@ -26,8 +26,8 @@ export default function Lifestyle() {
             <div className="row">
                 <div className="col-lg-12">
                     <div className="section-heading">
-                        <Link to="/lifestyle" onClick={scrollTop}>
-                            <h2>জীবনযাপন</h2>
+                        <Link to="/english/lifestyle" onClick={scrollTop}>
+                            <h2>Lifestyle</h2>
                         </Link>
                     </div>
                 </div>
@@ -38,7 +38,7 @@ export default function Lifestyle() {
                         return (
                             <div className="col-6 col-lg-3" key={nc.ContentID}>
                                 <div className="life-style-list">
-                                    <Link to={"/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
+                                    <Link to={"/english/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
                                         <div className="life-style-list-img">
                                             {nc.ImageBgPath ?
                                                 <img src={process.env.REACT_APP_IMG_Path + nc.ImageBgPath} alt={nc.ContentHeading} title={nc.ContentHeading} className="img-fluid" width={320} height={457} /> :

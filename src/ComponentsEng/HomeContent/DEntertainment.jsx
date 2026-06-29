@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { scrollTop, ForLazyLoaderImg, getTimeDistance } from '../AllFunctions'
+import { scrollTop, ForLazyLoaderImg, getTimeDistance,  } from '../AllFunctions'
 var lazyloaded = false
 export default function DEntertainment() {
     const [entertainment, setEntertainment] = useState([])
@@ -9,7 +9,7 @@ export default function DEntertainment() {
 
     useEffect(() => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}json/file/generateCategory7.json`)
+            .get(`${process.env.REACT_APP_API_URL}en/json/file/generateCategory11.json`)
             .then(({ data }) => {
 
                 setEntertainment(data.data[0])
@@ -29,15 +29,15 @@ export default function DEntertainment() {
             <div className="row">
                 <div className="col-lg-12">
                     <div className="section-heading">
-                        <Link to="/entertainment" onClick={scrollTop}>
-                            <h2>বিনোদন</h2>
+                        <Link to="/english/entertainment" onClick={scrollTop}>
+                            <h2>Entertainment</h2>
                         </Link>
                     </div>
                 </div>
             </div>
             {entertainment ?
                 <div className="entertainment-lead">
-                    <Link to={"/" + entertainment.Slug + "/news/" + entertainment.ContentID} onClick={scrollTop}>
+                    <Link to={"/english/" + entertainment.Slug + "/news/" + entertainment.ContentID} onClick={scrollTop}>
                         <div className="row">
                             <div className="col-lg-8">
                                 <div className="entertainment-lead-img">
@@ -69,7 +69,7 @@ export default function DEntertainment() {
                         return (
                             <div className="col-lg-3" key={nc.ContentID}>
                                 <div className="entertainment-list">
-                                    <Link to={"/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
+                                    <Link to={"/english/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
                                         <div className="row">
                                             <div className="col-5 col-lg-12">
                                                 <div className="entertainment-list-img">

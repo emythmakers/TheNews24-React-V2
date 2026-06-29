@@ -9,7 +9,7 @@ export default function AllWriters() {
 
     useEffect(() => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}writers`)
+            .get(`${process.env.REACT_APP_API_URL}en/writers`)
             .then(({ data }) => {
                 setAllWriter(data.writers);
             });
@@ -22,10 +22,10 @@ export default function AllWriters() {
         <main>
             <div className="container">
                 <div className="TopHomeSection"></div>
-                <title>দ্য নিউজ ২৪ :: লেখক সমূহ</title>
+                <title>The News 24 :: All Writers</title>
                 <h2 className="DTitle">
                     <Link to={+ '/'} onClick={scrollTop}>
-                        <span className="DTitleInner"><span className="DTitleInnerBar"><span>লেখক সমূহ</span></span></span>
+                        <span className="DTitleInner"><span className="DTitleInnerBar"><span>Writer Lists</span></span></span>
                     </Link>
                 </h2>
                 <div className="DTagListArea mb-5">
@@ -34,7 +34,7 @@ export default function AllWriters() {
                             return (
                                 <li className="col-lg-4 col-sm-6 col-12" key={nc.WriterID}>
                                     <div className="DTagListItem">
-                                        <Link to={"/writers/" + nc.Slug}>
+                                        <Link to={"/english/writers/" + nc.Slug}>
                                             <div className="Desc">
                                                 <h2 className="Title">{nc.WriterName} || <span>{nc.WriterNameEn}</span></h2>
                                             </div>

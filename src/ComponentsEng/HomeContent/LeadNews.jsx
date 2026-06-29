@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { scrollTop, ForLazyLoaderImg, getTimeDistance } from '../AllFunctions'
+import { scrollTop, ForLazyLoaderImg, getTimeDistance,  } from '../AllFunctions'
 
 var lazyloaded = false
 export default function LeadNews() {
@@ -9,7 +9,7 @@ export default function LeadNews() {
     const [state2, setState2] = useState([])
     useEffect(() => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}json/file/generateSpecial1.json`)
+            .get(`${process.env.REACT_APP_API_URL}en/json/file/generateSpecial4.json`)
             .then(({ data }) => {
                 if (data.data.length > 0) {
                     setState(data.data[0]);
@@ -25,7 +25,7 @@ export default function LeadNews() {
     return (
         <>
             <div className="lead-news">
-                <Link to={"/" + state.Slug + "/news/" + state.ContentID} onClick={scrollTop}>
+                <Link to={"/english/" + state.Slug + "/news/" + state.ContentID} onClick={scrollTop}>
                     <div className="lead-news-img">
                         {state.ImageBgPath ?
                             <img src={process.env.REACT_APP_IMG_Path + state.ImageBgPath} alt={state.ContentHeading} title={state.ContentHeading} width={632} height={390} className="img-fluid" /> :
@@ -59,7 +59,7 @@ export default function LeadNews() {
                         return (
                             <div className="col-lg-4 col-md-6" key={i}>
                                 <div className="sublead-news-box">
-                                    <Link to={"/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
+                                    <Link to={"/english/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
                                         <div className="sublead-news-img">
                                             {nc.ImageSmPath ?
                                                 <img src={process.env.REACT_APP_IMG_Path + nc.ImageSmPath} alt={nc.ContentHeading} title={nc.ContentHeading} className="img-fluid" width={195} height={120} /> :

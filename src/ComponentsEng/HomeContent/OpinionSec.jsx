@@ -11,7 +11,7 @@ export default function OpinionSec() {
     const [state, setState] = useState([])
     useEffect(() => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}json/file/generateCategory18.json`)
+            .get(`${process.env.REACT_APP_API_URL}en/json/file/generateCategory12.json`)
             .then(({ data }) => {
                 if (data.data.length > 0) {
                     setState(data.data.slice(0, 4));
@@ -26,12 +26,12 @@ export default function OpinionSec() {
     return (
         <>
             <div className="row">
-                <div className="col-lg-9">
+                <div className="col-lg-12">
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="section-heading">
-                                <Link to="/opinion" onClick={scrollTop}>
-                                    <h2>মতামত</h2>
+                                <Link to="/english/opinion" onClick={scrollTop}>
+                                    <h2>Opinion</h2>
                                 </Link>
                             </div>
                         </div>
@@ -39,7 +39,7 @@ export default function OpinionSec() {
                             return (
                                 <div className="col-md-6" key={nc.ContentID}>
                                     <div className="opinion-box">
-                                        <Link to={"/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
+                                        <Link to={"/english/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
                                             <div className="row">
                                                 <div className="col-lg-3 d-flex justify-content-center">
                                                     <div className="opinion-img">

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { scrollTop, ForLazyLoaderImg, getTimeDistance } from '../AllFunctions'
+import { scrollTop, ForLazyLoaderImg, getTimeDistance,  } from '../AllFunctions'
 import { Link } from 'react-router-dom'
 
 var lazyloaded = false
@@ -10,7 +10,7 @@ export default function SpecialTop1() {
     useEffect(() => {
 
         axios
-            .get(`${process.env.REACT_APP_API_URL}json/file/generateSpecial2.json`)
+            .get(`${process.env.REACT_APP_API_URL}en/json/file/generateSpecial3.json`)
             .then(({ data }) => {
                 if (data.data) {
                     setState1(data.data[0])
@@ -29,7 +29,7 @@ export default function SpecialTop1() {
             <div className="lead-left-wrap">
                 <div className="lead-left-big">
                     {state1 ?
-                        <Link to={"/" + state1.Slug + "/news/" + state1.ContentID} onClick={scrollTop}>
+                        <Link to={"/english/" + state1.Slug + "/news/" + state1.ContentID} onClick={scrollTop}>
                             <div className="lead-left-big-img">
                                 {state1.ImageSmPath ?
                                     <img src={process.env.REACT_APP_IMG_Path + state1.ImageSmPath} alt={state1.ContentHeading} title={state1.ContentHeading} className="img-fluid" width={300} height={190} /> :
@@ -51,7 +51,7 @@ export default function SpecialTop1() {
                     {state3.map((nc, i) => {
                         return (
                             <div className="lead-left-small-list" key={i}>
-                                <Link to={"/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
+                                <Link to={"/english/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
                                     <div className="row gx-2">
                                         <div className="col-5 col-lg-4">
                                             <div className="lead-left-small-img">

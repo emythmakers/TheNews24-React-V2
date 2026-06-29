@@ -16,7 +16,7 @@ let bnYear = getYear(date1, { format: 'YYYY' })
 let BNDATEs = bnDate + ' ' + bnMonth + ' ' + bnYear
 const currentDate = moment().format('DD MMMM YYYY')
 const currentDay = moment().format('dddd')
-var arabicDate = moment().subtract(1, 'days').format('iDD iMMMM iYYYY');
+// var arabicDate = moment().subtract(1, 'days').format('iDD iMMMM iYYYY');
 
 var todaysDate = new Date();
 todaysDate.setDate(todaysDate.getDate() - 1);
@@ -41,10 +41,10 @@ export default function Header() {
     };
 
     // Assuming scrollTop is defined elsewhere
-    const handleLinkClick = () => {
-        setIsOpen(false); // Set the state to false to close the menu
-        window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top
-    };
+    // const handleLinkClick = () => {
+    //     setIsOpen(false); // Set the state to false to close the menu
+    //     window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top
+    // };
 
 
     // const [showSubCat, setShowSubCat] = useState(false);
@@ -99,40 +99,40 @@ export default function Header() {
         }
     }
 
-    function mobileHeader() {
-        var x = document.getElementById("mobile-nav");
-        var element2 = document.getElementById("closeBTN1");
-        var element = document.getElementById("menuBTN1");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-            element2.classList.add('hide')
-            element2.classList.remove('show')
-            element.classList.add('show')
-            element.classList.remove('hide')
-        } else {
-            x.style.display = "block";
-            element2.classList.add('show')
-            element2.classList.remove('hide')
-            element.classList.add('hide')
-            element.classList.remove('show')
-        }
-    }
+    // function mobileHeader() {
+    //     var x = document.getElementById("mobile-nav");
+    //     var element2 = document.getElementById("closeBTN1");
+    //     var element = document.getElementById("menuBTN1");
+    //     if (x.style.display === "block") {
+    //         x.style.display = "none";
+    //         element2.classList.add('hide')
+    //         element2.classList.remove('show')
+    //         element.classList.add('show')
+    //         element.classList.remove('hide')
+    //     } else {
+    //         x.style.display = "block";
+    //         element2.classList.add('show')
+    //         element2.classList.remove('hide')
+    //         element.classList.add('hide')
+    //         element.classList.remove('show')
+    //     }
+    // }
 
-    function mobileHeaderSearch(e) {
-        e.preventDefault();
-        var searchWeb = document.getElementById("deskSearch");
-        if (searchWeb.style.display === "none") {
-            searchWeb.style.display = "block";
-        } else {
-            searchWeb.style.display = "none";
-        }
-        var searchMobile = document.getElementById("mobileSearchBar");
-        if (searchMobile.style.display === "none") {
-            searchMobile.style.display = "block";
-        } else {
-            searchMobile.style.display = "none";
-        }
-    }
+    // function mobileHeaderSearch(e) {
+    //     e.preventDefault();
+    //     var searchWeb = document.getElementById("deskSearch");
+    //     if (searchWeb.style.display === "none") {
+    //         searchWeb.style.display = "block";
+    //     } else {
+    //         searchWeb.style.display = "none";
+    //     }
+    //     var searchMobile = document.getElementById("mobileSearchBar");
+    //     if (searchMobile.style.display === "none") {
+    //         searchMobile.style.display = "block";
+    //     } else {
+    //         searchMobile.style.display = "none";
+    //     }
+    // }
 
     const handelSubmit = (e) => {
         e.preventDefault();
@@ -299,7 +299,7 @@ export default function Header() {
                                                     <div className="extr">
                                                         <a href="#"> <img src={ePper} alt="ই-পেপার" title='ই-পেপার' />ই-পেপার</a>
                                                         <Link to="/archives" onClick={scrollTop}> <img src={archive} alt="আর্কাইভ" title='আর্কাইভ' />আর্কাইভ</Link>
-                                                        <Link className="langu" to="/"> <img src={map}
+                                                        <Link className="langu" to="/english"> <img src={map}
                                                             alt="English" title='English' />English</Link>
                                                     </div>
                                                     <div className="header-search">
@@ -418,7 +418,7 @@ export default function Header() {
                                             <div className="extr">
                                                 <a href="#"> <img src="media/imgAll/icon/E_paper2.png" alt="" />ই-পেপার</a>
                                                 <Link to="/archives" onClick={() => setIsToggleActive(false)} > <img src="media/imgAll/icon/archive2.png" alt="" onClick={scrollTop} />আর্কাইভ</Link>
-                                                <a className="langu" href="#"> <img src="media/imgAll/icon/Map2.png" alt="" />English</a>
+                                                <a className="langu" href="/english"> <img src="media/imgAll/icon/Map2.png" alt="" />English</a>
                                             </div>
                                         </div>
                                         <div className="menu-body">

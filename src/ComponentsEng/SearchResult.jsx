@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link, useParams } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
-import { scrollTop, banglaDateConvetar, ForLazyLoaderImg } from './AllFunctions'
+import { scrollTop, ForLazyLoaderImg } from './AllFunctions'
 import  LoadingGif from '../assets/media/common/loading.gif'
 var lazyloaded = false
 var showMore = true
@@ -26,7 +26,7 @@ export default function SearchResult() {
             setIsLoading(true)
             showMore = true
             axios
-                .post(`${process.env.REACT_APP_API_URL}archive-search`, formData)
+                .post(`${process.env.REACT_APP_API_URL}en/archive-search`, formData)
                 .then(({ data }) => {
                     setIsLoading(false)
                     if (data.data.length > 0) {
@@ -52,7 +52,7 @@ export default function SearchResult() {
         setIsLoadingData(true)
         showMore = true
         axios
-            .post(`${process.env.REACT_APP_API_URL}archive-search`, formData)
+            .post(`${process.env.REACT_APP_API_URL}en/archive-search`, formData)
             .then(({ data }) => {
                 setIsLoadingData(false)
                 if (data.data.length < limit) {
@@ -71,7 +71,7 @@ export default function SearchResult() {
     const handelSubmit = (e) => {
         e.preventDefault();
         const txt = e.target.q.value;
-        navigate('/search/' + txt)
+        navigate('/english/search/' + txt)
     }
     return (
         <>
@@ -80,23 +80,23 @@ export default function SearchResult() {
                     <div className="TopHomeSection"></div>
                     <h2 className="DTitle">
                         <Link to={+ '/'} onClick={scrollTop}>
-                            <span className="DTitleInner"><span className="DTitleInnerBar"><span>খুঁজুন</span></span></span>
+                            <span className="DTitleInner"><span className="DTitleInnerBar"><span>Search</span></span></span>
                         </Link>
-                        <title>খুঁজুন | খুঁজুন সর্বশেষ খবর :: দ্য নিউজ ২৪</title>
+                        <title>Search | Search Latest News :: The News 24</title>
                     </h2>
 
                     {!searchValue ?
-                        <><h1 className='warningHeaderForSearch'> <span>দুঃখিত,</span> কোন খবর খুঁজে পাওয়া যায়নি।</h1>
+                        <><h1 className='warningHeaderForSearch'> <span>Sorry,</span> This News cannot found</h1>
                             <div className="row searchResult">
                                 <div className="col-sm-12 d-flex justify-content-center my-5">
                                     <form className="row g-0" onSubmit={handelSubmit}>
                                         <div className="col-6">
-                                            <input type="text" name="q" placeholder="এখানে লিখুন..." className="form-control" required />
+                                            <input type="text" name="q" placeholder="Search..." className="form-control" required />
                                         </div>
                                         <div className="col-6">
                                             <div id="btnDiv2" className="text-center">
                                                 <button type="submit" className="btn btn-lg btn-block ButtonBG mb-3">
-                                                    খুঁজুন
+                                                    Search
                                                     {isLoading === true &&
                                                         <img src={LoadingGif} alt="loading" title='loading' style={{ width: '28px', marginLeft: '12px' }} />
                                                     }
@@ -112,12 +112,12 @@ export default function SearchResult() {
                                 <div className="col-sm-12 d-flex justify-content-center my-5">
                                     <form className="row g-0" onSubmit={handelSubmit}>
                                         <div className="col-6">
-                                            <input type="text" name="q" placeholder="এখানে লিখুন..." className="form-control" required />
+                                            <input type="text" name="q" placeholder="Search..." className="form-control" required />
                                         </div>
                                         <div className="col-6">
                                             <div id="btnDiv2" className="text-center">
                                                 <button type="submit" className="btn btn-lg btn-block ButtonBG mb-3">
-                                                    খুঁজুন
+                                                    Search
                                                     {isLoading === true &&
                                                         <img src={LoadingGif} alt="loading" title='loading' style={{ width: '28px', marginLeft: '12px' }} />
                                                     }
@@ -130,14 +130,14 @@ export default function SearchResult() {
                             {isLoading === false &&
                                 <>
                                     {news === null ?
-                                        <><h1 className='warningHeader'> <span>দুঃখিত,</span> কোন খবর খুঁজে পাওয়া যায়নি।</h1></>
+                                        <><h1 className='warningHeader'> <span>Sorry,</span> This News cannot found</h1></>
                                         : <>
                                             <div className="row">
                                                 {news && news.map((nc) => {
                                                     return (
                                                         <div className="col-lg-6 col-sm-12" key={nc.ContentID}>
                                                             <div className="archiveListNews" >
-                                                                <Link to={"/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
+                                                                <Link to={"/english/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
                                                                     <div className="row">
                                                                         <div className="col-sm-4 col-5 card-video-part">
                                                                             <div className="DImgZoomBlock">
@@ -152,7 +152,7 @@ export default function SearchResult() {
                                                                                     <p>{nc.ContentBrief}</p>
                                                                                 </div>
                                                                             </div>
-                                                                            <p className="pDate">{banglaDateConvetar(nc.create_date)}</p>
+                                                                            <p className="pDate">{(nc.create_date)}</p>
                                                                         </div>
                                                                     </div>
                                                                 </Link>
@@ -164,7 +164,7 @@ export default function SearchResult() {
                                             {showMore &&
                                                 <div id="btnDiv2" className="text-center mt-3 mb-4">
                                                     <button onClick={toggleButtonState} className="btn btn-lg btn-block ButtonBG">
-                                                        আরো খবর...
+                                                        Read More...
                                                         {isLoadingData === true &&
                                                             <img src={LoadingGif} alt="loading" title='loading' style={{ width: '28px', marginLeft: '12px' }} />
                                                         }

@@ -5,7 +5,6 @@ import { scrollTop, ForLazyLoaderImg } from '../AllFunctions'
 // import LatestPopularNews from './LatestPopularNews';
 import CategoryPopular from './CategoryPopular';
 import ErrorPage from '../ErrorPage';
-import DivisionDistricName from '../Country/DivisionDistricName';
 import CatLdJson from './CatLdJson';
 import LeadLatestNews from '../HomeContent/LeadLatestNews';
 // import InternationalpgAds from './InternationalpgAds';
@@ -27,7 +26,7 @@ var offset = 5
 var InnerSpecialContents
 var formData = []
 export default function Category() {
-    let { catSlug } = useParams();
+    let { catSlugEn } = useParams();
     const [catName, setcatName] = useState([])
     const [catNewsMore, setcatLeadMore] = useState([])
 
@@ -47,7 +46,7 @@ export default function Category() {
         // setTimeout(() => { setisLoading(false) }, 300);
         offset = 0
         axios
-            .get(`${process.env.REACT_APP_API_URL}category/${catSlug}`)
+            .get(`${process.env.REACT_APP_API_URL}en/category/${catSlugEn}`)
             .then(({ data }) => {
 
                 setcatName(data.category);
@@ -61,7 +60,7 @@ export default function Category() {
                     ForLazyLoaderImg(lazyloaded)
                 }, 1000);
                 axios
-                    .get(`${process.env.REACT_APP_API_URL}inner-category-content/${catID}/${LeadNewsLimit}`)
+                    .get(`${process.env.REACT_APP_API_URL}en/inner-category-content/${catID}/${LeadNewsLimit}`)
                     .then(({ data }) => {
                         // if (data.inner_category_content.length > 0) {
                         if (data.inner_category_content) {
@@ -84,7 +83,7 @@ export default function Category() {
                         // leadNews position array ------ end
                         formData = { 'CategoryID': catID, 'limit': limit, 'offset': 0, 'InnerSpecialContents': InnerSpecialContents }
                         axios
-                            .post(`${process.env.REACT_APP_API_URL}inner-category-content-more`, formData)
+                            .post(`${process.env.REACT_APP_API_URL}en/inner-category-content-more`, formData)
                             .then(({ data }) => {
                                 if (data.inner_category_more_content) {
                                     setcatLeadMore(data.inner_category_more_content);
@@ -101,7 +100,7 @@ export default function Category() {
 
                     });
                 axios
-                    .get(`${process.env.REACT_APP_API_URL}json/file/generateCategoryPopular${catID}.json`)
+                    .get(`${process.env.REACT_APP_API_URL}en/json/file/generateCategoryPopular${catID}.json`)
                     .then(({ data }) => {
                         if (data.data) {
                             setcatLatest(data.data);
@@ -111,14 +110,14 @@ export default function Category() {
         // document.querySelectorAll('link[rel="canonical"]')[0].setAttribute('href', window.location.href)
         // const timer = setTimeout(() => { window.location.reload(1); }, 300000);
         // return () => clearTimeout(timer);
-    }, [catSlug])
+    }, [catSlugEn])
 
     const toggleButtonState = () => {
         offset += limit
         showMore = true
         formData = { 'CategoryID': catID, 'limit': limit, 'offset': offset, 'InnerSpecialContents': InnerSpecialContents }
         axios
-            .post(`${process.env.REACT_APP_API_URL}inner-category-content-more`, formData)
+            .post(`${process.env.REACT_APP_API_URL}en/inner-category-content-more`, formData)
             .then(({ data }) => {
                 if (data.inner_category_more_content) {
                     if (data.inner_category_more_content.length < limit) {
@@ -145,24 +144,24 @@ export default function Category() {
                             <Link to={+ '/'} onClick={scrollTop}>
                                 <span className="DTitleInner"><span className="DTitleInnerBar"><span>{catName.CategoryName}</span></span></span>
                             </Link>
-                            <title>{`${catName.CategoryName} | ${catName.CategoryName} সর্বশেষ খবর ::  দ্য নিউজ ২৪`}</title>
+                            <title>{`${catName.CategoryName} | ${catName.CategoryName} Latest News ::  The News 24`}</title>
                             <CatLdJson CatNames={catName.CategoryName} CatNameSlug={catName.Slug} />
                         </h2>
                         <section>
                             <div className="row">
-                                {/* {catSlug === 'education' && <EduAdsTop />} */}
+                                {/* {catSlugEn === 'education' && <EduAdsTop />} */}
                                 <div className="col-lg-9 col-sm-12 DBorderRight">
-                                    <>
-                                        {catSlug === 'country' && <DivisionDistricName />}
+                                    {/* <>
+                                        {catSlugEn === 'country' && <DivisionDistricName />}
 
-                                    </>
+                                    </> */}
 
                                     <div className="DcatTopArea">
                                         <div className="row">
                                             <div className="col-lg-8 col-12 d-flex ">
                                                 <div className="DCatLeadTop">
                                                     {catLeadNews1 ?
-                                                        <Link to={"/" + catLeadNews1.Slug + "/news/" + catLeadNews1.ContentID} onClick={scrollTop}>
+                                                        <Link to={"/english/" + catLeadNews1.Slug + "/news/" + catLeadNews1.ContentID} onClick={scrollTop}>
                                                             <div className="row">
                                                                 <div className="col-lg-8 col-12">
                                                                     <div className="DImgZoomBlock">
@@ -185,7 +184,7 @@ export default function Category() {
                                             <div className="col-lg-4 col-12 d-flex">
                                                 <div className="DCatTop2 align-self-stretch">
                                                     {catLeadNews2 ?
-                                                        <Link to={"/" + catLeadNews2.Slug + "/news/" + catLeadNews2.ContentID} onClick={scrollTop}>
+                                                        <Link to={"/english/" + catLeadNews2.Slug + "/news/" + catLeadNews2.ContentID} onClick={scrollTop}>
                                                             <div className="row">
                                                                 <div className="col-lg-12 col-sm-4 col-5">
                                                                     <div className="DImgZoomBlock">
@@ -211,7 +210,7 @@ export default function Category() {
                                                 return (
                                                     <div className="col-lg-4 col-12 d-flex border-right-inner" key={nc.ContentID}>
                                                         <div className="DCatTop3tList align-self-stretch">
-                                                            <Link to={"/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
+                                                            <Link to={"/english/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
                                                                 <div className="row">
                                                                     <div className="col-lg-12 col-sm-4 col-5">
                                                                         <div className="DImgZoomBlock">
@@ -233,28 +232,28 @@ export default function Category() {
                                         </div>
                                     </div>
                                     {/* =================advertisement section=============  */}
-                                    {/* {catSlug === 'international' ?
+                                    {/* {catSlugEn === 'international' ?
                                         <div className="DBannerAdd2 d-flex justify-content-center mt-3 pb-3">
                                             <HeaderBottomAds />
                                         </div>
                                         :
                                         ""
                                     } */}
-                                    {/* {catSlug === 'politics' ?
+                                    {/* {catSlugEn === 'politics' ?
                                         <div className="DBannerAdd2 d-flex justify-content-center mt-5 pt-5">
                                             <HeaderBottomAds />
                                         </div>
                                         :
                                         ""
                                     } */}
-                                    {/* {catSlug === 'trade' ?
+                                    {/* {catSlugEn === 'trade' ?
                                         <div className="DBannerAdd2 d-flex justify-content-center mt-4 pb-3">
                                             <HeaderBottomAds />
                                         </div>
                                         :
                                         ""
                                     } */}
-                                    {/* {catSlug === 'lifestyle' ?
+                                    {/* {catSlugEn === 'lifestyle' ?
                                         <div className="DBannerAdd2 d-flex justify-content-center mt-5 pt-5">
                                             <HeaderBottomAds />
                                         </div>
@@ -264,14 +263,14 @@ export default function Category() {
                                 </div>
                                 <div className="col-lg-3 col-sm-12">
                                       {/* =================advertisement section=============  */}
-                                    {/* {catSlug === 'lifestyle' ? (
+                                    {/* {catSlugEn === 'lifestyle' ? (
                                         <InternationalpgAds />
-                                    ) : catSlug === 'politics' ? (
+                                    ) : catSlugEn === 'politics' ? (
                                         <PoliticsPgAds />)
-                                        : catSlug === 'trade' ? (<TradepgAds />)
+                                        : catSlugEn === 'trade' ? (<TradepgAds />)
                                             : (
                                                 <div className="DRightSideAdd d-flex justify-content-center mb-3 mt-3">
-                                                    <Link to="/">
+                                                    <Link to="/english/">
                                                         <img
                                                             src="/media/Advertisement/Advertisement(300X90).png"
                                                             alt="Advertisement"
@@ -286,7 +285,7 @@ export default function Category() {
                             </div>
                         </section>
                         {/* =================advertisement section=============  */}
-                        {/* {catSlug !== 'international' && catSlug !== 'politics' && catSlug !== 'trade' && catSlug !== 'lifestyle' && (
+                        {/* {catSlugEn !== 'international' && catSlugEn !== 'politics' && catSlugEn !== 'trade' && catSlugEn !== 'lifestyle' && (
                             <div className="adsarea">
                                 <a href="https://www.shwapno.com/" target='blank'>
                                     <img
@@ -304,14 +303,14 @@ export default function Category() {
                         <section>
                             <div className="row mt-4">
                                 <div className="col-lg-9 col-sm-12 mt-4 BorderRight">
-                                    <h2 className="LatestNewsH ">{catName.CategoryName} বিভাগের সব খবর</h2>
+                                    <h2 className="LatestNewsH ">{catName.CategoryName} Latest News</h2>
                                     <section className="DCatNewsListArea">
                                         <div className="row">
                                             {catNewsMore.map((nc) => {
                                                 return (
                                                     <div className="col-lg-6 col-12 d-flex " key={nc.ContentID}>
                                                         <div className="DCatNewsList border-bottom-inner align-self-stretch ">
-                                                            <Link to={"/" + catSlug + "/news/" + nc.ContentID} onClick={scrollTop}>
+                                                            <Link to={"/english/" + catSlugEn + "/news/" + nc.ContentID} onClick={scrollTop}>
                                                                 <div className="row">
                                                                     <div className="col-lg-5 col-sm-4 col-5">
                                                                         <div className="DImgZoomBlock">
@@ -333,12 +332,12 @@ export default function Category() {
                                         </div>
                                     </section>
                                     {showMore ?
-                                        <div id="btnDiv" className="text-center mt-4 mb-4"><button id="ajax-more-btn" className="btn btn-lg btn-block ButtonBG" onClick={toggleButtonState}>আরো পড়ুন</button></div>
+                                        <div id="btnDiv" className="text-center mt-4 mb-4"><button id="ajax-more-btn" className="btn btn-lg btn-block ButtonBG" onClick={toggleButtonState}>Read More</button></div>
                                         : false}
                                 </div>
                                 <div className="col-lg-3 col-sm-12">
-                                    <CategoryPopular catLatest={catLatest} catSlug={catSlug} />
-                                    {/* {catSlug === 'trade' && <TradepgAdsBottm />} */}
+                                    <CategoryPopular catLatest={catLatest} catSlugEn={catSlugEn} />
+                                    {/* {catSlugEn === 'trade' && <TradepgAdsBottm />} */}
                                 </div>
                             </div>
                         </section>

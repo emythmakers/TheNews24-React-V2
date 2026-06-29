@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { scrollTop, banglaDateConvetar, ForLazyLoaderImg } from './AllFunctions'
+import { scrollTop, banglaDateConvetar, ForLazyLoaderImg, getTimeDistance } from './AllFunctions'
 import { useLocation } from 'react-router-dom';
 // import RLoader from './RLoader'
 // import RLoader from './RLoader'
@@ -35,7 +35,7 @@ export default function Archives() {
         // state = { 'start_date': "", 'end_date': "", 'category_name': "0", 'limit': limit, 'offset': offset }
         if (state) {
             axios
-                .post(`${process.env.REACT_APP_API_URL}archive`, state)
+                .post(`${process.env.REACT_APP_API_URL}en/archive`, state)
                 .then(({ data }) => {
                     // setisLoading(false)
                     // setisLoading(false)
@@ -52,7 +52,7 @@ export default function Archives() {
             offset = 0
             formData = { 'start_date': "", 'end_date': "", 'category_name': "", 'limit': limit, 'offset': offset }
             axios
-                .post(`${process.env.REACT_APP_API_URL}archive`, formData)
+                .post(`${process.env.REACT_APP_API_URL}en/archive`, formData)
                 .then(({ data }) => {
                     if (data.archive_data.length < limit) {
                         showMore = false
@@ -65,7 +65,7 @@ export default function Archives() {
                 });
         }
         axios
-            .get(`${process.env.REACT_APP_API_URL}category`)
+            .get(`${process.env.REACT_APP_API_URL}en/category`)
             .then(({ data }) => {
                 setAllCategoryList(data.categories);
             });
@@ -81,7 +81,7 @@ export default function Archives() {
         offset = 0
         formData = { 'start_date': start_date, 'end_date': end_date, 'category_name': category_name, 'limit': limit, 'offset': offset }
         axios
-            .post(`${process.env.REACT_APP_API_URL}archive`, formData)
+            .post(`${process.env.REACT_APP_API_URL}en/archive`, formData)
             .then(({ data }) => {
                 setNews(data.archive_data);
                 if (data.archive_data.length < limit) {
@@ -99,7 +99,7 @@ export default function Archives() {
         offset += limit
         formData = { 'start_date': start_date, 'end_date': end_date, 'category_name': category_name, 'limit': limit, 'offset': offset }
         axios
-            .post(`${process.env.REACT_APP_API_URL}archive`, formData)
+            .post(`${process.env.REACT_APP_API_URL}en/archive`, formData)
             .then(({ data }) => {
                 if (data.archive_data.length < limit) {
                     showMore = false
@@ -119,25 +119,25 @@ export default function Archives() {
           
             <div className="container">
                 <div className="TopHomeSection"></div>
-                <title>দ্য নিউজ ২৪ :: আর্কাইভস</title>
-                <h2 className="DTitle"><Link to="/archives"><span className="DTitleInner"><span className="DTitleInnerBar"><span>আর্কাইভস</span></span></span></Link></h2>
+                <title>Archive :: The News 24</title>
+                <h2 className="DTitle"><Link to="/archives"><span className="DTitleInner"><span className="DTitleInnerBar"><span>Archive</span></span></span></Link></h2>
                 <div className="row">
                     <div className="col-sm-12 my-4">
                         <form className="form-inline" onSubmit={resultSubmit}>
                             <div className="form-group clearfix">
                                 <div className="row">
                                     <div className="col-sm-4 my-2">
-                                        <label htmlFor="start_date">  তারিখ হতে :</label>
+                                        <label htmlFor="start_date"> Start Date :</label>
                                         <input type="date" className="form-control hasDatepicker" id="datepicker" name="start_date" />
                                     </div>
                                     <div className="col-sm-4 my-2">
-                                        <label htmlFor="end_date">  তারিখ পর্যন্ত :</label>
+                                        <label htmlFor="end_date"> End Date :</label>
                                         <input type="date" id="datepickerto" name="end_date" className="form-control hasDatepicker" />
                                     </div>
                                     <div className="col-sm-4 my-2">
-                                        <label htmlFor="category_name">  সব ক্যাটাগরি :</label>
+                                        <label htmlFor="category_name">All Category :</label>
                                         <select defaultValue={'0'} name="category_name" className="form-control cboCatName">
-                                            <option value={"0"} disabled>সকল খবর</option>
+                                            <option value={"0"} disabled>All News</option>
                                             {allCategoryList.map((nc) => {
                                                 return (
                                                     <option key={nc.CategoryID} value={nc.CategoryID}>{nc.CategoryName}</option>
@@ -149,7 +149,7 @@ export default function Archives() {
                             </div>
                             <div id="btnDiv" className="text-center my-4">
                                 <button type="submit" name="btnSubmit" className="btn btn-lg btn-block ButtonBG">
-                                    খুঁজুন
+                                    Search
                                 </button>
                             </div>
                         </form>
@@ -158,7 +158,7 @@ export default function Archives() {
                 <div className="row">
                     <div className="col-md-12">
                         <div className="DAdd1 mb-4 d-flex  justify-content-center">
-                            <Link to="/"><img src={"/media/Advertisement/Advertisement(970X90).png"} alt="Advertisement" title="Advertisement" className="img-fluid img100" width={970} height={90} /></Link>
+                            <Link to="/english"><img src={"/media/Advertisement/Advertisement(970X90).png"} alt="Advertisement" title="Advertisement" className="img-fluid img100" width={970} height={90} /></Link>
                         </div>
                     </div>
                 </div>
@@ -167,7 +167,7 @@ export default function Archives() {
                         return (
                             <div className="col-lg-6 col-sm-12" key={nc.ContentID}>
                                 <div className="archiveListNews" >
-                                    <Link to={"/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
+                                    <Link to={"/english/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
                                         <div className="row">
                                             <div className="col-sm-4 col-5 card-video-part">
                                                 <div className="DImgZoomBlock">
@@ -182,7 +182,7 @@ export default function Archives() {
                                                         <p>{nc.ContentBrief}</p>
                                                     </div>
                                                 </div>
-                                                <p className="pDate">{banglaDateConvetar(nc.create_date)}</p>
+                                                <p className="pDate">{getTimeDistance(nc.create_date)}</p>
                                             </div>
                                         </div>
                                     </Link>
@@ -193,7 +193,7 @@ export default function Archives() {
                 </div>
                 {showMore &&
                     <div id="btnDiv" className="text-center mt-3 mb-4">
-                        <button onClick={toggleButtonState} id="ajax-more-btn" className="btn btn-lg btn-block ButtonBG">আরো খবর...</button>
+                        <button onClick={toggleButtonState} id="ajax-more-btn" className="btn btn-lg btn-block ButtonBG">Read More...</button>
                     </div>}
             </div>
       

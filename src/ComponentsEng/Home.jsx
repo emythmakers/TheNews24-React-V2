@@ -1,6 +1,16 @@
 import React, { useEffect } from 'react'
-import HomeLdJson from '../Components/HomeContent/HomeLdJson';
-
+import HomeLdJson from '../ComponentsEng/HomeContent/HomeLdJson';
+import DNational from '../ComponentsEng/HomeContent/DNational';
+import LeadNewsSection from '../ComponentsEng/HomeContent/LeadNewsSection'
+import DWorldSec from '../ComponentsEng/HomeContent/DWorldSec'
+import OpinionSec from '../ComponentsEng/HomeContent/OpinionSec';
+import DBusiness from '../ComponentsEng/HomeContent/DBusiness'
+import DEconomySec from './HomeContent/DEconomySec';
+import DTechnology from './HomeContent/DTechnology';
+import DScience from './HomeContent/DScience';
+import DEntertainment from '../ComponentsEng/HomeContent/DEntertainment';
+import Sports from '../ComponentsEng/HomeContent/Sports';
+import Lifestyle from '../ComponentsEng/HomeContent/Lifestyle';
 
 export default function Home() {
 
@@ -15,43 +25,26 @@ export default function Home() {
                 <>
                     <title>The News 24 ::  দ্য নিউজ ২৪</title>
                     <HomeLdJson />
-                    {/* popup */}
-                    {/* <HomeDesktopPopUp /> */}
-                    {/* Header Bottom Ads  */}
-                    {/* <div className="container">
-                        <div className="adsarea">
-                            <a href="https://www.shwapno.com/" target='blank'>
-                                <img
-                                    src={shopnoADS}
-                                    alt="The News 24"
-                                    title="The News 24"
-                                    className="img-fluid img100"
-                                    width={970}
-                                    height={90}
-                                />
-                            </a>
-                        </div>
-                    </div> */}
 
-                    {/* <LeadNewsSection />
+                    <LeadNewsSection />
                     <>
-                        <div className="video-area">
+                        {/* <div className="video-area">
                             <div className="container">
-                                <VideoSec />                             
+                                <VideoSec />
                             </div>
-                        </div>
-                        <section className="others-two-area">
+                        </div> */}
+                        {/* <section className="others-two-area">
                             <div className="container">
                                 <DCountry />
                             </div>
-                        </section>
+                        </section> */}
 
                         <section className="national-news-area">
                             <DNational />
                         </section>
-                        <section className="others-two-area">
+                        <section className="others-two-area mt-3">
                             <div className="container">
-                                <DInternationalSec />
+                                <DWorldSec />
                             </div>
                         </section>
                         <section className="opinion-area">
@@ -59,17 +52,22 @@ export default function Home() {
                                 <OpinionSec />
                             </div>
                         </section>
+                        <section className="others-two-area">
+                            <div className="container">
+                                <DBusiness />
+                            </div>
+                        </section>
                         <section className="common-post-area">
                             <div className="container">
                                 <div className="row">
                                     <div className="col-lg-4">
-                                        <DPoliticsSec />
+                                        <DEconomySec />
                                     </div>
                                     <div className="col-lg-4">
-                                        <DJob />
+                                        <DTechnology />
                                     </div>
                                     <div className="col-lg-4">
-                                        <DTrade />
+                                        <DScience />
                                     </div>
                                 </div>
                             </div>
@@ -89,12 +87,12 @@ export default function Home() {
                                 <Lifestyle />
                             </div>
                         </section>
-                        <section className="Photogallery-area">
+                        {/* <section className="Photogallery-area">
                             <div className="container">
                                 <PhotoSection />
                             </div>
-                        </section>
-                    </> */}
+                        </section> */}
+                    </>
                 </>
 
             </main>

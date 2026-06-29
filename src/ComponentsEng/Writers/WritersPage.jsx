@@ -21,7 +21,7 @@ export default function WritersPage() {
     useEffect(() => {
         offset = 0
         axios
-            .get(`${process.env.REACT_APP_API_URL}writers/${WriterSlug}`)
+            .get(`${process.env.REACT_APP_API_URL}en/writers/${WriterSlug}`)
             .then(({ data }) => {
                 if (data.writers.length !== 0) {
                     setWriters(data.writers)
@@ -30,7 +30,7 @@ export default function WritersPage() {
                 }
             })
         axios
-            .get(`${process.env.REACT_APP_API_URL}writers-content/${WriterSlug}/${limit}/${offset}`)
+            .get(`${process.env.REACT_APP_API_URL}en/writers-content/${WriterSlug}/${limit}/${offset}`)
             .then(({ data }) => {
                 if (data.writers_content.length < limit) {
                     showMore = false
@@ -55,7 +55,7 @@ export default function WritersPage() {
     const toggleButtonState = () => {
         offset += limit
         axios
-            .get(`${process.env.REACT_APP_API_URL}writers-content/${WriterSlug}/${limit}/${offset}`)
+            .get(`${process.env.REACT_APP_API_URL}en/writers-content/${WriterSlug}/${limit}/${offset}`)
             .then(({ data }) => {
                 if (data.writers_content.length < limit) {
                     showMore = false
@@ -80,7 +80,7 @@ export default function WritersPage() {
                                 <div className="col-sm-12">
                                     <div className="DTagName">
                                         <i className="fa-solid fa-user"></i>
-                                        <h1>লেখক বৃত্তান্ত:</h1>
+                                        <h1>Writer's Details:</h1>
                                     </div>
                                 </div>
                             </div>
@@ -164,7 +164,7 @@ export default function WritersPage() {
                                         {writersRelatedNews.map((nc) => {
                                             return (
                                                 <div className="archiveListNews" key={nc.WriterID}>
-                                                    <Link to={"/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
+                                                    <Link to={"/english/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
                                                         <div className="row">
                                                             <div className="col-sm-4 col-5 card-video-part">
                                                                 <div className="DImgZoomBlock">
@@ -189,7 +189,7 @@ export default function WritersPage() {
                                     {showMore &&
                                         <div id="btnDiv" className="text-center my-4">
                                             <button type="submit" name="btnSubmit" className="btn btn-lg btn-block ButtonBG" onClick={toggleButtonState}>
-                                                আরো পড়ুন
+                                                Read More
                                             </button>
                                         </div>}
                                 </div>

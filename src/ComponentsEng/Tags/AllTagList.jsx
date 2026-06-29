@@ -9,7 +9,7 @@ export default function AllTagList() {
 
     useEffect(() => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}tags`)
+            .get(`${process.env.REACT_APP_API_URL}en/tags`)
             .then(({ data }) => {
                 setAllTags(data.tags);
             });
@@ -22,10 +22,10 @@ export default function AllTagList() {
         <main>
             <div className="container">
                 <div className="TopHomeSection"></div>
-                <title>দ্য নিউজ ২৪ :: ট্যাগ সমূহ</title>
+                <title>The News 24 :: All Tag Lists</title>
                 <h2 className="DTitle">
-                    <Link to={+ '/'} onClick={scrollTop}>
-                        <span className="DTitleInner"><span className="DTitleInnerBar"><span>ট্যাগ সমূহ</span></span></span>
+                    <Link to={+ '/english/'} onClick={scrollTop}>
+                        <span className="DTitleInner"><span className="DTitleInnerBar"><span>All Tag Lists</span></span></span>
                     </Link>
                 </h2>
                 <div className="DTagListArea mb-5">
@@ -36,7 +36,7 @@ export default function AllTagList() {
                                     <div className="DTagListItem">
                                         <Link to={"/tags/" + nc.TagName}>
                                             <div className="Desc">
-                                                <h2 className="Title">{nc.TagName}{/* || <span>sara-ali-khan</span> */}
+                                                <h2 className="Title">{nc.TagName}
                                                 </h2>
                                             </div>
                                         </Link>

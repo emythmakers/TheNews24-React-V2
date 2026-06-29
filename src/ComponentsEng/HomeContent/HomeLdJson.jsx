@@ -8,7 +8,7 @@ export default function HomeLdJson() {
                 {`
                     {
                         "name":"TheNews24",
-                        "url":"${process.env.REACT_APP_FONT_DOMAIN_URL}",
+                        "url":"${process.env.REACT_APP_FONT_DOMAIN_URL}english",
                         "logo":{
                             "@context":"http://schema.org",
                             "@type":"ImageObject",
@@ -41,7 +41,7 @@ export default function HomeLdJson() {
                                 "@type": "ListItem",
                                 "position": 1,
                                 "name": "Home",
-                                "item": "${process.env.REACT_APP_FONT_DOMAIN_URL}"
+                                "item": "${process.env.REACT_APP_FONT_DOMAIN_URL}english"
                             }
                         ]
                     }
@@ -53,7 +53,7 @@ export default function HomeLdJson() {
                     {
                         "@context":"http://schema.org",
                         "@type":"Website",
-                        "url":"${process.env.REACT_APP_FONT_DOMAIN_URL}",
+                        "url":"${process.env.REACT_APP_FONT_DOMAIN_URL}english",
                         "interactivityType":"mixed",
                         "name":"TheNews24",
                         "headline":"TheNews24 is an online news portal of Bangladesh. It was established in 2017 with the commitment to publish objective and information-based news.",
@@ -64,12 +64,12 @@ export default function HomeLdJson() {
                         },
                         "potentialAction":{
                             "@type":"SearchAction",
-                            "target":"${process.env.REACT_APP_FONT_DOMAIN_URL}search/{query}",
+                            "target":"${process.env.REACT_APP_FONT_DOMAIN_URL}english/search/{query}",
                             "query-input":"required name=query"
                         },
                         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"${process.env.REACT_APP_FONT_DOMAIN_URL}"
+                            "@id":"${process.env.REACT_APP_FONT_DOMAIN_URL}english"
                         }
                     }
                        

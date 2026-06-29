@@ -6,7 +6,7 @@ import { Link, useParams } from 'react-router-dom'
 // import waltonAds from '../../assets/media/Advertisement/waltonR1.jpeg'
 // import psi from '../../assets/media/Advertisement/psi.jpeg'
 // import psiPdf from '../../assets/Final __PSI_____6  X 4.pdf'
-import { banglaDateConvetar, ForLazyLoaderImg, scrollTop, timeAgo } from '../AllFunctions'
+import {ForLazyLoaderImg, scrollTop, timeAgo } from '../AllFunctions'
 import ErrorPage from '../ErrorPage'
 import DCatLatest from './DCatLatest'
 import DCatPopular from './DCatPopular'
@@ -30,7 +30,7 @@ var dataCalled = false // for once call function
 
 var R_ContentData = []
 export default function Details() {
-    let { catSlug, id } = useParams()
+    let { catSlugEn, id } = useParams()
     const [catName, setCatName] = useState([])
     const [state, setState] = useState([])
     const [catLatest, setCatLatest] = useState([])
@@ -51,7 +51,7 @@ export default function Details() {
         // setTimeout(() => { setisLoading(false) }, 300);
         contentLoaded = false
         axios
-            .get(`${process.env.REACT_APP_API_URL}category/${catSlug}`)
+            .get(`${process.env.REACT_APP_API_URL}en/category/${catSlugEn}`)
             .then(({ data }) => {
                 if (data.category !== null) {
                     // setisLoading(false)
@@ -59,17 +59,17 @@ export default function Details() {
                     setCatName(data.category);
                     catID = data.category.CategoryID
                     axios
-                        .get(`${process.env.REACT_APP_API_URL}category-latest-content/${catID}/5`)
+                        .get(`${process.env.REACT_APP_API_URL}en/category-latest-content/${catID}/5`)
                         .then(({ data }) => {
                             setCatLatest(data.category_latest_contents);
                         });
                     axios
-                        .get(`${process.env.REACT_APP_API_URL}json/file/generateCategoryPopular${catID}.json`)
+                        .get(`${process.env.REACT_APP_API_URL}en/json/file/generateCategoryPopular${catID}.json`)
                         .then(({ data }) => {
                             setCatPopular(data.data.slice(0, 4));
                         });
                     axios
-                        .get(`${process.env.REACT_APP_API_URL}content-next-details/${catID}/${id}`)
+                        .get(`${process.env.REACT_APP_API_URL}en/content-next-details/${catID}/${id}`)
                         .then(({ data }) => {
                             nextNewsIDs = []
                             maxNews = data.data.length + 1
@@ -82,7 +82,7 @@ export default function Details() {
         if (!dataCalled) {
             dataCalled = true
             axios
-                .get(`${process.env.REACT_APP_API_URL}content-details/${catSlug}/${id}`)
+                .get(`${process.env.REACT_APP_API_URL}en/content-details/${catSlugEn}/${id}`)
                 .then(({ data }) => {
                     dataCalled = false
                     if (data.contentDetails.length > 0) {
@@ -113,7 +113,7 @@ export default function Details() {
                             setWriter([data.writerInfo])
                             if (data.contentDetails[0].RelNewsIDs) {
                                 axios
-                                    .get(`${process.env.REACT_APP_API_URL}related-news/${id}`)
+                                    .get(`${process.env.REACT_APP_API_URL}en/related-news/${id}`)
                                     .then(({ data }) => {
                                         R_ContentData['id' + id] = data.relatedNewslist;
                                     });
@@ -133,7 +133,7 @@ export default function Details() {
                     if (window.pageYOffset + 200 > (elmnt.offsetHeight + elmnt.offsetTop) - window.innerHeight && !ajaxLoading && counter + 1 < maxNews && nextNewsIDs[counter]) {
                         ajaxLoading = true;
                         axios
-                            .get(`${process.env.REACT_APP_API_URL}content-details/${catSlug}/${nextNewsIDs[counter]}`)
+                            .get(`${process.env.REACT_APP_API_URL}en/content-details/${catSlugEn}/${nextNewsIDs[counter]}`)
                             .then(({ data }) => {
                                 if (data.contentDetails && data.contentDetails[0] && data.contentDetails[0].ContentID && !document.getElementById(data.contentDetails[0].ContentID)) {
                                     setState(oldArray => [...oldArray, data.contentDetails[0]]);
@@ -159,7 +159,7 @@ export default function Details() {
                                     }
                                     setWriter(oldArray => [...oldArray, data.writerInfo])
                                     axios
-                                        .get(`${process.env.REACT_APP_API_URL}related-news/${nextNewsIDs[counter]}`)
+                                        .get(`${process.env.REACT_APP_API_URL}en/related-news/${nextNewsIDs[counter]}`)
                                         .then(({ data }) => {
                                             R_ContentData['id' + nextNewsIDs[counter]] = data.relatedNewslist;
                                         });
@@ -204,7 +204,7 @@ export default function Details() {
             window.removeEventListener("scroll", handleScroll);
             clearTimeout(timer);
         }
-    }, [catSlug, id])
+    }, [catSlugEn, id])
     if (!localStorage.getItem('contentView_' + id)) {
         localStorage.setItem('contentView_' + id, 1);
         axios
@@ -258,7 +258,7 @@ export default function Details() {
         relatedNewsDiv.className = 'DRelatedNewsSection d-print-none';
         const para = document.createElement("p");
         para.className = 'DRelatedNews Title';
-        para.innerHTML = `<i className="fa-solid fa-list"></i> আরও পড়ুন:`
+        para.innerHTML = `<i className="fa-solid fa-list"></i> Read More:`
         relatedNewsDiv.appendChild(para);
 
         const relatedNewsMainDiv = document.createElement('div');
@@ -270,7 +270,7 @@ export default function Details() {
             if (contentDetailsChildDiv !== null) {
                 R_HTML += `<div className="col-lg-3 col-12 d-flex ss">
                     <div className="DRelatedNewsList align-self-stretch">
-                        <a href=${process.env.REACT_APP_FONT_DOMAIN_URL + R_Arr[i].Slug + "/news/" + R_Arr[i].ContentID}>
+                        <a href=${process.env.REACT_APP_FONT_DOMAIN_URL + "english/" + R_Arr[i].Slug + "/news/" + R_Arr[i].ContentID}>
                             <div className="row">
                                 <div className="col-lg-12 col-sm-4 col-5">
                                     <div className="DImgZoomBlocktest">
@@ -305,7 +305,7 @@ export default function Details() {
                             <div className="row d-print-none">
                                 <div className="col-lg-12 col-12 my-2">
                                     <div className="DSecTitle">
-                                        <Link to={'/' + catName.Slug}>
+                                        <Link to={'/english/' + catName.Slug}>
                                             <h3><span className="ColorBox"></span>{catName.CategoryName}</h3>
                                         </Link>
                                     </div>
@@ -318,7 +318,7 @@ export default function Details() {
                             {state.map((news, i) => {
                                 return (
                                     <div className="newsDetail" id={news.ContentID} data-title={news.ContentHeading} key={news.ContentID}>
-                                        <Ldjson news={news} catName={catName} catSlug={catSlug} />
+                                        <Ldjson news={news} catName={catName} catSlugEn={catSlugEn} />
                                         <div className="row mt-2">
                                             <div className="col-lg-8 col-12">
                                                 <div className="ContentDetails">
@@ -344,7 +344,7 @@ export default function Details() {
                                                                 <DWriters writer={writer[i]} writersName={news.WriterName} />
                                                                 : false}
                                                             <div className='d-flex PRINTBTN'>
-                                                                <p className="DTopImgCaption" style={{ paddingRight: '10px', paddingTop: '10px' }}>{dateArray[i] && banglaDateConvetar(format(new Date(dateArray[i]), 'dd MMMM yyyy, H:mm'))}</p>
+                                                                <p className="DTopImgCaption" style={{ paddingRight: '10px', paddingTop: '10px' }}>{dateArray[i] && (format(new Date(dateArray[i]), 'dd MMMM yyyy, H:mm'))}</p>
                                                                 <button type="button" title='Print' onClick={PrintAble} aria-label='Print' className="printMe"><i className="fa-solid fa-print"></i></button>
                                                                 <DSocialShare title={news.ContentHeading} contentID={news.ContentID} />
                                                             </div>
@@ -357,8 +357,8 @@ export default function Details() {
                                                             </div>
                                                             <div className="DetailsTopCap">
                                                                 <p className="DTopImgCaption">{news.ImageBgPathCaption}</p>
-                                                                {/* <p className="DTopImgCaption">{dateArray[i][1] && banglaDateConvetar(dateArray[i][1])}</p> */}
-                                                                <p className="DTopImgCaption">{dateArray[i] && banglaDateConvetar(format(new Date(dateArray[i]), 'dd MMMM yyyy, H:mm'))}</p>
+                                                                {/* <p className="DTopImgCaption">{dateArray[i][1] && (dateArray[i][1])}</p> */}
+                                                                {/* <p className="DTopImgCaption">{dateArray[i] && (format(new Date(dateArray[i]), 'dd MMMM yyyy, H:mm'))}</p> */}
                                                             </div>
                                                         </div>
                                                         <div className="mt-2 mb-4 d-contents d-sm-flex justify-content-between align-items-center d-print-none">
@@ -380,7 +380,7 @@ export default function Details() {
                                                             <div className="auto-update-wrapper">
                                                                 <span className="title">
                                                                     <div className="SquareIcon"></div>
-                                                                    {toBengaliNumber(count.length)}টি আপডেট
+                                                                    {(count.length)}updates
 
                                                                 </span>
                                                             </div>
@@ -441,7 +441,7 @@ export default function Details() {
                                                         </a>
                                                     </div>
                                                 </div> */}
-                                                <DCatLatest catLatest={catLatest} catName={catName.CategoryName} catSlug={catSlug} />
+                                                <DCatLatest catLatest={catLatest} catName={catName.CategoryName} catSlugEn={catSlugEn} />
                                                 {/* <div className="row">
                                                     <div className="col-md-12 pb-3 ">
                                                         <a  href={psiPdf} download="Final __PSI_____6  X 4.pdf" target='blank'>
@@ -507,12 +507,12 @@ export default function Details() {
                                         </div>
                                     </div>
                                     <div className="DRelatedNews">
-                                        <DCatPopular catPopular={catPopular} catName={catName.CategoryName} catSlug={catSlug} />
+                                        <DCatPopular catPopular={catPopular} catName={catName.CategoryName} catSlugEn={catSlugEn} />
                                     </div>
                                 </div>
                                 <div className="col-lg-3 col-12">
                                     <div className="mt-4 d-block d-lg-none">
-                                        <DCatLatest catLatest={catLatest} catName={catName.CategoryName} catSlug={catSlug} />
+                                        <DCatLatest catLatest={catLatest} catName={catName.CategoryName} catSlugEn={catSlugEn} />
                                     </div>
                                 </div>
                             </div>

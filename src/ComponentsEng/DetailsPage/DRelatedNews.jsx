@@ -5,7 +5,7 @@ export default function DRelatedNews({ relatedNews }) {
     return (
         <>
             <div className="DRelatedNewsSection d-print-none">
-                <p className="DRelatedNews Title"><i className="fa-solid fa-list"></i> আরও পড়ুন:</p>
+                <p className="DRelatedNews Title"><i className="fa-solid fa-list"></i> Read More:</p>
                 <div className="row">
                     {relatedNews.map((nc) => {
                         return (

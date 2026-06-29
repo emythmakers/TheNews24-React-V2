@@ -13,7 +13,7 @@ export default function DNational() {
     const [national2, setNational2] = useState([])
     useEffect(() => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}json/file/generateCategory1.json`)
+            .get(`${process.env.REACT_APP_API_URL}en/json/file/generateCategory2.json`)
             .then(({ data }) => {
                 setNational(data.data[0])
                 setNational1(data.data[1])
@@ -30,7 +30,7 @@ export default function DNational() {
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="section-heading">
-                            <h2><Link to="/national" onClick={scrollTop}>জাতীয়</Link></h2>
+                            <h2><Link to="/english/national" onClick={scrollTop}>National</Link></h2>
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@ export default function DNational() {
                                 <div className="col-lg-8">
                                     {national ? 
                                     <div className="national-lead">
-                                        <Link to={"/" + national.Slug + "/news/" + national.ContentID} onClick={scrollTop}>
+                                        <Link to={"/english/" + national.Slug + "/news/" + national.ContentID} onClick={scrollTop}>
                                             <div className="national-img">
                                                 {national.ImageBgPath ?
                                                     <img src={process.env.REACT_APP_IMG_Path + national.ImageBgPath} alt={national.ContentHeading} title={national.ContentHeading} className="img-fluid" width={627} height={388} /> :
@@ -63,7 +63,7 @@ export default function DNational() {
                                 <div className="col-lg-4">
                                     {national1 ?
                                         <div className="national-leadTwo">
-                                            <Link to={"/" + national1.Slug + "/news/" + national1.ContentID} onClick={scrollTop}>
+                                            <Link to={"/english/" + national1.Slug + "/news/" + national1.ContentID} onClick={scrollTop}>
                                                 <div className="row">
                                                     <div className="col-5 col-lg-12">
                                                         <div className="national-leadTwo-img">
@@ -99,7 +99,7 @@ export default function DNational() {
                                     return (
                                         <div className="col-lg-4" key={i}>
                                             <div className="national-list">
-                                                <Link to={"/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
+                                                <Link to={"/english/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
                                                     <div className="row">
                                                         <div className="col-5 col-lg-12">
                                                             <div className="national-list-img">

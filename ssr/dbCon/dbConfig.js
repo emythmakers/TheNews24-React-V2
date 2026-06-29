@@ -29,6 +29,27 @@ function bnConfig() {
     };
 }
 
+function enConfig() {
+    const dbConn = mysql.createConnection( {
+        host: '127.0.0.1',
+        port: 3306,
+        user: dbUser,
+        password: dbPass,
+        database: 'thenews24_content_db_en',
+        // insecureAuth: true,
+        multipleStatements: true
+    } );
+    return {
+        query( sql, args ) {
+        return util.promisify( dbConn.query )
+            .call( dbConn, sql, args );
+        },
+        close() {
+        return util.promisify( dbConn.end ).call( dbConn );
+        }
+    };
+}
+
 function mediaConfig() {
     const dbConnMedia = mysql.createConnection( {
         host: '127.0.0.1',
@@ -71,4 +92,4 @@ function genConfig() {
     };
 }
 
-module.exports = { bnConfig, mediaConfig, genConfig };
+module.exports = { bnConfig,enConfig, mediaConfig, genConfig };

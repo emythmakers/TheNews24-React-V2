@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { scrollTop, ForLazyLoaderImg, getTimeDistance } from '../AllFunctions'
+import { scrollTop, ForLazyLoaderImg, getTimeDistance,  } from '../AllFunctions'
 // import LeadTopSlider from './LeadTopSlider'
 var lazyloaded = false
 export default function Sports() {
@@ -11,7 +11,7 @@ export default function Sports() {
 
     useEffect(() => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}json/file/generateCategory6.json`)
+            .get(`${process.env.REACT_APP_API_URL}en/json/file/generateCategory9.json`)
             .then(({ data }) => {
 
                 setSports(data.data.slice(0, 2))
@@ -30,8 +30,8 @@ export default function Sports() {
             <div className="row">
                 <div className="col-lg-12">
                     <div className="section-heading">
-                        <Link to="/sports" onClick={scrollTop}>
-                            <h2>খেলাধুলা</h2>
+                        <Link to="/english/sports" onClick={scrollTop}>
+                            <h2>Sports</h2>
                         </Link>
                     </div>
                 </div>
@@ -42,7 +42,7 @@ export default function Sports() {
                         return (
                             <div className="col-lg-6" key={nc.ContentID}>
                                 <div className="sports-lead-wrap">
-                                    <Link to={"/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
+                                    <Link to={"/english/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
                                         <div className="sports-lead-img">
                                             {nc.ImageBgPath ?
                                                 <img src={process.env.REACT_APP_IMG_Path + nc.ImageBgPath} alt={nc.ContentHeading} title={nc.ContentHeading} className="img-fluid" width={627} height={330} /> :
@@ -75,7 +75,7 @@ export default function Sports() {
                         return (
                             <div className="col-lg-3" key={nc.ContentID}>
                                 <div className="sports-list">
-                                    <Link to={"/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
+                                    <Link to={"/english/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
                                         <div className="sports-list-img">
                                             <div className="row">
                                                 <div className="col-5 col-lg-12">

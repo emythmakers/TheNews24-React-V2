@@ -34,7 +34,7 @@ export default function DFrom() {
                 <div className="row">
                     <div className="col-lg-4 col-12 pb-3  ">
                         <select defaultValue={'0'} name="category_name" className="form-control searchNews MLeftMargin">
-                            <option value="0" disabled>সব খবর এখানে খুজুন</option>
+                            <option value="0" disabled>Search news from here</option>
                             {allCategoryList.map((nc) => {
                                 return (
                                     <option key={nc.CategoryID} value={nc.CategoryID}>{nc.CategoryName}</option>
@@ -43,19 +43,19 @@ export default function DFrom() {
                         </select>
                     </div>
                     <div className="col-lg-3 col-12 pb-3  Tcenter">
-                        <label htmlFor="start_date"> তারিখ </label>
+                        <label htmlFor="start_date"> Date </label>
                         <input type="date" className="form-control hasDatepicker" id="datepicker"
                             name="start_date" />
                     </div>
                     <div className="col-lg-3 col-12 pb-3  Tcenter2">
-                        <label htmlFor="end_date"> থেকে </label>
+                        <label htmlFor="end_date"> From </label>
                         <input type="date" id="datepickerto" name="end_date"
                             className="form-control hasDatepicker" />
                     </div>
                     <div className="col-lg-2 col-12  pb-3 ">
                         <div id="btnDiv" className="text-center">
                             <button type="submit" name="btnSubmit"
-                                className="btn btn-danger ButtonBG">খুঁজুন</button>
+                                className="btn btn-danger ButtonBG">Search</button>
                         </div>
                     </div>
                 </div>

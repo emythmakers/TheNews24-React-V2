@@ -59,12 +59,12 @@ export default function Header() {
 
         const fetchData = async () => {
             try {
-                const breakingRes = await axios.get(`${process.env.REACT_APP_API_URL}active-breaking`);
+                const breakingRes = await axios.get(`${process.env.REACT_APP_API_URL}en/active-breaking`);
                 const breakingData = breakingRes.data.breaking;
                 setBreaking(breakingData);
 
                 if (breakingData.length === 0) {
-                    const scrollRes = await axios.get(`${process.env.REACT_APP_API_URL}json/file/generateActiveScroll.json`);
+                    const scrollRes = await axios.get(`${process.env.REACT_APP_API_URL}en/json/file/generateActiveScroll.json`);
                     setScroll(scrollRes.data.data || []);
                 }
             } catch (err) {
@@ -137,7 +137,7 @@ export default function Header() {
     const handelSubmit = (e) => {
         e.preventDefault();
         const txt = e.target.q.value;
-        navigate('/search/' + txt)
+        navigate('/english/search/' + txt)
     }
 
     return (
@@ -153,7 +153,7 @@ export default function Header() {
                             </div>
                             <div className="col-lg-6 d-flex align-items-center justify-content-end">
                                 <div className="live-icon">
-                                    <Link to="/live" onClick={scrollTop}><i className="fa-solid fa-play"></i><span>LIVE</span></Link>
+                                    <Link to="/english/live" onClick={scrollTop}><i className="fa-solid fa-play"></i><span>LIVE</span></Link>
                                 </div>
                                 <div className="header-social-icon">
                                     <a href="https://www.facebook.com/thenews24digital/" target="_blank"  rel="noreferrer"><i className="fa-brands fa-facebook-f"></i></a>
@@ -173,7 +173,7 @@ export default function Header() {
                                 <div className="col-lg-12">
                                     <nav className="navbar navbar-expand-lg navbar-light">
                                         <div className="container-fluid">
-                                            <a className="navbar-brand" href="/">
+                                            <a className="navbar-brand" href="/english">
                                                 <div className="logo">
                                                     <img className="img-fluid" src={process.env.REACT_APP_DOMAIN_URL + "media/common/logo.gif"} alt="The News 24 || দ্য নিউজ ২৪" title="The News 24 || দ্য নিউজ ২৪" />
                                                     {/* <img className="img-fluid" src={process.env.REACT_APP_DOMAIN_URL + "media/common/logo.png"} alt="The News 24 || দ্য নিউজ ২৪" title="The News 24 || দ্য নিউজ ২৪" /> */}
@@ -283,11 +283,11 @@ export default function Header() {
                                                         <div className="search-btn" >
                                                             <span className="icon-wrap">
                                                                 <span className={`search-input ${isSearchBoxActive ? 'search-box' : ''}`} >
-                                                                    <form onSubmit={handelSubmit} action="/search" method="get">
+                                                                    <form onSubmit={handelSubmit} action="/english/search" method="get">
                                                                         <span className="srch-close-btn" onClick={() => setIsSearchBoxActive(false)}><i
                                                                             className="far fa-times-circle"></i></span>
                                                                         <input type="text" name="q" className="form-control" aria-describedby="button-addon3"
-                                                                            id="search-terms" placeholder="লিখুন..." />
+                                                                            id="search-terms" placeholder="Write Here..." />
                                                                         <button type="submit" id="button-addon3"
                                                                             className="btn srch-sub-btn" aria-label="submit">Search</button>
                                                                     </form>
@@ -301,13 +301,13 @@ export default function Header() {
                                                 <div className="header-extra-wrap">
                                                     <div className="extr">
                                                         <a href="#"> <img src={ePper} alt="E-Paper" title='E-Paper' />E-Paper</a>
-                                                        <Link to="/english/archives" onClick={scrollTop}> <img src={archive} alt="আর্কাইভ" title='আর্কাইভ' />Archive</Link>
+                                                        <Link to="/english/archives" onClick={scrollTop}> <img src={archive} alt="Archive" title='Archive' />Archive</Link>
                                                         <a className="languBn
                                                         " href="/"> <img src={map}
                                                             alt="English" title='English' />বাংলা</a>
                                                     </div>
                                                     <div className="header-search">
-                                                        <form onSubmit={handelSubmit} action="/search" method="get">
+                                                        <form onSubmit={handelSubmit} action="/english/search" method="get">
                                                             <div className="input-group">
                                                                 <input type="text" name="q" className="form-control"
                                                                     aria-label="Recipient's username"
@@ -329,14 +329,14 @@ export default function Header() {
                         </div>
                     </div>
                     {/* marquee section */}
-                    {/* <div className="DScroll d-none d-lg-block">
+                    <div className="DScroll d-none d-lg-block">
                         <div className="container">
                             <div className="row">
                                 <div className="col-lg-10 m-auto">
                                     {breaking.length > 0 ?
                                         <div className="DScrollSection">
                                             <div className="ScrollHeading d-flex align-items-center">
-                                                <p>ব্রেকিং নিউজ:</p>
+                                                <p>Breaking News:</p>
                                             </div>
                                             <div className="ScrollSubject">
                                                 <Marquee Marquee delay='0' speed='70' direction="left" pauseOnHover={true} play={true}>
@@ -355,7 +355,7 @@ export default function Header() {
                                             {scroll.length > 0 ?
                                                 <div className="DScrollSection">
                                                     <div className="ScrollHeading d-flex align-items-center">
-                                                        <p>শিরোনাম:</p>
+                                                        <p>Headline:</p>
                                                     </div>
                                                     <div className="ScrollSubject">
                                                         <Marquee delay='0' speed='70' direction="left" pauseOnHover={true} play={true}>
@@ -375,7 +375,7 @@ export default function Header() {
                                 </div>
                             </div>
                         </div>
-                    </div> */}
+                    </div>
                   
                     {/* <!--mobile-navbar-part-start--> */}
                     <div className="mobile-menu-area d-block d-lg-none hide" id="myHeader2">
@@ -388,14 +388,14 @@ export default function Header() {
                                                 <i className="fas fa-bars"></i>
                                             </div>
                                             <div className="logo">
-                                                <a href="/">
+                                                <a href="/english">
                                                     <img className="img-fluid" src={process.env.REACT_APP_DOMAIN_URL + "media/common/logo.gif"} alt="The News 24 || দ্য নিউজ ২৪" title="The News 24 || দ্য নিউজ ২৪" />
                                                 </a>
                                             </div>
                                             <div className="search-btn">
                                                 <span className="icon-wrap">
                                                     <span className={`search-input ${isSearchBoxActive ? 'search-box' : ''}`}>
-                                                        <form onSubmit={handelSubmit} action="/search" method="get">
+                                                        <form onSubmit={handelSubmit} action="/english/search" method="get">
                                                             <span className="srch-close-btn" onClick={() => setIsSearchBoxActive(false)}><i className="far fa-times-circle"></i></span>
                                                             <input type="text" name="q" className="form-control" placeholder="লিখুন..." />
                                                             <button type="submit" className="btn srch-sub-btn" >Search</button>
@@ -411,7 +411,7 @@ export default function Header() {
                                     </div>
                                     <div className={`mobile-menu-overlay ${isToggleActive ? 'active' : ''}`}></div>
                                     <div className={`mobile-menu-main ${isToggleActive ? 'active' : ''}`}>
-                                        <a href="/">
+                                        <a href="/english">
                                             <div className="logo">
                                                 {/* <img className="img-fluid" src={process.env.REACT_APP_DOMAIN_URL + "media/common/logo.png"} alt="The News 24 || দ্য নিউজ ২৪" title="The News 24 || দ্য নিউজ ২৪" /> */}
                                                 <img className="img-fluid" src={process.env.REACT_APP_DOMAIN_URL + "media/common/logo.gif"} alt="The News 24 || দ্য নিউজ ২৪" title="The News 24 || দ্য নিউজ ২৪" />

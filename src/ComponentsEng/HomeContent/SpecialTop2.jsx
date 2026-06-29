@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { scrollTop, ForLazyLoaderImg, getTimeDistance } from '../AllFunctions'
+import { scrollTop, ForLazyLoaderImg, getTimeDistance,  } from '../AllFunctions'
 import { Link } from 'react-router-dom'
 
 var lazyloaded = false
@@ -9,7 +9,7 @@ export default function SpecialTop2() {
     const [state2, setState2] = useState([])
     useEffect(() => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}json/file/generateSpecial3.json`)
+            .get(`${process.env.REACT_APP_API_URL}en/json/file/generateSpecial2.json`)
             .then(({ data }) => {
                 if (data.data.length > 0) {
                     setState2(data.data.slice(0, 3));
@@ -27,7 +27,7 @@ export default function SpecialTop2() {
                 {state2.map((nc) => {
                     return (
                         <div className="lead-right-news-box" key={nc.ContentID}>
-                            <Link to={"/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
+                            <Link to={"/english/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
                                 <div className="row">
                                     <div className="col-5 col-lg-12">
                                         <div className="lead-right-news-img">

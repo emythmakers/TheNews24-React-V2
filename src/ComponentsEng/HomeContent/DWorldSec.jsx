@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { scrollTop, ForLazyLoaderImg, getTimeDistance } from '../AllFunctions'
+import { scrollTop, ForLazyLoaderImg, getTimeDistance,  } from '../AllFunctions'
 
 var lazyloaded = false
-export default function DInternationalSec() {
-    const [international, setInternational] = useState([])
-    const [international2, setInternational2] = useState([])
+export default function DWorldSec() {
+    const [world, setworld] = useState([])
+    const [world2, setworld2] = useState([])
 
     useEffect(() => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}json/file/generateCategory4.json`)
+            .get(`${process.env.REACT_APP_API_URL}en/json/file/generateCategory3.json`)
             .then(({ data }) => {
 
-                setInternational(data.data.slice(0, 6))
-                setInternational2(data.data[6])
+                setworld(data.data.slice(0, 6))
+                setworld2(data.data[6])
 
                 setTimeout(function () {
                     lazyloaded = false
@@ -29,8 +29,8 @@ export default function DInternationalSec() {
             <div className="row">
                 <div className="col-lg-12">
                     <div className="section-heading">
-                        <Link to="/international" onClick={scrollTop}>
-                            <h2>আন্তর্জাতিক</h2>
+                        <Link to="/english/world" onClick={scrollTop}>
+                            <h2>World</h2>
                         </Link>
                     </div>
                 </div>
@@ -40,11 +40,11 @@ export default function DInternationalSec() {
                 <div className="col-lg-8 order-lg-1 order-2">
                     <div className="othersTwo-list-wrap">
                         <div className="row">
-                            {international.map((nc, i) => {
+                            {world.map((nc, i) => {
                                 return (
                                     <div className="col-lg-6" key={i}>
                                         <div className="othersTwo-list">
-                                            <Link to={"/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
+                                            <Link to={"/english/" + nc.Slug + "/news/" + nc.ContentID} onClick={scrollTop}>
                                                 <div className="row gx-3">
                                                     <div className="col-lg-5 col-sm-3 col-5">
                                                         <div className="othersTwo-list-img">
@@ -75,24 +75,24 @@ export default function DInternationalSec() {
                         </div>
                     </div>
                 </div>
-                {international2 ? 
+                {world2 ? 
                 <div className="col-lg-4 order-lg-2 order-1">
                     <div className="others-Two-lead-wrap">
                         <div className="others-Two-lead">
-                            <Link to={"/" + international2.Slug + "/news/" + international2.ContentID} onClick={scrollTop}>
+                            <Link to={"/english/" + world2.Slug + "/news/" + world2.ContentID} onClick={scrollTop}>
                                 <div className="other-Two-lead-img">
-                                    {international2.ImageBgPath ?
-                                        <img src={process.env.REACT_APP_IMG_Path + international2.ImageBgPath} alt={international2.ContentHeading} title={international2.ContentHeading} className="img-fluid w-100"  width={410} height={254} /> :
-                                        <img src={process.env.REACT_APP_LAZYL_IMG} alt={international2.ContentHeading} title={international2.ContentHeading} className="img-fluid w-100"  width={410} height={254}/>}
+                                    {world2.ImageBgPath ?
+                                        <img src={process.env.REACT_APP_IMG_Path + world2.ImageBgPath} alt={world2.ContentHeading} title={world2.ContentHeading} className="img-fluid w-100"  width={410} height={254} /> :
+                                        <img src={process.env.REACT_APP_LAZYL_IMG} alt={world2.ContentHeading} title={world2.ContentHeading} className="img-fluid w-100"  width={410} height={254}/>}
 
-                                    {international2.ShowVideo === 1 && <div className="card-video-icon big transition"> <i className="fa-solid fa-play"></i> </div>}
+                                    {world2.ShowVideo === 1 && <div className="card-video-icon big transition"> <i className="fa-solid fa-play"></i> </div>}
                                 </div>
                                 <div className="Desc">
-                                    <h3 className="Title">{international2.ContentSubHeading ? (international2.ContentSubHeading + "/" + international2.ContentHeading) : (international2.ContentHeading)}</h3>
-                                    <p className="Brief">{international2.ContentBrief}</p>
+                                    <h3 className="Title">{world2.ContentSubHeading ? (world2.ContentSubHeading + "/" + world2.ContentHeading) : (world2.ContentHeading)}</h3>
+                                    <p className="Brief">{world2.ContentBrief}</p>
                                     <div className="news-Time">
-                                        <span className="time">{getTimeDistance(international2.created_at ? international2.created_at : "")}</span>
-                                        <span>{international2.CategoryName}</span>
+                                        <span className="time">{getTimeDistance(world2.created_at ? world2.created_at : "")}</span>
+                                        <span>{world2.CategoryName}</span>
                                     </div>
                                 </div>
                             </Link>

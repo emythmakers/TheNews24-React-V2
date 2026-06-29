@@ -17,7 +17,7 @@ export default function DWriters({ writer, writersName }) {
                     </p>
                 </div>
                 :
-                <div className="WritterName mt-2"><p><i className="fa-solid fa-pen"></i> {writersName}<span className='DInitial'>, দ্য নিউজ ২৪</span></p></div>
+                <div className="WritterName mt-2"><p><i className="fa-solid fa-pen"></i> {writersName}<span className='DInitial'>, The News 24</span></p></div>
             }
         </>
     )

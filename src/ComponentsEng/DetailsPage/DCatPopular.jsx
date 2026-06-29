@@ -1,19 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { scrollTop } from '../AllFunctions'
-export default function DCatPopular({ catPopular, catName, catSlug }) {
+export default function DCatPopular({ catPopular, catName, catSlugEn }) {
     return (
         <>
-            <div className="DSecTitle2">
-                <h2>এই সপ্তাহের সর্বাধিক পঠিত গুরুত্বপূর্ণ {catName} খবর</h2>
-            </div>
+            {catPopular.lenght > 0 ?
+                <div className="DSecTitle2">
+                    <h2> Weekly {catName} News</h2>
+                </div>  : ""
+            }
             <div className="DBottomNews">
                 <div className="row">
                     {catPopular.map((nc) => {
                         return (
                             <div className="col-lg-6 col-12" key={nc.ContentID}>
                                 <div className="DTop3List">
-                                    <Link to={"/" + catSlug + "/news/" + nc.ContentID} onClick={scrollTop}>
+                                    <Link to={"/english/" + catSlugEn + "/news/" + nc.ContentID} onClick={scrollTop}>
                                         <div className="row">
                                             <div className="col-lg-4 col-sm-4 col-5">
                                                 <div className="DImgZoomBlock">
