@@ -2,7 +2,7 @@ import React from 'react'
 import LeadNews from './LeadNews'
 import SpecialTop1 from './SpecialTop1'
 import SpecialTop2 from './SpecialTop2';
-import protibad from '../../assets/media/Advertisement/protibad.png'
+// import protibad from '../../assets/media/Advertisement/protibad.png'
 
 export default function LeadNewsSection() {
 
@@ -18,9 +18,9 @@ export default function LeadNewsSection() {
                             <LeadNews />
                         </div>
                         <div className="col-lg-3 order-3">
-                            <div className="DAdd1 d-flex  justify-content-center mb-5">
+                            {/* <div className="DAdd1 d-flex  justify-content-center mb-5">
                                 <img src={protibad} alt="Advertisement" title="Advertisement" className="img-fluid img100" width={300} height={250} />
-                            </div>
+                            </div> */}
                             <SpecialTop2 />
                         </div>
                     </div>
