@@ -28,7 +28,6 @@ function bnConfig() {
         }
     };
 }
-
 function enConfig() {
     const dbConn = mysql.createConnection( {
         host: '127.0.0.1',
@@ -92,4 +91,4 @@ function genConfig() {
     };
 }
 
-module.exports = { bnConfig,enConfig, mediaConfig, genConfig };
+module.exports = { bnConfig, enConfig, mediaConfig, genConfig };

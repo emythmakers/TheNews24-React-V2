@@ -48,6 +48,7 @@ var httpServer = http.createServer(app);
 
 const dbConfig = require("./ssr/dbCon/dbConfig");
 const bnConfig = dbConfig.bnConfig();
+const enConfig = dbConfig.enConfig();
 const mediaConfig = dbConfig.mediaConfig();
 const genConfig = dbConfig.genConfig();
 
@@ -484,6 +485,349 @@ app.get('/video', function (request, response) {
     });
 });
 
+// english 
+app.get('/english', function (request, response) {
+    console.log('English Home page  visited!');
+    const filePath = path.resolve(__dirname, './build', 'index.html');
+    fs.readFile(filePath, 'utf8', async function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+        data = data.replace(/\$OG_TITLE/g, 'The News 24 || দ্য নিউজ ২৪');
+        data = data.replace(/\$OG_DESCRIPTION/g, "The News 24 || দ্য নিউজ ২৪");
+        data = data.replace(/\$OG_KEYWORDS/g, "The News 24, দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
+        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+        // var fullUrl = request.protocol + '://' + request.hostname + request.originalUrl;
+        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+    	data = data.replace(/\$AMP_URL/g, '');
+        response.send(data);
+    });
+});
+app.get('/english/aboutUs', function (request, response) {
+    console.log('aboutUs page visited!');
+    const filePath = path.resolve(__dirname, './build', 'index.html');
+    fs.readFile(filePath, 'utf8', async function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+        data = data.replace(/\$OG_TITLE/g, 'দ্য নিউজ ২৪ :: আমাদের সম্পর্কে');
+        data = data.replace(/\$OG_DESCRIPTION/g, "দ্য নিউজ ২৪ :: আমাদের সম্পর্কে");
+        data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
+        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+    	data = data.replace(/\$AMP_URL/g, '');
+        response.send(data);
+    });
+});
+app.get('/english/live', function (request, response) {
+    console.log('English live page visited!');
+    const filePath = path.resolve(__dirname, './build', 'index.html');
+    fs.readFile(filePath, 'utf8', async function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+        data = data.replace(/\$OG_TITLE/g, 'দ্য নিউজ ২৪ :: লাইভ');
+        data = data.replace(/\$OG_DESCRIPTION/g, "দ্য নিউজ ২৪ :: লাইভ");
+        data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
+        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+    	data = data.replace(/\$AMP_URL/g, '');
+        response.send(data);
+    });
+});
+app.get('/english/pollresult', function (request, response) {
+    console.log('English poll result page visited!');
+    const filePath = path.resolve(__dirname, './build', 'index.html');
+    fs.readFile(filePath, 'utf8', async function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+        data = data.replace(/\$OG_TITLE/g, 'দ্য নিউজ ২৪ :: অনলাইন জরিপ');
+        data = data.replace(/\$OG_DESCRIPTION/g, "দ্য নিউজ ২৪ :: অনলাইন জরিপ");
+        data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
+        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+    	data = data.replace(/\$AMP_URL/g, '');
+        response.send(data);
+    });
+});
+app.get('/english/privacy-policy', function (request, response) {
+    console.log('English privacy-policy page visited!');
+    const filePath = path.resolve(__dirname, './build', 'index.html')
+    fs.readFile(filePath, 'utf8', function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+        data = data.replace(/\$OG_TITLE/g, 'দ্য নিউজ ২৪ :: Privacy Policy');
+        data = data.replace(/\$OG_DESCRIPTION/g, "দ্য নিউজ ২৪ :: Privacy Policy");
+        data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
+        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+    	data = data.replace(/\$AMP_URL/g, '');
+        response.send(data);
+    });
+});
+app.get('/english/terms-service', function (request, response) {
+    console.log('English terms-conditions page visited!');
+    const filePath = path.resolve(__dirname, './build', 'index.html')
+    fs.readFile(filePath, 'utf8', function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+        data = data.replace(/\$OG_TITLE/g, 'দ্য নিউজ ২৪ :: Terms & Conditions');
+        data = data.replace(/\$OG_DESCRIPTION/g, "দ্য নিউজ ২৪ :: Terms & Conditions");
+        data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
+        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+    	data = data.replace(/\$AMP_URL/g, '');
+        response.send(data);
+    });
+});
+app.get('/english/the-news', function (request, response) {
+    console.log('English the news page visited!');
+    const filePath = path.resolve(__dirname, './build', 'index.html')
+    fs.readFile(filePath, 'utf8', function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+        data = data.replace(/\$OG_TITLE/g, 'দ্য নিউজ :: দ্য নিউজ ২৪');
+        data = data.replace(/\$OG_DESCRIPTION/g, "দ্য নিউজ :: দ্য নিউজ ২৪");
+        data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
+        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+    	data = data.replace(/\$AMP_URL/g, '');
+        response.send(data);
+    });
+});
+app.get('/english/contact-us', function (request, response) {
+    console.log('English the contact us page visited!');
+    const filePath = path.resolve(__dirname, './build', 'index.html')
+    fs.readFile(filePath, 'utf8', function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+        data = data.replace(/\$OG_TITLE/g, 'যোগাযোগ করুন :: দ্য নিউজ ২৪');
+        data = data.replace(/\$OG_DESCRIPTION/g, "যোগাযোগ করুন :: দ্য নিউজ ২৪");
+        data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
+        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+    	data = data.replace(/\$AMP_URL/g, '');
+        response.send(data);
+    });
+});
+app.get('/english/advertise', function (request, response) {
+    console.log('English the Advertise page visited!');
+    const filePath = path.resolve(__dirname, './build', 'index.html')
+    fs.readFile(filePath, 'utf8', function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+        data = data.replace(/\$OG_TITLE/g, 'Advertise :: The News 24');
+        data = data.replace(/\$OG_DESCRIPTION/g, "Advertise :: The News 24");
+        data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
+        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+    	data = data.replace(/\$AMP_URL/g, '');
+        response.send(data);
+    });
+});
+app.get('/english/editorial-policy', function (request, response) {
+    console.log('English the Editorial Policy page visited!');
+    const filePath = path.resolve(__dirname, './build', 'index.html')
+    fs.readFile(filePath, 'utf8', function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+        data = data.replace(/\$OG_TITLE/g, 'Editorial Policy :: The News 24');
+        data = data.replace(/\$OG_DESCRIPTION/g, "Editorial Policy :: The News 24");
+        data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
+        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+    	data = data.replace(/\$AMP_URL/g, '');
+        response.send(data);
+    });
+});
+app.get('/english/copyright', function (request, response) {
+    console.log('English the copyright page visited!');
+    const filePath = path.resolve(__dirname, './build', 'index.html')
+    fs.readFile(filePath, 'utf8', function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+        data = data.replace(/\$OG_TITLE/g, 'Copyright :: The News 24');
+        data = data.replace(/\$OG_DESCRIPTION/g, "Copyright :: The News 24");
+        data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
+        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+    	data = data.replace(/\$AMP_URL/g, '');
+        response.send(data);
+    });
+});
+app.get('/english/reader-right', function (request, response) {
+    console.log('English the reader right page visited!');
+    const filePath = path.resolve(__dirname, './build', 'index.html')
+    fs.readFile(filePath, 'utf8', function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+        data = data.replace(/\$OG_TITLE/g, 'Reader Right :: The News 24');
+        data = data.replace(/\$OG_DESCRIPTION/g, "Reader Right :: The News 24");
+        data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
+        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+    	data = data.replace(/\$AMP_URL/g, '');
+        response.send(data);
+    });
+});
+app.get('/english/fileComplaint', function (request, response) {
+    console.log('English the file Complaint page visited!');
+    const filePath = path.resolve(__dirname, './build', 'index.html')
+    fs.readFile(filePath, 'utf8', function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+        data = data.replace(/\$OG_TITLE/g, 'File Complaint :: The News 24');
+        data = data.replace(/\$OG_DESCRIPTION/g, "File Complaint :: The News 24");
+        data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
+        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+    	data = data.replace(/\$AMP_URL/g, '');
+        response.send(data);
+    });
+});
+app.get('/english/sitemep', function (request, response) {
+    console.log('the Sitemep page visited!');
+    const filePath = path.resolve(__dirname, './build', 'index.html')
+    fs.readFile(filePath, 'utf8', function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+        data = data.replace(/\$OG_TITLE/g, 'সাইট ম্যাপ :: দ্য নিউজ ২৪');
+        data = data.replace(/\$OG_DESCRIPTION/g, "সাইট ম্যাপ :: দ্য নিউজ ২৪");
+        data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
+        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+    	data = data.replace(/\$AMP_URL/g, '');
+        response.send(data);
+    });
+});
+app.get('/english/subscription', function (request, response) {
+    console.log('the subscription page visited!');
+    const filePath = path.resolve(__dirname, './build', 'index.html')
+    fs.readFile(filePath, 'utf8', function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+        data = data.replace(/\$OG_TITLE/g, 'সাবস্ক্রিপশন :: দ্য নিউজ ২৪');
+        data = data.replace(/\$OG_DESCRIPTION/g, "সাবস্ক্রিপশন :: দ্য নিউজ ২৪");
+        data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
+        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+    	data = data.replace(/\$AMP_URL/g, '');
+        response.send(data);
+    });
+});
+app.get('/english/all_tags', function (request, response) {
+    console.log('all_tags page english visited!');
+    const filePath = path.resolve(__dirname, './build', 'index.html');
+    fs.readFile(filePath, 'utf8', async function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+        data = data.replace(/\$OG_TITLE/g, 'The News 24 :: All Tag Lists');
+        data = data.replace(/\$OG_DESCRIPTION/g, "The News 24 :: All Tag Lists");
+        data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
+        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+    	data = data.replace(/\$AMP_URL/g, '');
+        response.send(data);
+    });
+});
+app.get('/english/all_writers', function (request, response) {
+    console.log('all_writers page visited!');
+    const filePath = path.resolve(__dirname, './build', 'index.html');
+    fs.readFile(filePath, 'utf8', async function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+        data = data.replace(/\$OG_TITLE/g, 'The News 24 :: All Writers');
+        data = data.replace(/\$OG_DESCRIPTION/g, "The News 24 :: All Writers");
+        data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
+        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+    	data = data.replace(/\$AMP_URL/g, '');
+        response.send(data);
+    });
+});
+app.get('/english/archives', function (request, response) {
+    console.log('archive page english visited!');
+    const filePath = path.resolve(__dirname, './build', 'index.html');
+    fs.readFile(filePath, 'utf8', async function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+        data = data.replace(/\$OG_TITLE/g, 'Archive :: The News 24');
+        data = data.replace(/\$OG_DESCRIPTION/g, "Archive :: The News 24");
+        data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
+        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+    	data = data.replace(/\$AMP_URL/g, '');
+        response.send(data);
+    });
+});
 
 app.get('/sitemap/static-sitemap.xml', function (request, response) {
     response.setHeader('Content-Type', 'application/xml');
@@ -1619,6 +1963,75 @@ app.get('/:catSlug/:subCatSlug', async function (request, response) {
         });
     }
 });
+// english category 
+app.get('/english/:catSlugEn', async function (request, response) {
+    let catSlug = request.params.catSlugEn;
+    console.log('english Category page visited!' + catSlug);
+    const filePath = path.resolve(__dirname, './build', 'index.html');
+
+    let sql = `SELECT CategoryID, CategoryName FROM en_bas_categories WHERE Slug=?`;
+    try {
+        const queryData = await enConfig.query( sql, [catSlug] );
+        if (queryData && queryData.length > 0) {
+            let title = queryData[0].CategoryName;
+            let keyword = title.split(" ");
+            keyword = keyword.toString();
+            fs.readFile(filePath, 'utf8', async function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+                data = data.replace(/\$OG_TITLE/g, `${title} | ${title} Latest News :: The News 24`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `${title}`);
+                data = data.replace(/\$OG_KEYWORDS/g, `${keyword}`);
+                data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+            	var ampUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + '/amp' + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$AMP_URL/g, '<link rel="amphtml" href="'+ampUrl+'"></link>');
+                response.send(data);
+            });
+        } else {
+            fs.readFile(filePath, 'utf8', function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+                data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
+                data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+            	var ampUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + '/amp' + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$AMP_URL/g, '<link rel="amphtml" href="'+ampUrl+'"></link>');
+                response.send(data);
+            });
+        }
+    }
+    catch (err) {
+        console.log('contentDetails error');
+        console.log(err);
+        fs.readFile(filePath, 'utf8', function (err, data) {
+            if (err) {
+                return console.log(err);
+            }
+            data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+            data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+            // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+            var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+            data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+        	var ampUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + '/amp' + (request.originalUrl).replace(/\/+$/, '');
+            data = data.replace(/\$AMP_URL/g, '<link rel="amphtml" href="'+ampUrl+'"></link>');
+            response.send(data);
+        });
+    }
+});
 
 app.get('/photo-feature/news/:photoID', async function (request, response) {
     let photoID = request.params.photoID;
@@ -1652,6 +2065,159 @@ app.get('/photo-feature/news/:photoID', async function (request, response) {
                 data = data.replace(/\$OG_DESCRIPTION/g, `${description}`);
                 data = data.replace(/\$OG_KEYWORDS/g, `${keyword}`);
                 data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/imgAll/${image}`);
+                // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+            	data = data.replace(/\$AMP_URL/g, '');
+                response.send(data);
+            });
+        } else {
+            fs.readFile(filePath, 'utf8', function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+                data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
+                data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+            	data = data.replace(/\$AMP_URL/g, '');
+                response.send(data);
+            });
+        }
+    }catch (err) {
+        console.log('contentDetails error');
+        console.log(err);
+        fs.readFile(filePath, 'utf8', function (err, data) {
+            if (err) {
+                return console.log(err);
+            }
+            data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+            data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+            // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+            var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+            data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+        	data = data.replace(/\$AMP_URL/g, '');
+            response.send(data);
+        });
+    }
+});
+
+app.get('/english/search/:searchSlug', function (request, response) {
+    console.log('English Search page visited!');
+    const filePath = path.resolve(__dirname, './build', 'index.html');
+    fs.readFile(filePath, 'utf8', async function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+        data = data.replace(/\$OG_TITLE/g, 'Search | Search Latest News :: The News 24');
+        data = data.replace(/\$OG_DESCRIPTION/g, "Search | Search Latest News :: The News 24");
+        data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
+        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+    	data = data.replace(/\$AMP_URL/g, '');
+        response.send(data);
+    });
+});
+
+app.get('/english/writers/:WriterSlug', async function (request, response) {
+    let WriterSlug = request.params.WriterSlug;
+    console.log('eNGLISH Writers page visited!' + WriterSlug);
+    const filePath = path.resolve(__dirname, './build', 'index.html');
+
+    let sql = `SELECT WriterID, WriterName FROM en_writers WHERE Slug=?`;
+    try {
+        const queryData = await enConfig.query( sql, [WriterSlug] );
+
+        if (queryData && queryData.length > 0) {
+            let title = queryData[0].WriterName;
+            let keyword = title.split(" ");
+            keyword = keyword.toString();
+            fs.readFile(filePath, 'utf8', async function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+                data = data.replace(/\$OG_TITLE/g, `${title}`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `${title}`);
+                data = data.replace(/\$OG_KEYWORDS/g, `${keyword}`);
+                data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+            	data = data.replace(/\$AMP_URL/g, '');
+                response.send(data);
+            });
+        } else {
+            fs.readFile(filePath, 'utf8', function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+                data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
+                data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+            	data = data.replace(/\$AMP_URL/g, '');
+                response.send(data);
+            });
+        }
+    }
+    catch (err) {
+        console.log('contentDetails error');
+        console.log(err);
+        fs.readFile(filePath, 'utf8', function (err, data) {
+            if (err) {
+                return console.log(err);
+            }
+            data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+            data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+            // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+            var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+            data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+        	data = data.replace(/\$AMP_URL/g, '');
+            response.send(data);
+        });
+    }
+});
+
+app.get('/english/tags/:TagTitle', async function (request, response) {
+    let TagTitle = request.params.TagTitle;
+    console.log('english Tags page visited!' + TagTitle);
+    const filePath = path.resolve(__dirname, './build', 'index.html');
+
+    let sql = `SELECT TagID, TagName FROM en_tags WHERE TagName=?`;
+    try {
+        const queryData = await enConfig.query( sql, [TagTitle] );
+
+        if (queryData && queryData.length > 0) {
+            let title = queryData[0].TagName;
+            let keyword = title.split(" ");
+            keyword = keyword.toString();
+            fs.readFile(filePath, 'utf8', async function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+                data = data.replace(/\$OG_TITLE/g, `${title}`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `${title}`);
+                data = data.replace(/\$OG_KEYWORDS/g, `${keyword}`);
+                data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
                 // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
                 var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
                 data = data.replace(/\$OG_URL/g, `${fullUrl}`);
@@ -2318,7 +2884,153 @@ app.get('/amp/:catSlug/news/:id', async function (request, response) {
         });
     }
 });
+// english details page
+app.get('/english/:catSlugEn/news/:id', async function (request, response) {
+    let catSlug = request.params.catSlugEn;
+    let id = request.params.id;
+    console.log('Detail page visited!' + catSlug + ' ' + id);
+    const filePath = path.resolve(__dirname, './build', 'index.html');
 
+    let sql = `SELECT en_contents.ContentID, en_contents.CategoryIDs, en_contents.ContentHeading, en_contents.ContentBrief, en_contents.ImageBgPath, en_contents.URLAlies, en_contents.Keywords, en_contents.PlateType, en_contents.ImagePlatePath FROM en_contents WHERE en_contents.ContentID=? AND en_contents.ShowContent=1 AND en_contents.Deletable=1`;
+    // let sql = `SELECT bn_contents.ContentID, bn_contents.CategoryIDs, bn_contents.ContentHeading, bn_contents.CategoryIDs, bn_contents.ContentSubHeading, bn_contents.DetailsHeading, bn_contents.ContentShoulder, bn_contents.WriterID, bn_contents.ReporterID, bn_contents.DistCorsID, bn_contents.SubEditorID, bn_contents.WriterName, bn_contents.ContentBrief, bn_contents.ContentDetails, bn_contents.ImageSmPath, bn_contents.ImageSmPathCaption, bn_contents.ImageBgPath, bn_contents.ImageBgPathCaption, bn_contents.Tags, bn_contents.RelNews, bn_contents.RelNewsIDs, bn_contents.InvolvedNews, bn_contents.InvolvedIDs, bn_contents.VideoSource AS Source, bn_contents.VideoID, bn_contents.VideoPath, bn_contents.VideoType, bn_contents.ShowVideo, bn_contents.URLAlies, bn_contents.Keywords, bn_contents.PlateType, bn_contents.ImagePlatePath, bn_contents.Initial, bn_contents.VideoID, bn_contents.VideoPath, bn_contents.VideoType, bas_districts.DistrictNameBn, bas_districts.DistrictSlug, bn_contents.created_at as create_date, bn_contents.updated_at as updated_date FROM bn_contents LEFT JOIN bas_districts ON bn_contents.DistrictID=bas_districts.DistrictID WHERE bn_contents.ContentID=? AND bn_contents.ShowContent=1 AND bn_contents.Deletable=1`;
+
+    try { const contentDetails = await enConfig.query( sql, [id] );
+        if (contentDetails && contentDetails.length > 0) {
+
+            let categoryCheck;
+            try { categoryCheck = await enConfig.query( 'SELECT CategoryID, CategoryName, Slug FROM en_bas_categories WHERE Slug=?', [catSlug] );
+                // console.log(typeof categoryCheck);
+            }
+            catch (err) { console.log('categoryCheck error'); return ''; }
+            // try { categoryCheck = await enConfig.query( 'SELECT CategoryName, Slug FROM bn_bas_categories WHERE CategoryID IN (?)', [contentDetails[0].CategoryIDs] );
+            //     // console.log(typeof categoryCheck);
+            // }
+            // catch (err) { console.log('categoryCheck error'); return ''; }
+
+            if (categoryCheck && categoryCheck.length > 0) {
+                let categoryMatched = false
+                let categoryCheckValues=(contentDetails[0].CategoryIDs).split(",");
+                if(categoryCheckValues.includes((categoryCheck[0].CategoryID).toString())){categoryMatched=true}
+                // // let categoryCheckValues = [];
+                // // let categoryCheckValues = Object.values(categoryCheck.Slug);
+                // for (let i = 0; i < categoryCheckValues.length; i++) {
+                //     if(categoryCheck[i].Slug==catSlug){ categoryMatched=true; break; }
+                // }
+                // // console.log(categoryCheckValues);
+
+                if(categoryMatched){
+                    let title = contentDetails[0].ContentHeading;
+                    let description = contentDetails[0].ContentBrief;
+                    if (!description) {
+                        description = title
+                    } else {
+                        description = (contentDetails[0].ContentBrief).replace(/(<([^>]+)>)/ig, '')
+                    }
+                    let image = '';
+                    if (contentDetails[0].PlateType > 0) {
+                        image = contentDetails[0].ImagePlatePath;
+                    } else {
+                        image = contentDetails[0].ImageBgPath
+                    }
+                    let keyword = '';
+                    if (contentDetails[0].Keywords) {
+                        keyword = contentDetails[0].Keywords
+                    } else {
+                        keyword = title.split(" ");
+                        keyword = keyword.toString();
+                    }
+                    fs.readFile(filePath, 'utf8', async function (err, data) {
+                        if (err) {
+                            return console.log(err);
+                        }
+                        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+                        data = data.replace(/\$OG_TITLE/g, `${title}`);
+                        data = data.replace(/\$OG_DESCRIPTION/g, `${description}`);
+                        data = data.replace(/\$OG_KEYWORDS/g, `${keyword}`);
+                        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/imgAll/${image}`);
+                        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+                        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+                    	var ampUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + '/amp' + (request.originalUrl).replace(/\/+$/, '');
+                        data = data.replace(/\$AMP_URL/g, '<link rel="amphtml" href="'+ampUrl+'"></link>');
+                        response.send(data);
+                    });
+                }else{
+                    fs.readFile(filePath, 'utf8', function (err, data) {
+                        if (err) {
+                            return console.log(err);
+                        }
+                        data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+                        data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
+                        data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
+                        data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
+                        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+                        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+                    	var ampUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + '/amp' + (request.originalUrl).replace(/\/+$/, '');
+                        data = data.replace(/\$AMP_URL/g, '<link rel="amphtml" href="'+ampUrl+'"></link>');
+                        return response.send(data);
+                    });
+                }
+            }else{
+                fs.readFile(filePath, 'utf8', function (err, data) {
+                    if (err) {
+                        return console.log(err);
+                    }
+                    data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+                    data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
+                    data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
+                    data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
+                    data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                    // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                    var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+                    data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+                	var ampUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + '/amp' + (request.originalUrl).replace(/\/+$/, '');
+                    data = data.replace(/\$AMP_URL/g, '<link rel="amphtml" href="'+ampUrl+'"></link>');
+                    return response.send(data);
+                });
+            }
+        } else {
+            fs.readFile(filePath, 'utf8', function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+                data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
+                data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+            	var ampUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + '/amp' + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$AMP_URL/g, '<link rel="amphtml" href="'+ampUrl+'"></link>');
+                response.send(data);
+            });
+        }
+    }
+    catch (err) {
+        console.log('contentDetails error');
+        console.log(err);
+        fs.readFile(filePath, 'utf8', function (err, data) {
+            if (err) {
+                return console.log(err);
+            }
+            data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+            data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+            // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+            var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+            data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+        	var ampUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + '/amp' + (request.originalUrl).replace(/\/+$/, '');
+            data = data.replace(/\$AMP_URL/g, '<link rel="amphtml" href="'+ampUrl+'"></link>');
+            response.send(data);
+        });
+    }
+});
 
 app.use(express.static(path.resolve(__dirname, './build')));
 // app.use('/amp', express.static(path.resolve(__dirname, './buildAmp')))

@@ -48,12 +48,11 @@ var httpServer = http.createServer(app);
 
 const dbConfig = require("./ssr/dbCon/dbConfig");
 const bnConfig = dbConfig.bnConfig();
-const enConfig = dbConfig.enConfig();
 const mediaConfig = dbConfig.mediaConfig();
 const genConfig = dbConfig.genConfig();
 
 var FEndPort = 3400;
-var FEndUrl = 'https://www.thenews24.com/english';
+var FEndUrl = 'https://www.thenews24.com/';
 var BEndUrl = 'https://backoffice.thenews24.com/';
 
 // app.enable('trust proxy')
@@ -74,8 +73,8 @@ var BEndUrl = 'https://backoffice.thenews24.com/';
 // }) // auto redirect to www.
 
 
-app.get('/english', function (request, response) {
-    console.log('English Home page  visited!');
+app.get('/', function (request, response) {
+    console.log('Home page visited!');
     const filePath = path.resolve(__dirname, './build', 'index.html');
     fs.readFile(filePath, 'utf8', async function (err, data) {
         if (err) {
@@ -94,7 +93,7 @@ app.get('/english', function (request, response) {
     });
 });
 
-app.get('/english/aboutUs', function (request, response) {
+app.get('/aboutUs', function (request, response) {
     console.log('aboutUs page visited!');
     const filePath = path.resolve(__dirname, './build', 'index.html');
     fs.readFile(filePath, 'utf8', async function (err, data) {
@@ -114,28 +113,28 @@ app.get('/english/aboutUs', function (request, response) {
     });
 });
 
-// app.get('/photo-feature', function (request, response) {
-//     console.log('live page visited!');
-//     const filePath = path.resolve(__dirname, './build', 'index.html');
-//     fs.readFile(filePath, 'utf8', async function (err, data) {
-//         if (err) {
-//             return console.log(err);
-//         }
-//         data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
-//         data = data.replace(/\$OG_TITLE/g, 'ছবিঘর | ছবিঘর সর্বশেষ খবর :: দ্য নিউজ ২৪');
-//         data = data.replace(/\$OG_DESCRIPTION/g, "ছবিঘর | ছবিঘর সর্বশেষ খবর :: দ্য নিউজ ২৪");
-//         data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
-//         data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//         // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//         var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
-//         data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//     	data = data.replace(/\$AMP_URL/g, '');
-//         response.send(data);
-//     });
-// });
+app.get('/photo-feature', function (request, response) {
+    console.log('live page visited!');
+    const filePath = path.resolve(__dirname, './build', 'index.html');
+    fs.readFile(filePath, 'utf8', async function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+        data = data.replace(/\$OG_TITLE/g, 'ছবিঘর | ছবিঘর সর্বশেষ খবর :: দ্য নিউজ ২৪');
+        data = data.replace(/\$OG_DESCRIPTION/g, "ছবিঘর | ছবিঘর সর্বশেষ খবর :: দ্য নিউজ ২৪");
+        data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
+        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+    	data = data.replace(/\$AMP_URL/g, '');
+        response.send(data);
+    });
+});
 
-app.get('/english/live', function (request, response) {
-    console.log('English live page visited!');
+app.get('/live', function (request, response) {
+    console.log('live page visited!');
     const filePath = path.resolve(__dirname, './build', 'index.html');
     fs.readFile(filePath, 'utf8', async function (err, data) {
         if (err) {
@@ -154,8 +153,8 @@ app.get('/english/live', function (request, response) {
     });
 });
 
-app.get('/english/pollresult', function (request, response) {
-    console.log('English poll result page visited!');
+app.get('/pollresult', function (request, response) {
+    console.log('poll result page visited!');
     const filePath = path.resolve(__dirname, './build', 'index.html');
     fs.readFile(filePath, 'utf8', async function (err, data) {
         if (err) {
@@ -174,8 +173,8 @@ app.get('/english/pollresult', function (request, response) {
     });
 });
 
-app.get('/english/privacy-policy', function (request, response) {
-    console.log('English privacy-policy page visited!');
+app.get('/privacy-policy', function (request, response) {
+    console.log('privacy-policy page visited!');
     const filePath = path.resolve(__dirname, './build', 'index.html')
     fs.readFile(filePath, 'utf8', function (err, data) {
         if (err) {
@@ -194,8 +193,8 @@ app.get('/english/privacy-policy', function (request, response) {
     });
 });
 
-app.get('/english/terms-service', function (request, response) {
-    console.log('English terms-conditions page visited!');
+app.get('/terms-service', function (request, response) {
+    console.log('terms-conditions page visited!');
     const filePath = path.resolve(__dirname, './build', 'index.html')
     fs.readFile(filePath, 'utf8', function (err, data) {
         if (err) {
@@ -213,8 +212,8 @@ app.get('/english/terms-service', function (request, response) {
         response.send(data);
     });
 });
-app.get('/english/the-news', function (request, response) {
-    console.log('English the news page visited!');
+app.get('/the-news', function (request, response) {
+    console.log('the news page visited!');
     const filePath = path.resolve(__dirname, './build', 'index.html')
     fs.readFile(filePath, 'utf8', function (err, data) {
         if (err) {
@@ -232,8 +231,8 @@ app.get('/english/the-news', function (request, response) {
         response.send(data);
     });
 });
-app.get('/english/contact-us', function (request, response) {
-    console.log('English the contact us page visited!');
+app.get('/contact-us', function (request, response) {
+    console.log('the contact us page visited!');
     const filePath = path.resolve(__dirname, './build', 'index.html')
     fs.readFile(filePath, 'utf8', function (err, data) {
         if (err) {
@@ -251,16 +250,16 @@ app.get('/english/contact-us', function (request, response) {
         response.send(data);
     });
 });
-app.get('/english/advertise', function (request, response) {
-    console.log('English the Advertise page visited!');
+app.get('/advertise', function (request, response) {
+    console.log('the Advertise page visited!');
     const filePath = path.resolve(__dirname, './build', 'index.html')
     fs.readFile(filePath, 'utf8', function (err, data) {
         if (err) {
             return console.log(err);
         }
         data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
-        data = data.replace(/\$OG_TITLE/g, 'Advertise :: The News 24');
-        data = data.replace(/\$OG_DESCRIPTION/g, "Advertise :: The News 24");
+        data = data.replace(/\$OG_TITLE/g, 'বিজ্ঞাপন :: দ্য নিউজ ২৪');
+        data = data.replace(/\$OG_DESCRIPTION/g, "বিজ্ঞাপন :: দ্য নিউজ ২৪");
         data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
         data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
         // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
@@ -270,16 +269,16 @@ app.get('/english/advertise', function (request, response) {
         response.send(data);
     });
 });
-app.get('/english/editorial-policy', function (request, response) {
-    console.log('English the Editorial Policy page visited!');
+app.get('/editorial-policy', function (request, response) {
+    console.log('the Editorial Policy page visited!');
     const filePath = path.resolve(__dirname, './build', 'index.html')
     fs.readFile(filePath, 'utf8', function (err, data) {
         if (err) {
             return console.log(err);
         }
         data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
-        data = data.replace(/\$OG_TITLE/g, 'Editorial Policy :: The News 24');
-        data = data.replace(/\$OG_DESCRIPTION/g, "Editorial Policy :: The News 24");
+        data = data.replace(/\$OG_TITLE/g, 'সম্পাদকীয় নীতি :: দ্য নিউজ ২৪');
+        data = data.replace(/\$OG_DESCRIPTION/g, "সম্পাদকীয় নীতি :: দ্য নিউজ ২৪");
         data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
         data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
         // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
@@ -289,16 +288,16 @@ app.get('/english/editorial-policy', function (request, response) {
         response.send(data);
     });
 });
-app.get('/english/copyright', function (request, response) {
-    console.log('English the copyright page visited!');
+app.get('/copyright', function (request, response) {
+    console.log('the copyright page visited!');
     const filePath = path.resolve(__dirname, './build', 'index.html')
     fs.readFile(filePath, 'utf8', function (err, data) {
         if (err) {
             return console.log(err);
         }
         data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
-        data = data.replace(/\$OG_TITLE/g, 'Copyright :: The News 24');
-        data = data.replace(/\$OG_DESCRIPTION/g, "Copyright :: The News 24");
+        data = data.replace(/\$OG_TITLE/g, 'কপিরাইট নীতি :: দ্য নিউজ ২৪');
+        data = data.replace(/\$OG_DESCRIPTION/g, "কপিরাইট নীতি :: দ্য নিউজ ২৪");
         data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
         data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
         // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
@@ -308,16 +307,16 @@ app.get('/english/copyright', function (request, response) {
         response.send(data);
     });
 });
-app.get('/english/reader-right', function (request, response) {
-    console.log('English the reader right page visited!');
+app.get('/reader-right', function (request, response) {
+    console.log('the reader right page visited!');
     const filePath = path.resolve(__dirname, './build', 'index.html')
     fs.readFile(filePath, 'utf8', function (err, data) {
         if (err) {
             return console.log(err);
         }
         data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
-        data = data.replace(/\$OG_TITLE/g, 'Reader Right :: The News 24');
-        data = data.replace(/\$OG_DESCRIPTION/g, "Reader Right :: The News 24");
+        data = data.replace(/\$OG_TITLE/g, 'কপিরাইট নীতি :: দ্য নিউজ ২৪');
+        data = data.replace(/\$OG_DESCRIPTION/g, "কপিরাইট নীতি :: দ্য নিউজ ২৪");
         data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
         data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
         // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
@@ -327,16 +326,16 @@ app.get('/english/reader-right', function (request, response) {
         response.send(data);
     });
 });
-app.get('/english/fileComplaint', function (request, response) {
-    console.log('English the file Complaint page visited!');
+app.get('/fileComplaint', function (request, response) {
+    console.log('the file Complaint page visited!');
     const filePath = path.resolve(__dirname, './build', 'index.html')
     fs.readFile(filePath, 'utf8', function (err, data) {
         if (err) {
             return console.log(err);
         }
         data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
-        data = data.replace(/\$OG_TITLE/g, 'File Complaint :: The News 24');
-        data = data.replace(/\$OG_DESCRIPTION/g, "File Complaint :: The News 24");
+        data = data.replace(/\$OG_TITLE/g, 'অভিযোগ দায়ের :: দ্য নিউজ ২৪');
+        data = data.replace(/\$OG_DESCRIPTION/g, "অভিযোগ দায়ের :: দ্য নিউজ ২৪");
         data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
         data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
         // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
@@ -346,7 +345,7 @@ app.get('/english/fileComplaint', function (request, response) {
         response.send(data);
     });
 });
-app.get('/english/sitemep', function (request, response) {
+app.get('/sitemep', function (request, response) {
     console.log('the Sitemep page visited!');
     const filePath = path.resolve(__dirname, './build', 'index.html')
     fs.readFile(filePath, 'utf8', function (err, data) {
@@ -365,7 +364,7 @@ app.get('/english/sitemep', function (request, response) {
         response.send(data);
     });
 });
-app.get('/english/subscription', function (request, response) {
+app.get('/subscription', function (request, response) {
     console.log('the subscription page visited!');
     const filePath = path.resolve(__dirname, './build', 'index.html')
     fs.readFile(filePath, 'utf8', function (err, data) {
@@ -384,16 +383,17 @@ app.get('/english/subscription', function (request, response) {
         response.send(data);
     });
 });
-app.get('/english/all_tags', function (request, response) {
-    console.log('all_tags page english visited!');
+
+app.get('/all_tags', function (request, response) {
+    console.log('all_tags page visited!');
     const filePath = path.resolve(__dirname, './build', 'index.html');
     fs.readFile(filePath, 'utf8', async function (err, data) {
         if (err) {
             return console.log(err);
         }
         data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
-        data = data.replace(/\$OG_TITLE/g, 'The News 24 :: All Tag Lists');
-        data = data.replace(/\$OG_DESCRIPTION/g, "The News 24 :: All Tag Lists");
+        data = data.replace(/\$OG_TITLE/g, 'দ্য নিউজ ২৪ :: ট্যাগ সমূহ');
+        data = data.replace(/\$OG_DESCRIPTION/g, "দ্য নিউজ ২৪ :: ট্যাগ সমূহ");
         data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
         data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
         // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
@@ -403,7 +403,8 @@ app.get('/english/all_tags', function (request, response) {
         response.send(data);
     });
 });
-app.get('/english/all_writers', function (request, response) {
+
+app.get('/all_writers', function (request, response) {
     console.log('all_writers page visited!');
     const filePath = path.resolve(__dirname, './build', 'index.html');
     fs.readFile(filePath, 'utf8', async function (err, data) {
@@ -411,8 +412,8 @@ app.get('/english/all_writers', function (request, response) {
             return console.log(err);
         }
         data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
-        data = data.replace(/\$OG_TITLE/g, 'The News 24 :: All Writers');
-        data = data.replace(/\$OG_DESCRIPTION/g, "The News 24 :: All Writers");
+        data = data.replace(/\$OG_TITLE/g, 'দ্য নিউজ ২৪ :: লেখক সমূহ');
+        data = data.replace(/\$OG_DESCRIPTION/g, "দ্য নিউজ ২৪ :: লেখক সমূহ");
         data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
         data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
         // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
@@ -422,16 +423,17 @@ app.get('/english/all_writers', function (request, response) {
         response.send(data);
     });
 });
-app.get('/english/archives', function (request, response) {
-    console.log('archive page english visited!');
+
+app.get('/archives', function (request, response) {
+    console.log('archive page visited!');
     const filePath = path.resolve(__dirname, './build', 'index.html');
     fs.readFile(filePath, 'utf8', async function (err, data) {
         if (err) {
             return console.log(err);
         }
         data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
-        data = data.replace(/\$OG_TITLE/g, 'Archive :: The News 24');
-        data = data.replace(/\$OG_DESCRIPTION/g, "Archive :: The News 24");
+        data = data.replace(/\$OG_TITLE/g, 'দ্য নিউজ ২৪ :: আর্কাইভস');
+        data = data.replace(/\$OG_DESCRIPTION/g, "দ্য নিউজ ২৪ :: আর্কাইভস");
         data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
         data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
         // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
@@ -442,45 +444,45 @@ app.get('/english/archives', function (request, response) {
     });
 });
 
-// app.get('/namaj', function (request, response) {
-//     console.log('namaj page visited!');
-//     const filePath = path.resolve(__dirname, './build', 'index.html');
-//     fs.readFile(filePath, 'utf8', async function (err, data) {
-//         if (err) {
-//             return console.log(err);
-//         }
-//         data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
-//         data = data.replace(/\$OG_TITLE/g, 'দ্য নিউজ ২৪ :: নামাজের সময়');
-//         data = data.replace(/\$OG_DESCRIPTION/g, "দ্য নিউজ ২৪ :: নামাজের সময়");
-//         data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
-//         data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//         // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//         var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
-//         data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//     	data = data.replace(/\$AMP_URL/g, '');
-//         response.send(data);
-//     });
-// });
+app.get('/namaj', function (request, response) {
+    console.log('namaj page visited!');
+    const filePath = path.resolve(__dirname, './build', 'index.html');
+    fs.readFile(filePath, 'utf8', async function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+        data = data.replace(/\$OG_TITLE/g, 'দ্য নিউজ ২৪ :: নামাজের সময়');
+        data = data.replace(/\$OG_DESCRIPTION/g, "দ্য নিউজ ২৪ :: নামাজের সময়");
+        data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
+        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+    	data = data.replace(/\$AMP_URL/g, '');
+        response.send(data);
+    });
+});
 
-// app.get('/video', function (request, response) {
-//     console.log('video-gallery page visited!');
-//     const filePath = path.resolve(__dirname, './build', 'index.html');
-//     fs.readFile(filePath, 'utf8', async function (err, data) {
-//         if (err) {
-//             return console.log(err);
-//         }
-//         data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
-//         data = data.replace(/\$OG_TITLE/g, 'দ্য নিউজ ২৪ :: ভিডিও গ্যালারী');
-//         data = data.replace(/\$OG_DESCRIPTION/g, "দ্য নিউজ ২৪ :: ভিডিও গ্যালারী");
-//         data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
-//         data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//         // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//         var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
-//         data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//     	data = data.replace(/\$AMP_URL/g, '');
-//         response.send(data);
-//     });
-// });
+app.get('/video', function (request, response) {
+    console.log('video-gallery page visited!');
+    const filePath = path.resolve(__dirname, './build', 'index.html');
+    fs.readFile(filePath, 'utf8', async function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+        data = data.replace(/\$OG_TITLE/g, 'দ্য নিউজ ২৪ :: ভিডিও গ্যালারী');
+        data = data.replace(/\$OG_DESCRIPTION/g, "দ্য নিউজ ২৪ :: ভিডিও গ্যালারী");
+        data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
+        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+    	data = data.replace(/\$AMP_URL/g, '');
+        response.send(data);
+    });
+});
 
 
 app.get('/sitemap/static-sitemap.xml', function (request, response) {
@@ -500,9 +502,9 @@ app.get('/sitemap/category-sitemap.xml', async function (request, response) {
     response.setHeader('Content-Type', 'application/xml');
     console.log('sitemap/category-sitemap.xml visited!');
 
-    let sql = `SELECT CategoryID, ParentID, CategoryName, Slug, created_at, updated_at FROM en_bas_categories WHERE ShowData=1 AND Deletable=1 ORDER BY CategoryID ASC;`;
+    let sql = `SELECT CategoryID, ParentID, CategoryName, Slug, created_at, updated_at FROM bn_bas_categories WHERE ShowData=1 AND Deletable=1 ORDER BY CategoryID ASC;`;
     try {
-        const queryData = await enConfig.query( sql );
+        const queryData = await bnConfig.query( sql );
         let xml = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`
         let cats = []
         if (queryData && queryData.length > 0) {
@@ -540,13 +542,13 @@ app.get('/sitemap/category-sitemap.xml', async function (request, response) {
     }
 });
 
-app.get('/sitemap-en/:sitemap', async function (request, response) {
+app.get('/sitemap-bn/:sitemap', async function (request, response) {
     let sitemap = request.params.sitemap
-    console.log(`sitemap-en/${sitemap} visited!`);
-    if (!sitemap || !sitemap.includes("sitemap-en-")) {
+    console.log(`sitemap-bn/${sitemap} visited!`);
+    if (!sitemap || !sitemap.includes("sitemap-bn-")) {
         return response.send({ error: true, message: 'Invalid Sitemap Request' });
     }
-    let c = sitemap.replace('sitemap-en-', '').replace('.xml', '')
+    let c = sitemap.replace('sitemap-bn-', '').replace('.xml', '')
     let offset = '';
 
     if (c > 0) {
@@ -557,9 +559,9 @@ app.get('/sitemap-en/:sitemap', async function (request, response) {
 
     response.setHeader('Content-Type', 'application/xml');
 
-    let sql = `SELECT en_contents.ContentID, en_contents.ContentHeading, en_contents.ImageSmPath, en_contents.ImageBgPath, en_contents.ImageBgPathCaption, en_contents.created_at, en_contents.updated_at, en_contents.URLAlies, DATE_FORMAT(en_contents.created_at, "%Y-%m-%d") as fcreated_at, DATE_FORMAT(en_contents.updated_at, "%Y-%m-%d") as fupdated_at, en_bas_categories.Slug FROM en_contents INNER JOIN en_bas_categories ON en_contents.CategoryIDs=en_bas_categories.CategoryID WHERE en_contents.Deletable=1 AND en_contents.ShowContent=1 ORDER BY en_contents.ContentID ASC LIMIT 5000 ${offset}`;
+    let sql = `SELECT bn_contents.ContentID, bn_contents.ContentHeading, bn_contents.ImageSmPath, bn_contents.ImageBgPath, bn_contents.ImageBgPathCaption, bn_contents.created_at, bn_contents.updated_at, bn_contents.URLAlies, DATE_FORMAT(bn_contents.created_at, "%Y-%m-%d") as fcreated_at, DATE_FORMAT(bn_contents.updated_at, "%Y-%m-%d") as fupdated_at, bn_bas_categories.Slug FROM bn_contents INNER JOIN bn_bas_categories ON bn_contents.CategoryIDs=bn_bas_categories.CategoryID WHERE bn_contents.Deletable=1 AND bn_contents.ShowContent=1 ORDER BY bn_contents.ContentID ASC LIMIT 5000 ${offset}`;
     try {
-        const queryData = await enConfig.query( sql );
+        const queryData = await bnConfig.query( sql );
         if (queryData && queryData.length > 0) {
             let xml = `<urlset xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
             for (let i = 0; i < queryData.length; i++) {
@@ -571,7 +573,7 @@ app.get('/sitemap-en/:sitemap', async function (request, response) {
                 }
                 let moddate = new Date(lastmoddate)
                 xml += `<url>
-                <loc>${FEndUrl}/${queryData[i].Slug}/news/${queryData[i].ContentID}</loc>
+                <loc>${FEndUrl}${queryData[i].Slug}/news/${queryData[i].ContentID}</loc>
                     <image:image>
                         <image:loc>${BEndUrl}media/imgAll/${queryData[i].ImageBgPath}</image:loc>
                         <image:caption>
@@ -620,7 +622,7 @@ app.get('/sitemap/:dailysitemap', async function (request, response) {
         }
         catch (err) { console.log('PhotoFeatureData error'); return '<urlset xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>'; }
 
-        let sql = `SELECT en_contents.ContentID, en_contents.ContentHeading, en_contents.ImageBgPath, en_contents.ImageBgPathCaption, en_contents.created_at, en_contents.updated_at, en_bas_categories.Slug FROM en_contents INNER JOIN en_bas_categories ON en_contents.CategoryIDs=en_bas_categories.CategoryID WHERE en_contents.Deletable=1 AND en_contents.ShowContent=1 AND DATE(en_contents.created_at) = ? ORDER BY en_contents.ContentID DESC`;
+        let sql = `SELECT bn_contents.ContentID, bn_contents.ContentHeading, bn_contents.ImageBgPath, bn_contents.ImageBgPathCaption, bn_contents.created_at, bn_contents.updated_at, bn_bas_categories.Slug FROM bn_contents INNER JOIN bn_bas_categories ON bn_contents.CategoryIDs=bn_bas_categories.CategoryID WHERE bn_contents.Deletable=1 AND bn_contents.ShowContent=1 AND DATE(bn_contents.created_at) = ? ORDER BY bn_contents.ContentID DESC`;
         try {
             const queryData = await bnConfig.query( sql, [date] );
             let xml = `<urlset xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`
@@ -635,7 +637,7 @@ app.get('/sitemap/:dailysitemap', async function (request, response) {
                     let moddate = new Date(lastmoddate)
 
                     xml += `<url>
-                        <loc>${FEndUrl}/${queryData[i].Slug}/news/${queryData[i].ContentID}</loc>
+                        <loc>${FEndUrl}${queryData[i].Slug}/news/${queryData[i].ContentID}</loc>
                         <image:image>
                             <image:loc>${BEndUrl}media/imgAll/${queryData[i].ImageBgPath}</image:loc>
                             <image:caption>
@@ -775,7 +777,7 @@ app.get('/sitemap-index.xml', function (request, response) {
     }
     for (let i = 0; i < 1; i++) {
         xml += `<sitemap>
-            <loc>${FEndUrl}sitemap-en/sitemap-en-${i + 1}.xml</loc>
+            <loc>${FEndUrl}sitemap-bn/sitemap-bn-${i + 1}.xml</loc>
             <lastmod>${todate.toISOString()}</lastmod>
         </sitemap>`
     }
@@ -802,7 +804,7 @@ app.get('/robots.txt', function (request, response) {
         xml += `Sitemap: ${FEndUrl}sitemap/sitemap-daily-${todate.getFullYear()}-${todate.getMonth() < 9 ? '0' + (todate.getMonth() + 1) : todate.getMonth() + 1}-${todate.getDate() < 10 ? '0' + todate.getDate() : todate.getDate()}.xml\n`
     }
     for (let i = 0; i < 1; i++) {
-        xml += `Sitemap: ${FEndUrl}sitemap-en/sitemap-en-${i + 1}.xml\n`
+        xml += `Sitemap: ${FEndUrl}sitemap-bn/sitemap-bn-${i + 1}.xml\n`
     }
     for (let i = 0; i < 1; i++) {
         xml += `Sitemap: ${FEndUrl}sitemap-video/sitemap-video-${i + 1}.xml\n`
@@ -815,9 +817,9 @@ app.get('/news-sitemap.xml', async function (request, response) {
     response.setHeader('Content-Type', 'application/xml');
     console.log('news-sitemap.xml visited!');
 
-    let sql = `SELECT en_contents.ContentID, en_contents.ContentHeading, en_contents.URLAlies,DATE_FORMAT(en_contents.created_at, "%Y-%m-%d") as fcreated_at, DATE_FORMAT(en_contents.updated_at, "%Y-%m-%d") as fupdated_at, en_bas_categories.Slug FROM en_contents INNER JOIN en_bas_categories ON en_contents.CategoryIDs=en_bas_categories.CategoryID WHERE en_contents.Deletable=1 AND en_contents.ShowContent=1 ORDER BY en_contents.ContentID DESC LIMIT 500`;
+    let sql = `SELECT bn_contents.ContentID, bn_contents.ContentHeading, bn_contents.URLAlies,DATE_FORMAT(bn_contents.created_at, "%Y-%m-%d") as fcreated_at, DATE_FORMAT(bn_contents.updated_at, "%Y-%m-%d") as fupdated_at, bn_bas_categories.Slug FROM bn_contents INNER JOIN bn_bas_categories ON bn_contents.CategoryIDs=bn_bas_categories.CategoryID WHERE bn_contents.Deletable=1 AND bn_contents.ShowContent=1 ORDER BY bn_contents.ContentID DESC LIMIT 500`;
     try {
-        const queryData = await enConfig.query( sql );
+        const queryData = await bnConfig.query( sql );
         if (queryData && queryData.length > 0) {
             let xml = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">`;
             for (let i = 0; i < queryData.length; i++) {
@@ -832,7 +834,7 @@ app.get('/news-sitemap.xml', async function (request, response) {
                     <news:news>
                         <news:publication>
                         <news:name>The News 24</news:name>
-                        <news:language>en</news:language>
+                        <news:language>bn</news:language>
                         </news:publication>
                         <news:publication_date>${date}</news:publication_date>
                         <news:title>${(queryData[i].ContentHeading).replace("&", "&amp;")}</news:title>
@@ -857,7 +859,7 @@ app.get('/news-sitemap.xml', async function (request, response) {
     }
 });
 
-app.get('/english/rss/rss.xml', async function (request, response) {
+app.get('/rss/rss.xml', async function (request, response) {
     response.setHeader('Content-Type', 'application/xml');
     console.log('rss.xml visited!');
 
@@ -910,7 +912,7 @@ app.get('/english/rss/rss.xml', async function (request, response) {
     let year = date_ob.getFullYear()
     let curdate = `${weekdayname}, ${day} ${monthname} ${year}`
 
-    let sql = `SELECT en_contents.ContentID, en_contents.ContentHeading, en_contents.ContentBrief, en_contents.ImageBgPath, en_contents.URLAlies,DATE_FORMAT(en_contents.created_at, "%Y-%m-%d") as fcreated_at, DATE_FORMAT(en_contents.updated_at, "%Y-%m-%d") as fupdated_at, DATE_FORMAT(en_contents.created_at, '%W, %e %M %Y, %H:%i') as create_date, DATE_FORMAT(en_contents.updated_at, '%W, %e %M %Y, %H:%i') as updated_date, en_bas_categories.Slug FROM en_contents INNER JOIN en_bas_categories ON en_contents.CategoryIDs=en_bas_categories.CategoryID WHERE en_contents.Deletable=1 AND en_contents.ShowContent=1 ORDER BY en_contents.ContentID DESC LIMIT 120`;
+    let sql = `SELECT bn_contents.ContentID, bn_contents.ContentHeading, bn_contents.ContentBrief, bn_contents.ImageBgPath, bn_contents.URLAlies,DATE_FORMAT(bn_contents.created_at, "%Y-%m-%d") as fcreated_at, DATE_FORMAT(bn_contents.updated_at, "%Y-%m-%d") as fupdated_at, DATE_FORMAT(bn_contents.created_at, '%W, %e %M %Y, %H:%i') as create_date, DATE_FORMAT(bn_contents.updated_at, '%W, %e %M %Y, %H:%i') as updated_date, bn_bas_categories.Slug FROM bn_contents INNER JOIN bn_bas_categories ON bn_contents.CategoryIDs=bn_bas_categories.CategoryID WHERE bn_contents.Deletable=1 AND bn_contents.ShowContent=1 ORDER BY bn_contents.ContentID DESC LIMIT 120`;
     try {
         const queryData = await bnConfig.query( sql );
         if (queryData && queryData.length > 0) {
@@ -934,7 +936,7 @@ app.get('/english/rss/rss.xml', async function (request, response) {
                     <![CDATA[ Copyright: (C) TheNews24. ]]>
                 </copyright>
                 <language>
-                    <![CDATA[ en ]]>
+                    <![CDATA[ bn ]]>
                 </language>
                 <ttl>15</ttl>
                 <atom:link href="${FEndUrl}rss/rss.xml" rel="self" type="application/rss+xml"/>`;
@@ -953,8 +955,8 @@ app.get('/english/rss/rss.xml', async function (request, response) {
                     <description>
                         <![CDATA[ ${queryData[i].ContentBrief} ]]>
                     </description>
-                    <link>${FEndUrl}/${queryData[i].Slug}/news/${queryData[i].ContentID}</link>
-                    <guid isPermaLink="true">${FEndUrl}/${queryData[i].Slug}/news/${queryData[i].ContentID}</guid>
+                    <link>${FEndUrl}${queryData[i].Slug}/news/${queryData[i].ContentID}</link>
+                    <guid isPermaLink="true">${FEndUrl}${queryData[i].Slug}/news/${queryData[i].ContentID}</guid>
                     <pubDate>${date}:00 +0600</pubDate>
                     <media:content medium="image" width="800" height="450" url="${BEndUrl}media/imgAll/${queryData[i].ImageBgPath}"/>
                 </item>`
@@ -1019,182 +1021,182 @@ app.get('/english/rss/rss.xml', async function (request, response) {
                     <![CDATA[ bn ]]>
                 </language>
                 <ttl>15</ttl>
-                <atom:link href="${FEndUrl}/rss/rss.xml" rel="self" type="application/rss+xml"/></channel></rss>`;
+                <atom:link href="${FEndUrl}rss/rss.xml" rel="self" type="application/rss+xml"/></channel></rss>`;
         response.send(xml);
     }
 });
 
-// app.get('/rss/rssvideo.xml', async function (request, response) {
-//     response.setHeader('Content-Type', 'application/xml');
-//     console.log('rssvideo.xml visited!');
+app.get('/rss/rssvideo.xml', async function (request, response) {
+    response.setHeader('Content-Type', 'application/xml');
+    console.log('rssvideo.xml visited!');
 
-//     let date_ob = new Date();
-//     let weekdayname = ''
-//     let weekday = date_ob.getDay()
-//     if (weekday === 0) {
-//         weekdayname = 'Sun'
-//     } else if (weekday === 1) {
-//         weekdayname = 'Mon'
-//     } else if (weekday === 2) {
-//         weekdayname = 'Tue'
-//     } else if (weekday === 3) {
-//         weekdayname = 'Wed'
-//     } else if (weekday === 4) {
-//         weekdayname = 'Thu'
-//     } else if (weekday === 5) {
-//         weekdayname = 'Fri'
-//     } else if (weekday === 6) {
-//         weekdayname = 'Sat'
-//     }
-//     let day = date_ob.getDate()
-//     let monthname = ''
-//     let month = date_ob.getMonth()
-//     if (month === 0) {
-//         monthname = 'Jan'
-//     } else if (month === 1) {
-//         monthname = 'Feb'
-//     } else if (month === 2) {
-//         monthname = 'Mar'
-//     } else if (month === 3) {
-//         monthname = 'Apr'
-//     } else if (month === 4) {
-//         monthname = 'May'
-//     } else if (month === 5) {
-//         monthname = 'Jun'
-//     } else if (month === 6) {
-//         monthname = 'Jul'
-//     } else if (month === 7) {
-//         monthname = 'Aug'
-//     } else if (month === 8) {
-//         monthname = 'Sep'
-//     } else if (month === 9) {
-//         monthname = 'Oct'
-//     } else if (month === 10) {
-//         monthname = 'Nov'
-//     } else if (month === 11) {
-//         monthname = 'Dec'
-//     }
-//     let year = date_ob.getFullYear()
-//     let curdate = `${weekdayname}, ${day} ${monthname} ${year}`
+    let date_ob = new Date();
+    let weekdayname = ''
+    let weekday = date_ob.getDay()
+    if (weekday === 0) {
+        weekdayname = 'Sun'
+    } else if (weekday === 1) {
+        weekdayname = 'Mon'
+    } else if (weekday === 2) {
+        weekdayname = 'Tue'
+    } else if (weekday === 3) {
+        weekdayname = 'Wed'
+    } else if (weekday === 4) {
+        weekdayname = 'Thu'
+    } else if (weekday === 5) {
+        weekdayname = 'Fri'
+    } else if (weekday === 6) {
+        weekdayname = 'Sat'
+    }
+    let day = date_ob.getDate()
+    let monthname = ''
+    let month = date_ob.getMonth()
+    if (month === 0) {
+        monthname = 'Jan'
+    } else if (month === 1) {
+        monthname = 'Feb'
+    } else if (month === 2) {
+        monthname = 'Mar'
+    } else if (month === 3) {
+        monthname = 'Apr'
+    } else if (month === 4) {
+        monthname = 'May'
+    } else if (month === 5) {
+        monthname = 'Jun'
+    } else if (month === 6) {
+        monthname = 'Jul'
+    } else if (month === 7) {
+        monthname = 'Aug'
+    } else if (month === 8) {
+        monthname = 'Sep'
+    } else if (month === 9) {
+        monthname = 'Oct'
+    } else if (month === 10) {
+        monthname = 'Nov'
+    } else if (month === 11) {
+        monthname = 'Dec'
+    }
+    let year = date_ob.getFullYear()
+    let curdate = `${weekdayname}, ${day} ${monthname} ${year}`
 
-//     let sql = `SELECT WebTVID, WebTVHeading, WebTVLinkCode, SourceType, Remarks, created_at, updated_at FROM tv_webtvs WHERE Deletable=1 ORDER BY WebTVID DESC LIMIT 120`;
-//     try {
-//         const queryData = await mediaConfig.query( sql );
-//         if (queryData && queryData.length > 0) {
-//             let xml = `<?xml version="1.0" encoding="UTF-8"?>
-//             <rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dcterms="http://purl.org/dc/terms/">
-//             <channel>
-//             <title><![CDATA[ TheNews24 ]]></title>
-//             <link>${FEndUrl}</link>
-//             <description>
-//                 <![CDATA[ TheNews24 || দ্য নিউজ ২৪ ]]>
-//             </description>
-//             <image>
-//                 <url>${BEndUrl}media/common/logo-fb.png</url>
-//                 <title>TheNews24 - Video Gallery - RSS</title>
-//                 <link>${FEndUrl}</link>
-//             </image>
-//             <generator>RSS by TheNews24</generator>
-//             <lastBuildDate>${curdate}</lastBuildDate>
-//             <copyright>
-//                 <![CDATA[ Copyright: (C) TheNews24. ]]>
-//             </copyright>
-//             <language>
-//                 <![CDATA[ bn ]]>
-//             </language>
-//             <ttl>15</ttl>
-//             <atom:link href="${FEndUrl}rss/rssvideo.xml" rel="self" type="application/rss+xml"/>`;
-//             for (let i = 0; i < queryData.length; i++) {
-//                 let date = '';
-//                 if (queryData[i].updated_at && queryData[i].updated_at != '0000-00-00 00:00:00') {
-//                     date = queryData[i].updated_at;
-//                 } else {
-//                     date = queryData[i].created_at;
-//                 }
-//                 let moddate = new Date(date)
+    let sql = `SELECT WebTVID, WebTVHeading, WebTVLinkCode, SourceType, Remarks, created_at, updated_at FROM tv_webtvs WHERE Deletable=1 ORDER BY WebTVID DESC LIMIT 120`;
+    try {
+        const queryData = await mediaConfig.query( sql );
+        if (queryData && queryData.length > 0) {
+            let xml = `<?xml version="1.0" encoding="UTF-8"?>
+            <rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dcterms="http://purl.org/dc/terms/">
+            <channel>
+            <title><![CDATA[ TheNews24 ]]></title>
+            <link>${FEndUrl}</link>
+            <description>
+                <![CDATA[ TheNews24 || দ্য নিউজ ২৪ ]]>
+            </description>
+            <image>
+                <url>${BEndUrl}media/common/logo-fb.png</url>
+                <title>TheNews24 - Video Gallery - RSS</title>
+                <link>${FEndUrl}</link>
+            </image>
+            <generator>RSS by TheNews24</generator>
+            <lastBuildDate>${curdate}</lastBuildDate>
+            <copyright>
+                <![CDATA[ Copyright: (C) TheNews24. ]]>
+            </copyright>
+            <language>
+                <![CDATA[ bn ]]>
+            </language>
+            <ttl>15</ttl>
+            <atom:link href="${FEndUrl}rss/rssvideo.xml" rel="self" type="application/rss+xml"/>`;
+            for (let i = 0; i < queryData.length; i++) {
+                let date = '';
+                if (queryData[i].updated_at && queryData[i].updated_at != '0000-00-00 00:00:00') {
+                    date = queryData[i].updated_at;
+                } else {
+                    date = queryData[i].created_at;
+                }
+                let moddate = new Date(date)
 
-//                 xml += `<item xmlns:media="http://search.yahoo.com/mrss/" xmlns:dcterms="http://purl.org/dc/terms/">
-//                     <link>${FEndUrl}video/show/${queryData[i].WebTVID}</link>
-//                     <media:content medium="video" isDefault="true">
-//                         <media:player url="${queryData[i].SourceType == 1 ? "https://www.youtube.com/embed/" + queryData[i].WebTVLinkCode + "?autoplay=1" : queryData[i].SourceType == 2 ? "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebookapp%2Fvideos%2F" + queryData[i].WebTVLinkCode + "%2F&show_text=0&width=560" : queryData[i].SourceType == 3 ? "https://player.vimeo.com/video/" + queryData[i].WebTVLinkCode : ''}" />
-//                         <media:title><![CDATA[ ${queryData[i].WebTVHeading} ]]></media:title>
-//                         <media:description><![CDATA[ ${queryData[i].Remarks ? queryData[i].Remarks : queryData[i].WebTVHeading} ]]></media:description>
-//                         <media:thumbnail url="https://img.youtube.com/vi/${queryData[i].WebTVLinkCode}/0.jpg" height="360" width="480"/>
-//                     </media:content>
-//                     <pubDate>${moddate.toISOString()}</pubDate>
-//                     <dcterms:valid xmlns:dcterms="http://purl.org/dc/terms/">start=${moddate.toISOString()}; scheme=W3C-DTF</dcterms:valid>
-//                 </item>`
+                xml += `<item xmlns:media="http://search.yahoo.com/mrss/" xmlns:dcterms="http://purl.org/dc/terms/">
+                    <link>${FEndUrl}video/show/${queryData[i].WebTVID}</link>
+                    <media:content medium="video" isDefault="true">
+                        <media:player url="${queryData[i].SourceType == 1 ? "https://www.youtube.com/embed/" + queryData[i].WebTVLinkCode + "?autoplay=1" : queryData[i].SourceType == 2 ? "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebookapp%2Fvideos%2F" + queryData[i].WebTVLinkCode + "%2F&show_text=0&width=560" : queryData[i].SourceType == 3 ? "https://player.vimeo.com/video/" + queryData[i].WebTVLinkCode : ''}" />
+                        <media:title><![CDATA[ ${queryData[i].WebTVHeading} ]]></media:title>
+                        <media:description><![CDATA[ ${queryData[i].Remarks ? queryData[i].Remarks : queryData[i].WebTVHeading} ]]></media:description>
+                        <media:thumbnail url="https://img.youtube.com/vi/${queryData[i].WebTVLinkCode}/0.jpg" height="360" width="480"/>
+                    </media:content>
+                    <pubDate>${moddate.toISOString()}</pubDate>
+                    <dcterms:valid xmlns:dcterms="http://purl.org/dc/terms/">start=${moddate.toISOString()}; scheme=W3C-DTF</dcterms:valid>
+                </item>`
 
-//                 if (i === queryData.length - 1) {
-//                     xml += `</channel>
-//                     </rss>`;
-//                     response.send(xml);
-//                 }
-//             }
-//         }
-//         else {
-//             let xml = `<?xml version="1.0" encoding="UTF-8"?>
-//             <rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dcterms="http://purl.org/dc/terms/">
-//             <channel>
-//             <title><![CDATA[ TheNews24 ]]></title>
-//             <link>${FEndUrl}</link>
-//             <description>
-//                 <![CDATA[ TheNews24 || দ্য নিউজ ২৪ ]]>
-//             </description>
-//             <image>
-//                 <url>${BEndUrl}media/common/logo-fb.png</url>
-//                 <title>TheNews24 - Video Gallery - RSS</title>
-//                 <link>${FEndUrl}</link>
-//             </image>
-//             <generator>RSS by TheNews24</generator>
-//             <lastBuildDate>${curdate}</lastBuildDate>
-//             <copyright>
-//                 <![CDATA[ Copyright: (C) TheNews24. ]]>
-//             </copyright>
-//             <language>
-//                 <![CDATA[ bn ]]>
-//             </language>
-//             <ttl>15</ttl>
-//             <atom:link href="${FEndUrl}rss/rssvideo.xml" rel="self" type="application/rss+xml"/></channel></rss>`;
-//             response.send(xml);
-//         }
-//     }catch (err) {
-//         console.log('rss error');
-//         console.log(err);
-//         let xml = `<?xml version="1.0" encoding="UTF-8"?>
-//             <rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dcterms="http://purl.org/dc/terms/">
-//             <channel>
-//             <title><![CDATA[ TheNews24 ]]></title>
-//             <link>${FEndUrl}</link>
-//             <description>
-//                 <![CDATA[ TheNews24 || দ্য নিউজ ২৪ ]]>
-//             </description>
-//             <image>
-//                 <url>${BEndUrl}media/common/logo-fb.png</url>
-//                 <title>TheNews24 - Video Gallery - RSS</title>
-//                 <link>${FEndUrl}</link>
-//             </image>
-//             <generator>RSS by TheNews24</generator>
-//             <lastBuildDate>${curdate}</lastBuildDate>
-//             <copyright>
-//                 <![CDATA[ Copyright: (C) TheNews24. ]]>
-//             </copyright>
-//             <language>
-//                 <![CDATA[ bn ]]>
-//             </language>
-//             <ttl>15</ttl>
-//             <atom:link href="${FEndUrl}rss/rssvideo.xml" rel="self" type="application/rss+xml"/></channel></rss>`;
-//         response.send(xml);
-//     }
-// });
+                if (i === queryData.length - 1) {
+                    xml += `</channel>
+                    </rss>`;
+                    response.send(xml);
+                }
+            }
+        }
+        else {
+            let xml = `<?xml version="1.0" encoding="UTF-8"?>
+            <rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dcterms="http://purl.org/dc/terms/">
+            <channel>
+            <title><![CDATA[ TheNews24 ]]></title>
+            <link>${FEndUrl}</link>
+            <description>
+                <![CDATA[ TheNews24 || দ্য নিউজ ২৪ ]]>
+            </description>
+            <image>
+                <url>${BEndUrl}media/common/logo-fb.png</url>
+                <title>TheNews24 - Video Gallery - RSS</title>
+                <link>${FEndUrl}</link>
+            </image>
+            <generator>RSS by TheNews24</generator>
+            <lastBuildDate>${curdate}</lastBuildDate>
+            <copyright>
+                <![CDATA[ Copyright: (C) TheNews24. ]]>
+            </copyright>
+            <language>
+                <![CDATA[ bn ]]>
+            </language>
+            <ttl>15</ttl>
+            <atom:link href="${FEndUrl}rss/rssvideo.xml" rel="self" type="application/rss+xml"/></channel></rss>`;
+            response.send(xml);
+        }
+    }catch (err) {
+        console.log('rss error');
+        console.log(err);
+        let xml = `<?xml version="1.0" encoding="UTF-8"?>
+            <rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dcterms="http://purl.org/dc/terms/">
+            <channel>
+            <title><![CDATA[ TheNews24 ]]></title>
+            <link>${FEndUrl}</link>
+            <description>
+                <![CDATA[ TheNews24 || দ্য নিউজ ২৪ ]]>
+            </description>
+            <image>
+                <url>${BEndUrl}media/common/logo-fb.png</url>
+                <title>TheNews24 - Video Gallery - RSS</title>
+                <link>${FEndUrl}</link>
+            </image>
+            <generator>RSS by TheNews24</generator>
+            <lastBuildDate>${curdate}</lastBuildDate>
+            <copyright>
+                <![CDATA[ Copyright: (C) TheNews24. ]]>
+            </copyright>
+            <language>
+                <![CDATA[ bn ]]>
+            </language>
+            <ttl>15</ttl>
+            <atom:link href="${FEndUrl}rss/rssvideo.xml" rel="self" type="application/rss+xml"/></channel></rss>`;
+        response.send(xml);
+    }
+});
 
 
-app.get('/english/:catSlugEn', async function (request, response) {
-    let catSlug = request.params.catSlugEn;
-    console.log('english Category page visited!' + catSlug);
+app.get('/:catSlug', async function (request, response) {
+    let catSlug = request.params.catSlug;
+    console.log('Category page visited!' + catSlug);
     const filePath = path.resolve(__dirname, './build', 'index.html');
 
-    let sql = `SELECT CategoryID, CategoryName FROM en_bas_categories WHERE Slug=?`;
+    let sql = `SELECT CategoryID, CategoryName FROM bn_bas_categories WHERE Slug=?`;
     try {
         const queryData = await bnConfig.query( sql, [catSlug] );
         if (queryData && queryData.length > 0) {
@@ -1206,7 +1208,7 @@ app.get('/english/:catSlugEn', async function (request, response) {
                     return console.log(err);
                 }
                 data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
-                data = data.replace(/\$OG_TITLE/g, `${title} | ${title} Latest News :: The News 24`);
+                data = data.replace(/\$OG_TITLE/g, `${title} | ${title} সর্বশেষ খবর :: দ্য নিউজ ২৪`);
                 data = data.replace(/\$OG_DESCRIPTION/g, `${title}`);
                 data = data.replace(/\$OG_KEYWORDS/g, `${keyword}`);
                 data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
@@ -1258,16 +1260,16 @@ app.get('/english/:catSlugEn', async function (request, response) {
     }
 });
 
-app.get('/english/search/:searchSlug', function (request, response) {
-    console.log('English Search page visited!');
+app.get('/search/:searchSlug', function (request, response) {
+    console.log('Search page visited!');
     const filePath = path.resolve(__dirname, './build', 'index.html');
     fs.readFile(filePath, 'utf8', async function (err, data) {
         if (err) {
             return console.log(err);
         }
         data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
-        data = data.replace(/\$OG_TITLE/g, 'Search | Search Latest News :: The News 24');
-        data = data.replace(/\$OG_DESCRIPTION/g, "Search | Search Latest News :: The News 24");
+        data = data.replace(/\$OG_TITLE/g, 'খুঁজুন | খুঁজুন সর্বশেষ খবর :: দ্য নিউজ ২৪');
+        data = data.replace(/\$OG_DESCRIPTION/g, "খুঁজুন | খুঁজুন সর্বশেষ খবর :: দ্য নিউজ ২৪");
         data = data.replace(/\$OG_KEYWORDS/g, "দ্য নিউজ ২৪, পত্রিকা, বাংলাদেশ, আজকের পত্রিকা, জাতীয়, সারাদেশ, বরিশাল, চট্টগ্রাম, ঢাকা,খুলনা, রাজশাহী, সিলেট, রংপুর, ময়মনসিংহ, রাজধানী, আন্তর্জাতিক, রাজনীতি, বিনোদন , দেশি, বিদেশি, খেলা, ক্রিকেট, বিশ্বকাপ ক্রিকেট, বিশেষ কলাম, অর্থনীতি, ধর্ম, লাইফস্টাইল, ফ্যাশন, রেসিপি, সাত রঙ, সাতরঙ,  দূরবীন, প্রথম প্রহর, বইমেলা, তথ্যপ্রযুক্তি, শিক্ষাঙ্গন, আইন-আদালত, আইন আদালত, শিল্প ও সাহিত্, শিল্প সাহিত্, স্বাস্থ্য ও চিকিৎসা, স্বাস্থ্য চিকিৎসা, ফিচার, বিজ্ঞান, ভ্রমণ, মুক্তকথা, মুখোমুখি, প্রবাস জীবন, জব কর্নার, জব, মজার খবর, কার্টুন, সোশ্যাল মিডিয়া, সাইবার স্পেস, আর্কাইভ, সাহিত্য, কম্পিউটার, মোবাইল ফোন, গেমস, সরকার, অপরাধ, আইন ও বিচার, পরিবেশ, দুর্ঘটনা, সংসদ, রাজধানী, শেয়ার বাজার, বাণিজ্য, পোশাক শিল্প, ফুটবল, সকাল, বিকাল");
         data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
         // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
@@ -1278,14 +1280,79 @@ app.get('/english/search/:searchSlug', function (request, response) {
     });
 });
 
-
-
-app.get('/english/writers/:WriterSlug', async function (request, response) {
-    let WriterSlug = request.params.WriterSlug;
-    console.log('eNGLISH Writers page visited!' + WriterSlug);
+app.get('/divisions/:divisionSlug', async function (request, response) {
+    let divisionSlug = request.params.divisionSlug;
+    console.log('Division page visited!' + divisionSlug);
     const filePath = path.resolve(__dirname, './build', 'index.html');
 
-    let sql = `SELECT WriterID, WriterName FROM en_writers WHERE Slug=?`;
+    let sql = `SELECT DivisionID, DivisionNameBn, DivisionName FROM bas_divisions WHERE DivisionSlug=?`;
+    try {
+        const queryData = await bnConfig.query( sql, [divisionSlug] );
+
+        if (queryData && queryData.length > 0) {
+            let title = queryData[0].DivisionName;
+            let keyword = title.split(" ");
+            keyword = keyword.toString();
+            fs.readFile(filePath, 'utf8', async function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+                data = data.replace(/\$OG_TITLE/g, `${title}`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `${title}`);
+                data = data.replace(/\$OG_KEYWORDS/g, `${keyword}`);
+                data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+            	data = data.replace(/\$AMP_URL/g, '');
+                response.send(data);
+            });
+        } else {
+            fs.readFile(filePath, 'utf8', function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+                data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
+                data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+            	data = data.replace(/\$AMP_URL/g, '');
+                response.send(data);
+            });
+        }
+    }
+    catch (err) {
+        console.log('contentDetails error');
+        console.log(err);
+        fs.readFile(filePath, 'utf8', function (err, data) {
+            if (err) {
+                return console.log(err);
+            }
+            data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+            data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+            // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+            var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+            data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+        	data = data.replace(/\$AMP_URL/g, '');
+            response.send(data);
+        });
+    }
+});
+
+app.get('/writers/:WriterSlug', async function (request, response) {
+    let WriterSlug = request.params.WriterSlug;
+    console.log('Writers page visited!' + WriterSlug);
+    const filePath = path.resolve(__dirname, './build', 'index.html');
+
+    let sql = `SELECT WriterID, WriterName FROM bn_writers WHERE Slug=?`;
     try {
         const queryData = await bnConfig.query( sql, [WriterSlug] );
 
@@ -1347,12 +1414,12 @@ app.get('/english/writers/:WriterSlug', async function (request, response) {
     }
 });
 
-app.get('/english/tags/:TagTitle', async function (request, response) {
+app.get('/tags/:TagTitle', async function (request, response) {
     let TagTitle = request.params.TagTitle;
-    console.log('english Tags page visited!' + TagTitle);
+    console.log('Tags page visited!' + TagTitle);
     const filePath = path.resolve(__dirname, './build', 'index.html');
 
-    let sql = `SELECT TagID, TagName FROM en_tags WHERE TagName=?`;
+    let sql = `SELECT TagID, TagName FROM bn_tags WHERE TagName=?`;
     try {
         const queryData = await bnConfig.query( sql, [TagTitle] );
 
@@ -1413,236 +1480,236 @@ app.get('/english/tags/:TagTitle', async function (request, response) {
     }
 });
 
-// app.get('/opinion-poll/:PollID', async function (request, response) {
-//     let PollID = request.params.PollID;
-//     console.log('Poll detail page visited!' + PollID);
-//     const filePath = path.resolve(__dirname, './build', 'index.html');
+app.get('/opinion-poll/:PollID', async function (request, response) {
+    let PollID = request.params.PollID;
+    console.log('Poll detail page visited!' + PollID);
+    const filePath = path.resolve(__dirname, './build', 'index.html');
 
-//     let sql = `SELECT PollID, QuestionBn, image FROM polls WHERE PollID=? LIMIT 1`;
-//     try {
-//         const queryData = await genConfig.query( sql, [PollID] );
+    let sql = `SELECT PollID, QuestionBn, image FROM polls WHERE PollID=? LIMIT 1`;
+    try {
+        const queryData = await genConfig.query( sql, [PollID] );
 
-//         if (queryData && queryData.length > 0) {
-//             let title = queryData[0].QuestionBn;
-//             let keyword = title.split(" ");
-//             keyword = keyword.toString();
-//             fs.readFile(filePath, 'utf8', async function (err, data) {
-//                 if (err) {
-//                     return console.log(err);
-//                 }
-//                 data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
-//                 data = data.replace(/\$OG_TITLE/g, `${title}`);
-//                 data = data.replace(/\$OG_DESCRIPTION/g, `${title}`);
-//                 data = data.replace(/\$OG_KEYWORDS/g, `${keyword}`);
-//                 if(queryData[0].image){
-//                     data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}${queryData[0].image}`);
-//                 }else{
-//                     data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//                 }
-//                 // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//                 var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
-//                 data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//                 data = data.replace(/\$AMP_URL/g, '');
-//                 response.send(data);
-//             });
-//         } else {
-//             fs.readFile(filePath, 'utf8', function (err, data) {
-//                 if (err) {
-//                     return console.log(err);
-//                 }
-//                 data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
-//                 data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
-//                 data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
-//                 data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
-//                 data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//                 // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//                 var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
-//                 data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//                 data = data.replace(/\$AMP_URL/g, '');
-//                 response.send(data);
-//             });
-//         }
-//     }catch (err) {
-//         console.log('contentDetails error');
-//         console.log(err);
-//         fs.readFile(filePath, 'utf8', function (err, data) {
-//             if (err) {
-//                 return console.log(err);
-//             }
-//             data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
-//             data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//             // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//             var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
-//             data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//             data = data.replace(/\$AMP_URL/g, '');
-//             response.send(data);
-//         });
-//     }
-// });
+        if (queryData && queryData.length > 0) {
+            let title = queryData[0].QuestionBn;
+            let keyword = title.split(" ");
+            keyword = keyword.toString();
+            fs.readFile(filePath, 'utf8', async function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+                data = data.replace(/\$OG_TITLE/g, `${title}`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `${title}`);
+                data = data.replace(/\$OG_KEYWORDS/g, `${keyword}`);
+                if(queryData[0].image){
+                    data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}${queryData[0].image}`);
+                }else{
+                    data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                }
+                // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+                data = data.replace(/\$AMP_URL/g, '');
+                response.send(data);
+            });
+        } else {
+            fs.readFile(filePath, 'utf8', function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+                data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
+                data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+                data = data.replace(/\$AMP_URL/g, '');
+                response.send(data);
+            });
+        }
+    }catch (err) {
+        console.log('contentDetails error');
+        console.log(err);
+        fs.readFile(filePath, 'utf8', function (err, data) {
+            if (err) {
+                return console.log(err);
+            }
+            data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+            data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+            // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+            var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+            data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+            data = data.replace(/\$AMP_URL/g, '');
+            response.send(data);
+        });
+    }
+});
 
-// app.get('/:catSlug/:subCatSlug', async function (request, response) {
-//     let catSlug = request.params.catSlug;
-//     let subCatSlug = request.params.subCatSlug;
-//     console.log('sub Category page visited! ' + catSlug + '/' + subCatSlug);
-//     const filePath = path.resolve(__dirname, './build', 'index.html');
+app.get('/:catSlug/:subCatSlug', async function (request, response) {
+    let catSlug = request.params.catSlug;
+    let subCatSlug = request.params.subCatSlug;
+    console.log('sub Category page visited! ' + catSlug + '/' + subCatSlug);
+    const filePath = path.resolve(__dirname, './build', 'index.html');
 
-//     let sql = `SELECT bn_bas_categories.CategoryID subCatID, bn_bas_categories.CategoryName subCatTitle FROM bn_bas_categories WHERE bn_bas_categories.Slug=? AND bn_bas_categories.ParentID!=0`;
-//     // let sql = `SELECT bn_bas_categories.CategoryID subCatID, bn_bas_categories.CategoryName subCatTitle, cat.CategoryName catTitle FROM bn_bas_categories JOIN bn_bas_categories cat ON cat.CategoryID=bn_bas_categories.ParentID WHERE bn_bas_categories.Slug=? AND bn_bas_categories.ParentID!=0`;
-//     try {
-//         const queryData = await bnConfig.query( sql, [subCatSlug] );
-//         if (queryData && queryData.length > 0) {
-//             let title = queryData[0].subCatTitle;
-//             let keyword = title.split(" ");
-//             keyword = keyword.toString();
-//             fs.readFile(filePath, 'utf8', async function (err, data) {
-//                 if (err) {
-//                     return console.log(err);
-//                 }
-//                 data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
-//                 data = data.replace(/\$OG_TITLE/g, `${title}`);
-//                 data = data.replace(/\$OG_DESCRIPTION/g, `${title}`);
-//                 data = data.replace(/\$OG_KEYWORDS/g, `${keyword}`);
-//                 data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//                 // var fullUrl = request.protocol + '://' + request.get('host') + (request.originalUrl).replace(/\/+$/, '');
-//                 var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
-//                 data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//             	var ampUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + '/amp' + (request.originalUrl).replace(/\/+$/, '');
-//                 data = data.replace(/\$AMP_URL/g, '<link rel="amphtml" href="'+ampUrl+'"></link>');
-//                 response.send(data);
-//             });
-//         } else {
-//             fs.readFile(filePath, 'utf8', function (err, data) {
-//                 if (err) {
-//                     return console.log(err);
-//                 }
-//                 data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
-//                 data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
-//                 data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
-//                 data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
-//                 data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//                 // var fullUrl = request.protocol + '://' + request.get('host') + (request.originalUrl).replace(/\/+$/, '');
-//                 var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
-//                 data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//             	var ampUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + '/amp' + (request.originalUrl).replace(/\/+$/, '');
-//                 data = data.replace(/\$AMP_URL/g, '<link rel="amphtml" href="'+ampUrl+'"></link>');
-//                 response.send(data);
-//             });
-//         }
-//     }catch (err) {
-//         console.log('contentDetails error');
-//         console.log(err);
-//         fs.readFile(filePath, 'utf8', function (err, data) {
-//             if (err) {
-//                 return console.log(err);
-//             }
-//             data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
-//             data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//             // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//             var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
-//             data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//         	var ampUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + '/amp' + (request.originalUrl).replace(/\/+$/, '');
-//             data = data.replace(/\$AMP_URL/g, '<link rel="amphtml" href="'+ampUrl+'"></link>');
-//             response.send(data);
-//         });
-//     }
-// });
+    let sql = `SELECT bn_bas_categories.CategoryID subCatID, bn_bas_categories.CategoryName subCatTitle FROM bn_bas_categories WHERE bn_bas_categories.Slug=? AND bn_bas_categories.ParentID!=0`;
+    // let sql = `SELECT bn_bas_categories.CategoryID subCatID, bn_bas_categories.CategoryName subCatTitle, cat.CategoryName catTitle FROM bn_bas_categories JOIN bn_bas_categories cat ON cat.CategoryID=bn_bas_categories.ParentID WHERE bn_bas_categories.Slug=? AND bn_bas_categories.ParentID!=0`;
+    try {
+        const queryData = await bnConfig.query( sql, [subCatSlug] );
+        if (queryData && queryData.length > 0) {
+            let title = queryData[0].subCatTitle;
+            let keyword = title.split(" ");
+            keyword = keyword.toString();
+            fs.readFile(filePath, 'utf8', async function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+                data = data.replace(/\$OG_TITLE/g, `${title}`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `${title}`);
+                data = data.replace(/\$OG_KEYWORDS/g, `${keyword}`);
+                data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                // var fullUrl = request.protocol + '://' + request.get('host') + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+            	var ampUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + '/amp' + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$AMP_URL/g, '<link rel="amphtml" href="'+ampUrl+'"></link>');
+                response.send(data);
+            });
+        } else {
+            fs.readFile(filePath, 'utf8', function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+                data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
+                data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                // var fullUrl = request.protocol + '://' + request.get('host') + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+            	var ampUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + '/amp' + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$AMP_URL/g, '<link rel="amphtml" href="'+ampUrl+'"></link>');
+                response.send(data);
+            });
+        }
+    }catch (err) {
+        console.log('contentDetails error');
+        console.log(err);
+        fs.readFile(filePath, 'utf8', function (err, data) {
+            if (err) {
+                return console.log(err);
+            }
+            data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+            data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+            // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+            var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+            data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+        	var ampUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + '/amp' + (request.originalUrl).replace(/\/+$/, '');
+            data = data.replace(/\$AMP_URL/g, '<link rel="amphtml" href="'+ampUrl+'"></link>');
+            response.send(data);
+        });
+    }
+});
 
-// app.get('/photo-feature/news/:photoID', async function (request, response) {
-//     let photoID = request.params.photoID;
-//     console.log('Photo Feature Detail page visited!' + photoID);
-//     const filePath = path.resolve(__dirname, './build', 'index.html');
+app.get('/photo-feature/news/:photoID', async function (request, response) {
+    let photoID = request.params.photoID;
+    console.log('Photo Feature Detail page visited!' + photoID);
+    const filePath = path.resolve(__dirname, './build', 'index.html');
 
-//     let sql = `SELECT photo_features.PhotoFeatureID, photo_features.PhotoFeatureTitle, photo_features.ShortBrief, ImageBgPath FROM photo_features WHERE photo_features.Deletable=1 AND photo_features.PhotoFeatureID=? LIMIT 1;`;
-//     // let sql = `SELECT photo_features.PhotoFeatureID, photo_features.PhotoFeatureTitle, photo_features.Writer, photo_features.ShortBrief, ImageBgPath, ImageSmPath, Caption, ImageSource, photo_features.created_at as create_date, photo_features.updated_at as updated_date FROM photo_features WHERE photo_features.Deletable=1 AND photo_features.PhotoFeatureID=? LIMIT 1;`;
-//     try {
-//         const queryData = await mediaConfig.query( sql, [photoID] );
+    let sql = `SELECT photo_features.PhotoFeatureID, photo_features.PhotoFeatureTitle, photo_features.ShortBrief, ImageBgPath FROM photo_features WHERE photo_features.Deletable=1 AND photo_features.PhotoFeatureID=? LIMIT 1;`;
+    // let sql = `SELECT photo_features.PhotoFeatureID, photo_features.PhotoFeatureTitle, photo_features.Writer, photo_features.ShortBrief, ImageBgPath, ImageSmPath, Caption, ImageSource, photo_features.created_at as create_date, photo_features.updated_at as updated_date FROM photo_features WHERE photo_features.Deletable=1 AND photo_features.PhotoFeatureID=? LIMIT 1;`;
+    try {
+        const queryData = await mediaConfig.query( sql, [photoID] );
 
-//         if (queryData && queryData.length > 0) {
-//             let title = queryData[0].PhotoFeatureTitle;
-//             let description = queryData[0].ShortBrief;
-//             if (!description) {
-//                 description = title
-//             } else {
-//                 description = (queryData[0].ShortBrief).replace(/(<([^>]+)>)/ig, '')
-//             }
-//             let image = '';
-//             image = queryData[0].ImageBgPath
-//             let keyword = '';
-//             keyword = title.split(" ");
-//             keyword = keyword.toString();
-//             fs.readFile(filePath, 'utf8', async function (err, data) {
-//                 if (err) {
-//                     return console.log(err);
-//                 }
-//                 data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
-//                 data = data.replace(/\$OG_TITLE/g, `${title}`);
-//                 data = data.replace(/\$OG_DESCRIPTION/g, `${description}`);
-//                 data = data.replace(/\$OG_KEYWORDS/g, `${keyword}`);
-//                 data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/imgAll/${image}`);
-//                 // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//                 var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
-//                 data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//             	data = data.replace(/\$AMP_URL/g, '');
-//                 response.send(data);
-//             });
-//         } else {
-//             fs.readFile(filePath, 'utf8', function (err, data) {
-//                 if (err) {
-//                     return console.log(err);
-//                 }
-//                 data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
-//                 data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
-//                 data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
-//                 data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
-//                 data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//                 // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//                 var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
-//                 data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//             	data = data.replace(/\$AMP_URL/g, '');
-//                 response.send(data);
-//             });
-//         }
-//     }catch (err) {
-//         console.log('contentDetails error');
-//         console.log(err);
-//         fs.readFile(filePath, 'utf8', function (err, data) {
-//             if (err) {
-//                 return console.log(err);
-//             }
-//             data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
-//             data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//             // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//             var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
-//             data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//         	data = data.replace(/\$AMP_URL/g, '');
-//             response.send(data);
-//         });
-//     }
-// });
+        if (queryData && queryData.length > 0) {
+            let title = queryData[0].PhotoFeatureTitle;
+            let description = queryData[0].ShortBrief;
+            if (!description) {
+                description = title
+            } else {
+                description = (queryData[0].ShortBrief).replace(/(<([^>]+)>)/ig, '')
+            }
+            let image = '';
+            image = queryData[0].ImageBgPath
+            let keyword = '';
+            keyword = title.split(" ");
+            keyword = keyword.toString();
+            fs.readFile(filePath, 'utf8', async function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+                data = data.replace(/\$OG_TITLE/g, `${title}`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `${description}`);
+                data = data.replace(/\$OG_KEYWORDS/g, `${keyword}`);
+                data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/imgAll/${image}`);
+                // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+            	data = data.replace(/\$AMP_URL/g, '');
+                response.send(data);
+            });
+        } else {
+            fs.readFile(filePath, 'utf8', function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+                data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
+                data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+            	data = data.replace(/\$AMP_URL/g, '');
+                response.send(data);
+            });
+        }
+    }catch (err) {
+        console.log('contentDetails error');
+        console.log(err);
+        fs.readFile(filePath, 'utf8', function (err, data) {
+            if (err) {
+                return console.log(err);
+            }
+            data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+            data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+            // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+            var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+            data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+        	data = data.replace(/\$AMP_URL/g, '');
+            response.send(data);
+        });
+    }
+});
 
-app.get('/english/:catSlugEn/news/:id', async function (request, response) {
-    let catSlug = request.params.catSlugEn;
+app.get('/:catSlug/news/:id', async function (request, response) {
+    let catSlug = request.params.catSlug;
     let id = request.params.id;
     console.log('Detail page visited!' + catSlug + ' ' + id);
     const filePath = path.resolve(__dirname, './build', 'index.html');
 
-    let sql = `SELECT en_contents.ContentID, en_contents.CategoryIDs, en_contents.ContentHeading, en_contents.ContentBrief, en_contents.ImageBgPath, en_contents.URLAlies, en_contents.Keywords, en_contents.PlateType, en_contents.ImagePlatePath FROM en_contents WHERE en_contents.ContentID=? AND en_contents.ShowContent=1 AND en_contents.Deletable=1`;
+    let sql = `SELECT bn_contents.ContentID, bn_contents.CategoryIDs, bn_contents.ContentHeading, bn_contents.ContentBrief, bn_contents.ImageBgPath, bn_contents.URLAlies, bn_contents.Keywords, bn_contents.PlateType, bn_contents.ImagePlatePath FROM bn_contents WHERE bn_contents.ContentID=? AND bn_contents.ShowContent=1 AND bn_contents.Deletable=1`;
     // let sql = `SELECT bn_contents.ContentID, bn_contents.CategoryIDs, bn_contents.ContentHeading, bn_contents.CategoryIDs, bn_contents.ContentSubHeading, bn_contents.DetailsHeading, bn_contents.ContentShoulder, bn_contents.WriterID, bn_contents.ReporterID, bn_contents.DistCorsID, bn_contents.SubEditorID, bn_contents.WriterName, bn_contents.ContentBrief, bn_contents.ContentDetails, bn_contents.ImageSmPath, bn_contents.ImageSmPathCaption, bn_contents.ImageBgPath, bn_contents.ImageBgPathCaption, bn_contents.Tags, bn_contents.RelNews, bn_contents.RelNewsIDs, bn_contents.InvolvedNews, bn_contents.InvolvedIDs, bn_contents.VideoSource AS Source, bn_contents.VideoID, bn_contents.VideoPath, bn_contents.VideoType, bn_contents.ShowVideo, bn_contents.URLAlies, bn_contents.Keywords, bn_contents.PlateType, bn_contents.ImagePlatePath, bn_contents.Initial, bn_contents.VideoID, bn_contents.VideoPath, bn_contents.VideoType, bas_districts.DistrictNameBn, bas_districts.DistrictSlug, bn_contents.created_at as create_date, bn_contents.updated_at as updated_date FROM bn_contents LEFT JOIN bas_districts ON bn_contents.DistrictID=bas_districts.DistrictID WHERE bn_contents.ContentID=? AND bn_contents.ShowContent=1 AND bn_contents.Deletable=1`;
 
-    try { const contentDetails = await enConfig.query( sql, [id] );
+    try { const contentDetails = await bnConfig.query( sql, [id] );
         if (contentDetails && contentDetails.length > 0) {
 
             let categoryCheck;
-            try { categoryCheck = await enConfig.query( 'SELECT CategoryID, CategoryName, Slug FROM en_bas_categories WHERE Slug=?', [catSlug] );
+            try { categoryCheck = await bnConfig.query( 'SELECT CategoryID, CategoryName, Slug FROM bn_bas_categories WHERE Slug=?', [catSlug] );
                 // console.log(typeof categoryCheck);
             }
             catch (err) { console.log('categoryCheck error'); return ''; }
@@ -1840,417 +1907,417 @@ app.get('/english/:catSlugEn/news/:id', async function (request, response) {
 //     }
 // });
 
-// app.get('/video/show/:vdoID', async function (request, response) {
-//     let vdoID = request.params.vdoID;
-//     console.log('video details page visited!' + vdoID);
-//     const filePath = path.resolve(__dirname, './build', 'index.html');
+app.get('/video/show/:vdoID', async function (request, response) {
+    let vdoID = request.params.vdoID;
+    console.log('video details page visited!' + vdoID);
+    const filePath = path.resolve(__dirname, './build', 'index.html');
 
-//     let sql = `SELECT tv_webtvs.WebTVHeading, tv_webtvs.WebTVLinkCode FROM tv_webtvs WHERE tv_webtvs.WebTVID=? LIMIT 1`;
-//     // let sql = `SELECT tv_webtvs.*, tv_webtv_categories.Slug catSlug FROM tv_webtvs JOIN tv_webtv_categories ON tv_webtv_categories.CategoryID=tv_webtvs.CategoryID WHERE tv_webtvs.WebTVID=? LIMIT 1`;
-//     try {
-//         const queryData = await mediaConfig.query( sql, [vdoID] );
+    let sql = `SELECT tv_webtvs.WebTVHeading, tv_webtvs.WebTVLinkCode FROM tv_webtvs WHERE tv_webtvs.WebTVID=? LIMIT 1`;
+    // let sql = `SELECT tv_webtvs.*, tv_webtv_categories.Slug catSlug FROM tv_webtvs JOIN tv_webtv_categories ON tv_webtv_categories.CategoryID=tv_webtvs.CategoryID WHERE tv_webtvs.WebTVID=? LIMIT 1`;
+    try {
+        const queryData = await mediaConfig.query( sql, [vdoID] );
         
-//         if (queryData && queryData.length > 0) {
-//             let title = queryData[0].WebTVHeading;
-//             let keyword = title.split(" ");
-//             keyword = keyword.toString();
-//             let description = queryData[0].WebTVHeading;
-//             let image = queryData[0].WebTVLinkCode;
-//             fs.readFile(filePath, 'utf8', async function (err, data) {
-//                 if (err) {
-//                     return console.log(err);
-//                 }
-//                 data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
-//                 data = data.replace(/\$OG_TITLE/g, `${title}`);
-//                 data = data.replace(/\$OG_DESCRIPTION/g, `${description}`);
-//                 data = data.replace(/\$OG_KEYWORDS/g, `${keyword}`);
-//                 data = data.replace(/\$OG_IMAGE/g, `https://img.youtube.com/vi/${image}/0.jpg`);
-//                 // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//                 var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
-//                 data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//             	data = data.replace(/\$AMP_URL/g, '');
-//                 response.send(data);
-//             });
-//         } else {
-//             fs.readFile(filePath, 'utf8', function (err, data) {
-//                 if (err) {
-//                     return console.log(err);
-//                 }
-//                 data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
-//                 data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
-//                 data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
-//                 data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
-//                 data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//                 // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//                 var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
-//                 data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//             	data = data.replace(/\$AMP_URL/g, '');
-//                 response.send(data);
-//             });
-//         }
-//     }catch (err) {
-//         console.log('contentDetails error');
-//         console.log(err);
-//         fs.readFile(filePath, 'utf8', function (err, data) {
-//             if (err) {
-//                 return console.log(err);
-//             }
-//             data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
-//             data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//             // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//             var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
-//             data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//         	data = data.replace(/\$AMP_URL/g, '');
-//             response.send(data);
-//         });
-//     }
-// });
+        if (queryData && queryData.length > 0) {
+            let title = queryData[0].WebTVHeading;
+            let keyword = title.split(" ");
+            keyword = keyword.toString();
+            let description = queryData[0].WebTVHeading;
+            let image = queryData[0].WebTVLinkCode;
+            fs.readFile(filePath, 'utf8', async function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+                data = data.replace(/\$OG_TITLE/g, `${title}`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `${description}`);
+                data = data.replace(/\$OG_KEYWORDS/g, `${keyword}`);
+                data = data.replace(/\$OG_IMAGE/g, `https://img.youtube.com/vi/${image}/0.jpg`);
+                // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+            	data = data.replace(/\$AMP_URL/g, '');
+                response.send(data);
+            });
+        } else {
+            fs.readFile(filePath, 'utf8', function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+                data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
+                data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+            	data = data.replace(/\$AMP_URL/g, '');
+                response.send(data);
+            });
+        }
+    }catch (err) {
+        console.log('contentDetails error');
+        console.log(err);
+        fs.readFile(filePath, 'utf8', function (err, data) {
+            if (err) {
+                return console.log(err);
+            }
+            data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+            data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+            // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+            var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+            data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+        	data = data.replace(/\$AMP_URL/g, '');
+            response.send(data);
+        });
+    }
+});
 
-// app.get('/divisions/:divisionSlug/:districtSlug', async function (request, response) {
-//     let divisionSlug = request.params.divisionSlug;
-//     let districtSlug = request.params.districtSlug;
-//     console.log('District page visited!' + divisionSlug + ' ' + districtSlug);
-//     const filePath = path.resolve(__dirname, './build', 'index.html');
+app.get('/divisions/:divisionSlug/:districtSlug', async function (request, response) {
+    let divisionSlug = request.params.divisionSlug;
+    let districtSlug = request.params.districtSlug;
+    console.log('District page visited!' + divisionSlug + ' ' + districtSlug);
+    const filePath = path.resolve(__dirname, './build', 'index.html');
 
-//     let sql = `SELECT bas_districts.DistrictID, bas_districts.DistrictNameBN FROM bas_districts WHERE bas_districts.DistrictSlug=?`;
-//     try {
-//         const queryData = await bnConfig.query( sql, [districtSlug] );
+    let sql = `SELECT bas_districts.DistrictID, bas_districts.DistrictNameBN FROM bas_districts WHERE bas_districts.DistrictSlug=?`;
+    try {
+        const queryData = await bnConfig.query( sql, [districtSlug] );
         
-//         if (queryData && queryData.length > 0) {
-//             let title = queryData[0].DistrictNameBN;
-//             let keyword = title.split(" ");
-//             keyword = keyword.toString();
-//             fs.readFile(filePath, 'utf8', async function (err, data) {
-//                 if (err) {
-//                     return console.log(err);
-//                 }
-//                 data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
-//                 data = data.replace(/\$OG_TITLE/g, `${title}`);
-//                 data = data.replace(/\$OG_DESCRIPTION/g, `${title}`);
-//                 data = data.replace(/\$OG_KEYWORDS/g, `${keyword}`);
-//                 data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//                 // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//                 var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
-//                 data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//             	data = data.replace(/\$AMP_URL/g, '');
-//                 response.send(data);
-//             });
-//         } else {
-//             fs.readFile(filePath, 'utf8', function (err, data) {
-//                 if (err) {
-//                     return console.log(err);
-//                 }
-//                 data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
-//                 data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
-//                 data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
-//                 data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
-//                 data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//                 // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//                 var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
-//                 data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//             	data = data.replace(/\$AMP_URL/g, '');
-//                 response.send(data);
-//             });
-//         }
-//     }catch (err) {
-//         console.log('contentDetails error');
-//         console.log(err);
-//         fs.readFile(filePath, 'utf8', function (err, data) {
-//             if (err) {
-//                 return console.log(err);
-//             }
-//             data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
-//             data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//             // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//             var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
-//             data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//         	data = data.replace(/\$AMP_URL/g, '');
-//             response.send(data);
-//         });
-//     }
-// });
+        if (queryData && queryData.length > 0) {
+            let title = queryData[0].DistrictNameBN;
+            let keyword = title.split(" ");
+            keyword = keyword.toString();
+            fs.readFile(filePath, 'utf8', async function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+                data = data.replace(/\$OG_TITLE/g, `${title}`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `${title}`);
+                data = data.replace(/\$OG_KEYWORDS/g, `${keyword}`);
+                data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+            	data = data.replace(/\$AMP_URL/g, '');
+                response.send(data);
+            });
+        } else {
+            fs.readFile(filePath, 'utf8', function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+                data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
+                data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+            	data = data.replace(/\$AMP_URL/g, '');
+                response.send(data);
+            });
+        }
+    }catch (err) {
+        console.log('contentDetails error');
+        console.log(err);
+        fs.readFile(filePath, 'utf8', function (err, data) {
+            if (err) {
+                return console.log(err);
+            }
+            data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+            data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+            // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+            var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace(/\/+$/, '');
+            data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+        	data = data.replace(/\$AMP_URL/g, '');
+            response.send(data);
+        });
+    }
+});
 
 
-// app.get('/amp/:catSlug', async function (request, response) {
-//     let catSlug = request.params.catSlug;
-//     console.log('AMP Category page visited!' + catSlug);
-//     const filePath = path.resolve(__dirname, './buildAmp', 'index.html');
+app.get('/amp/:catSlug', async function (request, response) {
+    let catSlug = request.params.catSlug;
+    console.log('AMP Category page visited!' + catSlug);
+    const filePath = path.resolve(__dirname, './buildAmp', 'index.html');
 
-//     let sql = `SELECT CategoryID, CategoryName FROM bn_bas_categories WHERE Slug=?`;
-//     try {
-//         const queryData = await bnConfig.query( sql, [catSlug] );
-//         if (queryData && queryData.length > 0) {
-//             let title = queryData[0].CategoryName;
-//             let keyword = title.split(" ");
-//             keyword = keyword.toString();
-//             fs.readFile(filePath, 'utf8', async function (err, data) {
-//                 if (err) {
-//                     return console.log(err);
-//                 }
-//                 data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
-//                 data = data.replace(/\$OG_TITLE/g, `${title} | ${title} সর্বশেষ খবর :: দ্য নিউজ ২৪`);
-//                 data = data.replace(/\$OG_DESCRIPTION/g, `${title}`);
-//                 data = data.replace(/\$OG_KEYWORDS/g, `${keyword}`);
-//                 data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//                 // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//                 var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace("/amp/", '/').replace(/\/+$/, '');
-//                 data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//             	data = data.replace(/\$AMP_URL/g, '');
-//                 response.send(data);
-//             });
-//         } else {
-//             fs.readFile(filePath, 'utf8', function (err, data) {
-//                 if (err) {
-//                     return console.log(err);
-//                 }
-//                 data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
-//                 data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
-//                 data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
-//                 data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
-//                 data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//                 // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//                 var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace("/amp/", '/').replace(/\/+$/, '');
-//                 data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//             	data = data.replace(/\$AMP_URL/g, '');
-//                 response.send(data);
-//             });
-//         }
-//     }
-//     catch (err) {
-//         console.log('contentDetails error');
-//         console.log(err);
-//         fs.readFile(filePath, 'utf8', function (err, data) {
-//             if (err) {
-//                 return console.log(err);
-//             }
-//             data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
-//             data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//             // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//             var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace("/amp/", '/').replace(/\/+$/, '');
-//             data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//         	data = data.replace(/\$AMP_URL/g, '');
-//             response.send(data);
-//         });
-//     }
-// });
+    let sql = `SELECT CategoryID, CategoryName FROM bn_bas_categories WHERE Slug=?`;
+    try {
+        const queryData = await bnConfig.query( sql, [catSlug] );
+        if (queryData && queryData.length > 0) {
+            let title = queryData[0].CategoryName;
+            let keyword = title.split(" ");
+            keyword = keyword.toString();
+            fs.readFile(filePath, 'utf8', async function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+                data = data.replace(/\$OG_TITLE/g, `${title} | ${title} সর্বশেষ খবর :: দ্য নিউজ ২৪`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `${title}`);
+                data = data.replace(/\$OG_KEYWORDS/g, `${keyword}`);
+                data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace("/amp/", '/').replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+            	data = data.replace(/\$AMP_URL/g, '');
+                response.send(data);
+            });
+        } else {
+            fs.readFile(filePath, 'utf8', function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+                data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
+                data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace("/amp/", '/').replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+            	data = data.replace(/\$AMP_URL/g, '');
+                response.send(data);
+            });
+        }
+    }
+    catch (err) {
+        console.log('contentDetails error');
+        console.log(err);
+        fs.readFile(filePath, 'utf8', function (err, data) {
+            if (err) {
+                return console.log(err);
+            }
+            data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+            data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+            // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+            var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace("/amp/", '/').replace(/\/+$/, '');
+            data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+        	data = data.replace(/\$AMP_URL/g, '');
+            response.send(data);
+        });
+    }
+});
 
-// app.get('/amp/:catSlug/:subCatSlug', async function (request, response) {
-//     let catSlug = request.params.catSlug;
-//     let subCatSlug = request.params.subCatSlug;
-//     console.log('AMP sub Category page visited! ' + catSlug + '/' + subCatSlug);
-//     const filePath = path.resolve(__dirname, './buildAmp', 'index.html');
+app.get('/amp/:catSlug/:subCatSlug', async function (request, response) {
+    let catSlug = request.params.catSlug;
+    let subCatSlug = request.params.subCatSlug;
+    console.log('AMP sub Category page visited! ' + catSlug + '/' + subCatSlug);
+    const filePath = path.resolve(__dirname, './buildAmp', 'index.html');
 
-//     let sql = `SELECT bn_bas_categories.CategoryID subCatID, bn_bas_categories.CategoryName subCatTitle FROM bn_bas_categories WHERE bn_bas_categories.Slug=? AND bn_bas_categories.ParentID!=0`;
-//     // let sql = `SELECT bn_bas_categories.CategoryID subCatID, bn_bas_categories.CategoryName subCatTitle, cat.CategoryName catTitle FROM bn_bas_categories JOIN bn_bas_categories cat ON cat.CategoryID=bn_bas_categories.ParentID WHERE bn_bas_categories.Slug=? AND bn_bas_categories.ParentID!=0`;
-//     try {
-//         const queryData = await bnConfig.query( sql, [subCatSlug] );
-//         if (queryData && queryData.length > 0) {
-//             let title = queryData[0].subCatTitle;
-//             let keyword = title.split(" ");
-//             keyword = keyword.toString();
-//             fs.readFile(filePath, 'utf8', async function (err, data) {
-//                 if (err) {
-//                     return console.log(err);
-//                 }
-//                 data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
-//                 data = data.replace(/\$OG_TITLE/g, `${title}`);
-//                 data = data.replace(/\$OG_DESCRIPTION/g, `${title}`);
-//                 data = data.replace(/\$OG_KEYWORDS/g, `${keyword}`);
-//                 data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//                 // var fullUrl = request.protocol + '://' + request.get('host') + (request.originalUrl).replace(/\/+$/, '');
-//                 var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace("/amp/", '/').replace(/\/+$/, '');
-//                 data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//             	data = data.replace(/\$AMP_URL/g, '');
-//                 response.send(data);
-//             });
-//         } else {
-//             fs.readFile(filePath, 'utf8', function (err, data) {
-//                 if (err) {
-//                     return console.log(err);
-//                 }
-//                 data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
-//                 data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
-//                 data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
-//                 data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
-//                 data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//                 // var fullUrl = request.protocol + '://' + request.get('host') + (request.originalUrl).replace(/\/+$/, '');
-//                 var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace("/amp/", '/').replace(/\/+$/, '');
-//                 data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//             	data = data.replace(/\$AMP_URL/g, '');
-//                 response.send(data);
-//             });
-//         }
-//     }catch (err) {
-//         console.log('contentDetails error');
-//         console.log(err);
-//         fs.readFile(filePath, 'utf8', function (err, data) {
-//             if (err) {
-//                 return console.log(err);
-//             }
-//             data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
-//             data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//             // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//             var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace("/amp/", '/').replace(/\/+$/, '');
-//             data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//         	data = data.replace(/\$AMP_URL/g, '');
-//             response.send(data);
-//         });
-//     }
-// });
+    let sql = `SELECT bn_bas_categories.CategoryID subCatID, bn_bas_categories.CategoryName subCatTitle FROM bn_bas_categories WHERE bn_bas_categories.Slug=? AND bn_bas_categories.ParentID!=0`;
+    // let sql = `SELECT bn_bas_categories.CategoryID subCatID, bn_bas_categories.CategoryName subCatTitle, cat.CategoryName catTitle FROM bn_bas_categories JOIN bn_bas_categories cat ON cat.CategoryID=bn_bas_categories.ParentID WHERE bn_bas_categories.Slug=? AND bn_bas_categories.ParentID!=0`;
+    try {
+        const queryData = await bnConfig.query( sql, [subCatSlug] );
+        if (queryData && queryData.length > 0) {
+            let title = queryData[0].subCatTitle;
+            let keyword = title.split(" ");
+            keyword = keyword.toString();
+            fs.readFile(filePath, 'utf8', async function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+                data = data.replace(/\$OG_TITLE/g, `${title}`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `${title}`);
+                data = data.replace(/\$OG_KEYWORDS/g, `${keyword}`);
+                data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                // var fullUrl = request.protocol + '://' + request.get('host') + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace("/amp/", '/').replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+            	data = data.replace(/\$AMP_URL/g, '');
+                response.send(data);
+            });
+        } else {
+            fs.readFile(filePath, 'utf8', function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+                data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
+                data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                // var fullUrl = request.protocol + '://' + request.get('host') + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace("/amp/", '/').replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+            	data = data.replace(/\$AMP_URL/g, '');
+                response.send(data);
+            });
+        }
+    }catch (err) {
+        console.log('contentDetails error');
+        console.log(err);
+        fs.readFile(filePath, 'utf8', function (err, data) {
+            if (err) {
+                return console.log(err);
+            }
+            data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+            data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+            // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+            var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace("/amp/", '/').replace(/\/+$/, '');
+            data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+        	data = data.replace(/\$AMP_URL/g, '');
+            response.send(data);
+        });
+    }
+});
 
-// app.get('/amp/:catSlug/news/:id', async function (request, response) {
-//     let catSlug = request.params.catSlug;
-//     let id = request.params.id;
-//     console.log('Detail page visited!' + catSlug + ' ' + id);
-//     const filePath = path.resolve(__dirname, './buildAmp', 'index.html');
+app.get('/amp/:catSlug/news/:id', async function (request, response) {
+    let catSlug = request.params.catSlug;
+    let id = request.params.id;
+    console.log('Detail page visited!' + catSlug + ' ' + id);
+    const filePath = path.resolve(__dirname, './buildAmp', 'index.html');
 
-//     let sql = `SELECT bn_contents.ContentID, bn_contents.CategoryIDs, bn_contents.ContentHeading, bn_contents.ContentBrief, bn_contents.ImageBgPath, bn_contents.URLAlies, bn_contents.Keywords, bn_contents.PlateType, bn_contents.ImagePlatePath FROM bn_contents WHERE bn_contents.ContentID=? AND bn_contents.ShowContent=1 AND bn_contents.Deletable=1`;
-//     // let sql = `SELECT bn_contents.ContentID, bn_contents.CategoryIDs, bn_contents.ContentHeading, bn_contents.CategoryIDs, bn_contents.ContentSubHeading, bn_contents.DetailsHeading, bn_contents.ContentShoulder, bn_contents.WriterID, bn_contents.ReporterID, bn_contents.DistCorsID, bn_contents.SubEditorID, bn_contents.WriterName, bn_contents.ContentBrief, bn_contents.ContentDetails, bn_contents.ImageSmPath, bn_contents.ImageSmPathCaption, bn_contents.ImageBgPath, bn_contents.ImageBgPathCaption, bn_contents.Tags, bn_contents.RelNews, bn_contents.RelNewsIDs, bn_contents.InvolvedNews, bn_contents.InvolvedIDs, bn_contents.VideoSource AS Source, bn_contents.VideoID, bn_contents.VideoPath, bn_contents.VideoType, bn_contents.ShowVideo, bn_contents.URLAlies, bn_contents.Keywords, bn_contents.PlateType, bn_contents.ImagePlatePath, bn_contents.Initial, bn_contents.VideoID, bn_contents.VideoPath, bn_contents.VideoType, bas_districts.DistrictNameBn, bas_districts.DistrictSlug, bn_contents.created_at as create_date, bn_contents.updated_at as updated_date FROM bn_contents LEFT JOIN bas_districts ON bn_contents.DistrictID=bas_districts.DistrictID WHERE bn_contents.ContentID=? AND bn_contents.ShowContent=1 AND bn_contents.Deletable=1`;
+    let sql = `SELECT bn_contents.ContentID, bn_contents.CategoryIDs, bn_contents.ContentHeading, bn_contents.ContentBrief, bn_contents.ImageBgPath, bn_contents.URLAlies, bn_contents.Keywords, bn_contents.PlateType, bn_contents.ImagePlatePath FROM bn_contents WHERE bn_contents.ContentID=? AND bn_contents.ShowContent=1 AND bn_contents.Deletable=1`;
+    // let sql = `SELECT bn_contents.ContentID, bn_contents.CategoryIDs, bn_contents.ContentHeading, bn_contents.CategoryIDs, bn_contents.ContentSubHeading, bn_contents.DetailsHeading, bn_contents.ContentShoulder, bn_contents.WriterID, bn_contents.ReporterID, bn_contents.DistCorsID, bn_contents.SubEditorID, bn_contents.WriterName, bn_contents.ContentBrief, bn_contents.ContentDetails, bn_contents.ImageSmPath, bn_contents.ImageSmPathCaption, bn_contents.ImageBgPath, bn_contents.ImageBgPathCaption, bn_contents.Tags, bn_contents.RelNews, bn_contents.RelNewsIDs, bn_contents.InvolvedNews, bn_contents.InvolvedIDs, bn_contents.VideoSource AS Source, bn_contents.VideoID, bn_contents.VideoPath, bn_contents.VideoType, bn_contents.ShowVideo, bn_contents.URLAlies, bn_contents.Keywords, bn_contents.PlateType, bn_contents.ImagePlatePath, bn_contents.Initial, bn_contents.VideoID, bn_contents.VideoPath, bn_contents.VideoType, bas_districts.DistrictNameBn, bas_districts.DistrictSlug, bn_contents.created_at as create_date, bn_contents.updated_at as updated_date FROM bn_contents LEFT JOIN bas_districts ON bn_contents.DistrictID=bas_districts.DistrictID WHERE bn_contents.ContentID=? AND bn_contents.ShowContent=1 AND bn_contents.Deletable=1`;
 
-//     try { const contentDetails = await bnConfig.query( sql, [id] );
-//         if (contentDetails && contentDetails.length > 0) {
+    try { const contentDetails = await bnConfig.query( sql, [id] );
+        if (contentDetails && contentDetails.length > 0) {
 
-//             let categoryCheck;
-//             try { categoryCheck = await bnConfig.query( 'SELECT CategoryID, CategoryName, Slug FROM bn_bas_categories WHERE Slug=?', [catSlug] );
-//                 // console.log(typeof categoryCheck);
-//             }
-//             catch (err) { console.log('categoryCheck error'); return ''; }
-//             // try { categoryCheck = await bnConfig.query( 'SELECT CategoryName, Slug FROM bn_bas_categories WHERE CategoryID IN (?)', [contentDetails[0].CategoryIDs] );
-//             //     // console.log(typeof categoryCheck);
-//             // }
-//             // catch (err) { console.log('categoryCheck error'); return ''; }
+            let categoryCheck;
+            try { categoryCheck = await bnConfig.query( 'SELECT CategoryID, CategoryName, Slug FROM bn_bas_categories WHERE Slug=?', [catSlug] );
+                // console.log(typeof categoryCheck);
+            }
+            catch (err) { console.log('categoryCheck error'); return ''; }
+            // try { categoryCheck = await bnConfig.query( 'SELECT CategoryName, Slug FROM bn_bas_categories WHERE CategoryID IN (?)', [contentDetails[0].CategoryIDs] );
+            //     // console.log(typeof categoryCheck);
+            // }
+            // catch (err) { console.log('categoryCheck error'); return ''; }
 
-//             if (categoryCheck && categoryCheck.length > 0) {
-//                 let categoryMatched = false
-//                 let categoryCheckValues=(contentDetails[0].CategoryIDs).split(",");
-//                 if(categoryCheckValues.includes((categoryCheck[0].CategoryID).toString())){categoryMatched=true}
-//                 // // let categoryCheckValues = [];
-//                 // // let categoryCheckValues = Object.values(categoryCheck.Slug);
-//                 // for (let i = 0; i < categoryCheckValues.length; i++) {
-//                 //     if(categoryCheck[i].Slug==catSlug){ categoryMatched=true; break; }
-//                 // }
-//                 // // console.log(categoryCheckValues);
+            if (categoryCheck && categoryCheck.length > 0) {
+                let categoryMatched = false
+                let categoryCheckValues=(contentDetails[0].CategoryIDs).split(",");
+                if(categoryCheckValues.includes((categoryCheck[0].CategoryID).toString())){categoryMatched=true}
+                // // let categoryCheckValues = [];
+                // // let categoryCheckValues = Object.values(categoryCheck.Slug);
+                // for (let i = 0; i < categoryCheckValues.length; i++) {
+                //     if(categoryCheck[i].Slug==catSlug){ categoryMatched=true; break; }
+                // }
+                // // console.log(categoryCheckValues);
 
-//                 if(categoryMatched){
-//                     let title = contentDetails[0].ContentHeading;
-//                     let description = contentDetails[0].ContentBrief;
-//                     if (!description) {
-//                         description = title
-//                     } else {
-//                         description = (contentDetails[0].ContentBrief).replace(/(<([^>]+)>)/ig, '')
-//                     }
-//                     let image = '';
-//                     if (contentDetails[0].PlateType > 0) {
-//                         image = contentDetails[0].ImagePlatePath;
-//                     } else {
-//                         image = contentDetails[0].ImageBgPath
-//                     }
-//                     let keyword = '';
-//                     if (contentDetails[0].Keywords) {
-//                         keyword = contentDetails[0].Keywords
-//                     } else {
-//                         keyword = title.split(" ");
-//                         keyword = keyword.toString();
-//                     }
-//                     fs.readFile(filePath, 'utf8', async function (err, data) {
-//                         if (err) {
-//                             return console.log(err);
-//                         }
-//                         data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
-//                         data = data.replace(/\$OG_TITLE/g, `${title}`);
-//                         data = data.replace(/\$OG_DESCRIPTION/g, `${description}`);
-//                         data = data.replace(/\$OG_KEYWORDS/g, `${keyword}`);
-//                         data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/imgAll/${image}`);
-//                         // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//                         var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace("/amp/", '/').replace(/\/+$/, '');
-//                         data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//                     	data = data.replace(/\$AMP_URL/g, '');
-//                         response.send(data);
-//                     });
-//                 }else{
-//                     fs.readFile(filePath, 'utf8', function (err, data) {
-//                         if (err) {
-//                             return console.log(err);
-//                         }
-//                         data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
-//                         data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
-//                         data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
-//                         data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
-//                         data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//                         // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//                         var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace("/amp/", '/').replace(/\/+$/, '');
-//                         data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//                     	data = data.replace(/\$AMP_URL/g, '');
-//                         return response.send(data);
-//                     });
-//                 }
-//             }else{
-//                 fs.readFile(filePath, 'utf8', function (err, data) {
-//                     if (err) {
-//                         return console.log(err);
-//                     }
-//                     data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
-//                     data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
-//                     data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
-//                     data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
-//                     data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//                     // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//                     var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace("/amp/", '/').replace(/\/+$/, '');
-//                     data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//                 	data = data.replace(/\$AMP_URL/g, '');
-//                     return response.send(data);
-//                 });
-//             }
-//         } else {
-//             fs.readFile(filePath, 'utf8', function (err, data) {
-//                 if (err) {
-//                     return console.log(err);
-//                 }
-//                 data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
-//                 data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
-//                 data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
-//                 data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
-//                 data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//                 // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//                 var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace("/amp/", '/').replace(/\/+$/, '');
-//                 data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//             	data = data.replace(/\$AMP_URL/g, '');
-//                 response.send(data);
-//             });
-//         }
-//     }
-//     catch (err) {
-//         console.log('contentDetails error');
-//         console.log(err);
-//         fs.readFile(filePath, 'utf8', function (err, data) {
-//             if (err) {
-//                 return console.log(err);
-//             }
-//             data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
-//             data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found - Something Went Wrong`);
-//             data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
-//             // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
-//             var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace("/amp/", '/').replace(/\/+$/, '');
-//             data = data.replace(/\$OG_URL/g, `${fullUrl}`);
-//         	data = data.replace(/\$AMP_URL/g, '');
-//             response.send(data);
-//         });
-//     }
-// });
+                if(categoryMatched){
+                    let title = contentDetails[0].ContentHeading;
+                    let description = contentDetails[0].ContentBrief;
+                    if (!description) {
+                        description = title
+                    } else {
+                        description = (contentDetails[0].ContentBrief).replace(/(<([^>]+)>)/ig, '')
+                    }
+                    let image = '';
+                    if (contentDetails[0].PlateType > 0) {
+                        image = contentDetails[0].ImagePlatePath;
+                    } else {
+                        image = contentDetails[0].ImageBgPath
+                    }
+                    let keyword = '';
+                    if (contentDetails[0].Keywords) {
+                        keyword = contentDetails[0].Keywords
+                    } else {
+                        keyword = title.split(" ");
+                        keyword = keyword.toString();
+                    }
+                    fs.readFile(filePath, 'utf8', async function (err, data) {
+                        if (err) {
+                            return console.log(err);
+                        }
+                        data = data.replace(/\$OG_ROBOTS/g, `index, follow`);
+                        data = data.replace(/\$OG_TITLE/g, `${title}`);
+                        data = data.replace(/\$OG_DESCRIPTION/g, `${description}`);
+                        data = data.replace(/\$OG_KEYWORDS/g, `${keyword}`);
+                        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/imgAll/${image}`);
+                        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace("/amp/", '/').replace(/\/+$/, '');
+                        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+                    	data = data.replace(/\$AMP_URL/g, '');
+                        response.send(data);
+                    });
+                }else{
+                    fs.readFile(filePath, 'utf8', function (err, data) {
+                        if (err) {
+                            return console.log(err);
+                        }
+                        data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+                        data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
+                        data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
+                        data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
+                        data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                        // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                        var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace("/amp/", '/').replace(/\/+$/, '');
+                        data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+                    	data = data.replace(/\$AMP_URL/g, '');
+                        return response.send(data);
+                    });
+                }
+            }else{
+                fs.readFile(filePath, 'utf8', function (err, data) {
+                    if (err) {
+                        return console.log(err);
+                    }
+                    data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+                    data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
+                    data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
+                    data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
+                    data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                    // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                    var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace("/amp/", '/').replace(/\/+$/, '');
+                    data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+                	data = data.replace(/\$AMP_URL/g, '');
+                    return response.send(data);
+                });
+            }
+        } else {
+            fs.readFile(filePath, 'utf8', function (err, data) {
+                if (err) {
+                    return console.log(err);
+                }
+                data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+                data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found`);
+                data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found`);
+                data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+                // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+                var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace("/amp/", '/').replace(/\/+$/, '');
+                data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+            	data = data.replace(/\$AMP_URL/g, '');
+                response.send(data);
+            });
+        }
+    }
+    catch (err) {
+        console.log('contentDetails error');
+        console.log(err);
+        fs.readFile(filePath, 'utf8', function (err, data) {
+            if (err) {
+                return console.log(err);
+            }
+            data = data.replace(/\$OG_ROBOTS/g, `noindex, nofollow`);
+            data = data.replace(/\$OG_TITLE/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_DESCRIPTION/g, `404 - Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_KEYWORDS/g, `404, Nothing Found - Something Went Wrong`);
+            data = data.replace(/\$OG_IMAGE/g, `${BEndUrl}media/common/logo-fb.png`);
+            // var fullUrl = request.protocol + '://' + request.hostname + (request.originalUrl).replace(/\/+$/, '');
+            var fullUrl = request.get('x-forwarded-proto') + '://' + request.get('X-Forwarded-Host') + (request.originalUrl).replace("/amp/", '/').replace(/\/+$/, '');
+            data = data.replace(/\$OG_URL/g, `${fullUrl}`);
+        	data = data.replace(/\$AMP_URL/g, '');
+            response.send(data);
+        });
+    }
+});
 
 
 app.use(express.static(path.resolve(__dirname, './build')));

@@ -336,7 +336,7 @@ export default function Header() {
                                     {breaking.length > 0 ?
                                         <div className="DScrollSection">
                                             <div className="ScrollHeading d-flex align-items-center">
-                                                <p>Breaking News:</p>
+                                                <p>Breaking:</p>
                                             </div>
                                             <div className="ScrollSubject">
                                                 <Marquee Marquee delay='0' speed='70' direction="left" pauseOnHover={true} play={true}>

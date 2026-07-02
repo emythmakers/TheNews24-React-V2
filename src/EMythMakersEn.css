@@ -45,7 +45,7 @@ a:hover {
 
 p {
 	margin-bottom: 0;
-	font-size: 16px;
+	font-size: 15px;
 	line-height: 22px
 }
 
@@ -90,7 +90,7 @@ picture img {
 }
 
 .eng-site .Desc .Title {
-	font-size: 17px;
+	font-size: 16px;
 	font-weight: 700;
 	line-height: 1.4;
 	display: -webkit-box;
@@ -101,8 +101,8 @@ picture img {
 	transition: all 0.3s ease;
 }
 
-.Desc .Brief {
-	font-size: 16px;
+.eng-site .Desc .Brief {
+	font-size: 15px;
 	line-height: 1.4;
 	color: #555;
 	display: -webkit-box;
@@ -401,10 +401,10 @@ picture img {
 .eng-site .main-menu .navbar-light .navbar-nav .nav-link {
 	color: var(--black-color);
 	font-weight: 700;
-	font-size: 15px;
-	padding: 10px 5px;
+	font-size: 14px;
+	padding: 10px 7px;
 }
-.eng-site .sticky .main-menu .navbar-light .navbar-nav .nav-link{padding: 10px 12px;}
+.eng-site .sticky .main-menu .navbar-light .navbar-nav .nav-link{padding: 10px 15px;}
 .eng-site .main-menu .navbar-light .navbar-nav .nav-link:hover {
 	color: var(--primary);
 }
@@ -520,11 +520,11 @@ picture img {
 	background: linear-gradient(90deg,rgba(0, 84, 204, 1) 0%, rgba(1, 0, 98, 1) 50%);}
 	.DScrollSection{display:flex;}
 	.DScrollSection .ScrollHeading{background:var(--primary-color); padding-right:10px;}
-	.DScrollSection .ScrollHeading p{font-size:18px;color:var(--white-color); font-weight: 600; width: 100px; padding: 7px 0;}
+	.eng-site .DScrollSection .ScrollHeading p{font-size:17px;color:var(--white-color); font-weight: 600; width: 100px; padding: 7px 0;}
 	
 	/* .DScrollSection .ScrollSubject{padding:0 10px;} */
 	/* .DScrollSection .ScrollSubject a span:hover{color:var(--primary);} */
-	.DScrollSection .ScrollSubject a span { padding-right: 40px; display: inline-block; margin-top: 5px; margin-bottom: 3px; font-size: 16px; color: var(--white-color); font-weight: 400; }
+	.eng-site .DScrollSection .ScrollSubject a span { padding-right: 40px; display: inline-block; margin-top: 5px; margin-bottom: 3px; font-size: 15px; color: var(--white-color); font-weight: 400; }
 	.DScrollSection .SquareIcon {display: inline;  padding-right: 5px;}
 	.DScrollSection .ScrollSubject .SquareIcon img{ width:25px; }
 	.DScroll marquee{scroll-behavior: smooth; display: flex;}
@@ -838,8 +838,9 @@ picture img {
 .leadnews-wrap {
 	padding: 30px 0;
 }
-.leadnews-wrap .sublead-news-box .Desc .Title {
-    height: 50px;
+.eng-site .leadnews-wrap .sublead-news-box .Desc .Title {
+    height: 44px;
+	font-size: 15px;
 }
 
 /* .leadnews-wrap .row{--bs-gutter-x: 1rem} */
@@ -906,8 +907,8 @@ picture img {
 	border-radius: 5px;
 }
 
-.lead-left-small-list .Desc .Title {
-	font-size: 16px;
+.eng-site .lead-left-small-list .Desc .Title {
+	font-size: 15px;
 }
 
 .lead-left-small-list:last-child {
@@ -974,8 +975,8 @@ picture img {
 	z-index: 1;
 }
 
-.lead-news-img .Desc .Title {
-	font-size: 25px;
+.eng-site .lead-news-img .Desc .Title {
+	font-size: 23px;
 	text-align: center;
 	-webkit-line-clamp: 2;
 	font-weight: 700;
@@ -1392,8 +1393,8 @@ picture img {
 	background: linear-gradient(180deg, rgba(68, 53, 21, 0) 1%, rgba(14, 14, 14, 0.83) 60%);
 }
 
-.national-img .Desc .Title {
-	font-size: 24px;
+.eng-site .national-img .Desc .Title {
+	font-size: 22px;
 	color: var(--white-color);
 	font-weight: 600;
 }
@@ -1426,8 +1427,8 @@ picture img {
 	margin-top: 10px;
 }
 
-.national-leadTwo .Desc .Title {
-	font-size: 20px;
+.eng-site .national-leadTwo .Desc .Title {
+	font-size: 18px;
 	font-weight: 700;
 }
 
@@ -1461,8 +1462,8 @@ picture img {
 	margin-top: 10px;
 }
 
-.national-list .Desc .Title {
-	font-size: 18px;
+.eng-site .national-list .Desc .Title {
+	font-size: 16px;
 	font-weight: 700;
 }
 
@@ -1498,13 +1499,13 @@ picture img {
 	padding: 5px 15px
 }
 
-.DPrayersTime .table td,
+.eng-site .DPrayersTime .table td,
 .DPrayersTime .table th {
 	border-bottom: 1px solid var(--primary);
 	border-right: 1px solid var(--primary);
 	border-top: 0 solid #dee2e6;
 	color: #333;
-	font-size: 17px;
+	font-size: 15px;
 	text-align: center
 }
 
@@ -1547,8 +1548,8 @@ picture img {
 	border-radius: 5px;
 }
 
-.others-Two-lead .Desc .Title {
-	font-size: 20px;
+.eng-site .others-Two-lead .Desc .Title {
+	font-size: 18px;
 	color: var(--black-color);
 	margin-top: 10px;
 	font-weight: 700;
@@ -1633,11 +1634,12 @@ picture img {
 	border-radius: 5px;
 }
 
-.common-single-post-wrap .Desc .Title {
-	font-size: 20px;
+.eng-site .common-single-post-wrap .Desc .Title {
+	font-size: 18px;
 	margin-top: 10px;
 	font-weight: 700;
 }
+.eng-site .common-single-post-list .Desc .Title{font-size: 15px;}
 
 .common-single-post-wrap:hover .common-single-post-wrap-img img {
 	transform: scale(1.1);
@@ -1700,8 +1702,8 @@ picture img {
 	border-radius: 5px;
 }
 
-.entertainment-lead .Desc .Title {
-	font-size: 24px;
+.eng-site .entertainment-lead .Desc .Title {
+	font-size: 22px;
 	font-weight: 700;
 }
 
@@ -1780,8 +1782,8 @@ picture img {
 	margin-top: 10px;
 }
 
-.sports-lead-wrap .Desc .Title {
-	font-size: 24px;
+.eng-site .sports-lead-wrap .Desc .Title {
+	font-size: 22px;
 	font-weight: 700;
 }
 
@@ -1875,8 +1877,8 @@ picture img {
 	width: 100%;
 }
 
-.life-style-list .Desc .Title {
-	font-size: 20px;
+.eng-site .life-style-list .Desc .Title {
+	font-size: 17px;
 	font-weight: 700;
 	color: var(--white-color);
 }
@@ -2320,8 +2322,8 @@ picture img {
 	;
 }
 
-.address p {
-	font-size: 16px;
+.eng-site .address p {
+	font-size: 15px;
 	margin-bottom: 8px;
 	color: var(--black-color);
 }
@@ -2401,7 +2403,7 @@ picture img {
 }
 
 .eng-site .DFooterMiddleListBg .DFooterMiddleListItems li>a {
-	font-size: 15px;
+	font-size: 14px;
 	line-height: 1.4;
 	color: var(--primary);
 	font-weight: 600;
@@ -2438,7 +2440,7 @@ picture img {
 
 .eng-site .DFooterBottomBg p {
 	color: var(--black-color);
-	font-size: 15px;
+	font-size: 14px;
 }
 
 .DFooterBottomBg p a {
@@ -4697,7 +4699,7 @@ picture img {
 		border-right: none;
 	}
 
-	.ContentDetails h1 {
+	.eng-site .ContentDetails h1 {
 		font-size: 30px !important;
 		line-height: 38px !important;
 		margin-top: 14px;
@@ -5046,9 +5048,9 @@ picture img {
 }
 
 /* .ContentDetails h3.DHeadingSubHeading:after {content: "";top: 29px;left:1px;height: 3px;position: absolute;width: 60%;background-color: #F00000;} */
-.ContentDetails h1 {
-	font-size: 38px;
-	line-height: 48px;
+.eng-site .ContentDetails h1 {
+	font-size: 36px;
+	line-height: 46px;
 	margin-top: 14px;
 	margin-bottom: 8px;
 }

@@ -67,14 +67,14 @@ export default function Live() {
                                             </div>
 
                                         </div>
-                                        <div className='d-flex '>
-
-                                            <DSocialShare title={live.WebTVHeading} contentID={live.WebTVLinkCode} />
-                                        </div>
+                                        {live.WebTVHeading ?
+                                            <div className='d-flex '>
+                                                <DSocialShare title={live.WebTVHeading} contentID={live.WebTVLinkCode} />
+                                            </div>
+                                            : ""}
                                     </>
                                     :
                                     ""}
-                                {/* <DSocialShare title={live.WebTVHeading} contentID={live.ContentID} /> */}
                             </div>
 
 

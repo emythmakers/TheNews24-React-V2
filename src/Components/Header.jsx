@@ -299,7 +299,7 @@ export default function Header() {
                                                     <div className="extr">
                                                         <a href="#"> <img src={ePper} alt="ই-পেপার" title='ই-পেপার' />ই-পেপার</a>
                                                         <Link to="/archives" onClick={scrollTop}> <img src={archive} alt="আর্কাইভ" title='আর্কাইভ' />আর্কাইভ</Link>
-                                                        <Link className="langu" to="/"> <img src={map}
+                                                        <Link className="langu" to="/english"> <img src={map}
                                                             alt="English" title='English' />English</Link>
                                                     </div>
                                                     <div className="header-search">
@@ -418,7 +418,7 @@ export default function Header() {
                                             <div className="extr">
                                                 <a href="#"> <img src="media/imgAll/icon/E_paper2.png" alt="" />ই-পেপার</a>
                                                 <Link to="/archives" onClick={() => setIsToggleActive(false)} > <img src="media/imgAll/icon/archive2.png" alt="" onClick={scrollTop} />আর্কাইভ</Link>
-                                                <a className="langu" href="/"> <img src="media/imgAll/icon/Map2.png" alt="" />English</a>
+                                                <a className="langu" href="/english"> <img src="media/imgAll/icon/Map2.png" alt="" />English</a>
                                             </div>
                                         </div>
                                         <div className="menu-body">

@@ -49,7 +49,7 @@ export default function Footer() {
                             <div className="col-lg-4 col-md-6 d-flex justify-content-md-center justify-content-start border-right-inner">
                                 <div className="footer-info">
                                     <address className="address">
-                                        <p><a href="#" target="_blank" rel="noreferrer" >Corporate Office : 21 (8th Floor), <br /> Block : A, Road : 01, Mahanagar Project, Hatirjheel, Dhaka-1219. ৷</a></p>
+                                        <p><a href="#" target="_blank" rel="noreferrer" >Corporate Office : 21 (8th Floor), <br /> Block : A, Road : 01, Mahanagar Project, Hatirjheel, Dhaka-1219.</a></p>
                                         <p>Phone:<a href="tel:+8809611171980">+8809611171980</a>
                                             {/* ,<a href="tel:+৮৮০১৩৩২৫০২৩০০">+৮৮০১৩৩২৫০২৩০০</a> */}
                                         </p>
