@@ -3,7 +3,7 @@ import { toBengaliNumber } from 'bengali-number'
 import { format } from 'date-fns'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import Millionniere from '../../assets/media/Advertisement/Millionniere-scheme.png'
+// import Millionniere from '../../assets/media/Advertisement/Millionniere-scheme.png'
 import pubali from '../../assets/media/Advertisement/Pubali-Bank1.png'
 // import psi from '../../assets/media/Advertisement/psi.jpeg'
 // import psiPdf from '../../assets/Final __PSI_____6  X 4.pdf'
@@ -461,15 +461,15 @@ export default function Details() {
                                                     </div>
                                                 </div> */}
                                                 {/* =========advertisement for desktop version ============ */}
-                                                {/* <div className="row">
+                                                <div className="row">
                                                     <div className="col-md-12 pb-3 ">
-                                                        <a href="https://www.agranibank.org/" target='blank'>
+                                                        {/* <a href="https://www.agranibank.org/" target='blank'>
                                                             <div className="DAdd1 d-flex  justify-content-center">
                                                                 <img src={Millionniere} alt="Advertisement" title="Advertisement" className="img-fluid img100" width={300} height={250} />
                                                             </div>
-                                                        </a>
+                                                        </a> */}
                                                     </div>
-                                                </div> */}
+                                                </div>
                                             </div>
                                         </div>
                                         <div className="row">
@@ -483,13 +483,13 @@ export default function Details() {
                                                         </div>
                                                     </div> */}
                                                     {/* ===================adsvertisement section =================== */}
-                                                    {/* <div className="row">
+                                                    <div className="row">
                                                         <div className="col-md-12">
-                                                            <div className="DAdd1 d-flex  justify-content-center">
+                                                            {/* <div className="DAdd1 d-flex  justify-content-center">
                                                                 <img src={Millionniere} alt="Advertisement" title="Advertisement" className="img-fluid img100" width={300} height={250} />
-                                                            </div>
+                                                            </div> */}
                                                         </div>
-                                                    </div> */}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
