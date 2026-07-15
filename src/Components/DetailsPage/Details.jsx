@@ -461,7 +461,7 @@ export default function Details() {
                                                     </div>
                                                 </div> */}
                                                 {/* =========advertisement for desktop version ============ */}
-                                                <div className="row">
+                                                {/* <div className="row">
                                                     <div className="col-md-12 pb-3 ">
                                                         <a href="https://www.agranibank.org/" target='blank'>
                                                             <div className="DAdd1 d-flex  justify-content-center">
@@ -469,7 +469,7 @@ export default function Details() {
                                                             </div>
                                                         </a>
                                                     </div>
-                                                </div>
+                                                </div> */}
                                             </div>
                                         </div>
                                         <div className="row">
@@ -494,7 +494,7 @@ export default function Details() {
                                             </div>
                                         </div>
                                         {/* =========advertisement for mobile device============ */}
-                                        <div className="row d-block d-lg-none">
+                                        {/* <div className="row d-block d-lg-none">
                                             <div className="col-md-12 pb-3 ">
                                                 <a href="https://www.agranibank.org/" target='blank'>
                                                     <div className="DAdd1 d-flex  justify-content-center">
@@ -502,7 +502,7 @@ export default function Details() {
                                                     </div>
                                                 </a>
                                             </div>
-                                        </div>
+                                        </div> */}
                                         <div className="col-sm-12 d-print-none">
                                             <div className="row">
                                                 <div className="col-sm-12">
