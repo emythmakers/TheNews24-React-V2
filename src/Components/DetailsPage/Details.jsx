@@ -4,6 +4,7 @@ import { format } from 'date-fns'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 // import Millionniere from '../../assets/media/Advertisement/Millionniere-scheme.png'
+import DesktopR2 from '../../assets/media/Advertisement/detailsAdsR2.jpg'
 import pubali from '../../assets/media/Advertisement/Pubali-Bank1.png'
 // import psi from '../../assets/media/Advertisement/psi.jpeg'
 // import psiPdf from '../../assets/Final __PSI_____6  X 4.pdf'
@@ -460,6 +461,15 @@ export default function Details() {
                                                         </a>
                                                     </div>
                                                 </div> */}
+                                                <div className="row">
+                                                    <div className="col-md-12 pb-3 pt-5 ">
+                                                        <a href="https://rupalibank.com.bd/" target='blank'>
+                                                            <div className="DAddR2 d-flex  justify-content-center">
+                                                                <img src={DesktopR2} alt="https://rupalibank.com.bd/" title="https://rupalibank.com.bd/" className="img-fluid img100" width={300} height={250} />
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
                                                 {/* =========advertisement for desktop version ============ */}
                                                 <div className="row">
                                                     <div className="col-md-12 pb-3 ">
@@ -520,6 +530,15 @@ export default function Details() {
                         <section>
                             <div className="row mt-3 d-print-none">
                                 <div className="col-lg-9 col-12">
+                                    <div className="row">
+                                        <div className="col-md-12 pb-3 pt-5 ">
+                                            <a href="https://rupalibank.com.bd/" target='blank'>
+                                                <div className="DAddAdsR2  d-flex  justify-content-center">
+                                                    <img src={DesktopR2} alt="https://rupalibank.com.bd/" title="https://rupalibank.com.bd/" className="img-fluid img100" width={300} height={250} />
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
                                     <div className="row d-block d-lg-none">
                                         <div className="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1 my-4">
                                             <DFrom />
