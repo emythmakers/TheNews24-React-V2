@@ -6,6 +6,7 @@ import { Link, useParams } from 'react-router-dom'
 // import Millionniere from '../../assets/media/Advertisement/Millionniere-scheme.png'
 import DesktopR2 from '../../assets/media/Advertisement/detailsAdsR2.jpg'
 import pubali from '../../assets/media/Advertisement/Pubali-Bank1.png'
+import waltonAds from '../../assets/media/Advertisement/waltonR1.jpeg'
 // import psi from '../../assets/media/Advertisement/psi.jpeg'
 // import psiPdf from '../../assets/Final __PSI_____6  X 4.pdf'
 import { banglaDateConvetar, ForLazyLoaderImg, scrollTop, timeAgo } from '../AllFunctions'
@@ -442,7 +443,7 @@ export default function Details() {
 
                                             <div className="col-lg-4 col-12 d-none d-lg-block detailsPage">
                                                 {/* =========advertisement for desktop version ============ */}
-                                                {/* <div className="row">
+                                                <div className="row">
                                                     <div className="col-md-12 pb-3 ">
                                                         <a href="https://waltonbd.com/" target='blank'>
                                                             <div className="DAdd1 d-flex  justify-content-center">
@@ -450,7 +451,7 @@ export default function Details() {
                                                             </div>
                                                         </a>
                                                     </div>
-                                                </div> */}
+                                                </div>
                                                 <DCatLatest catLatest={catLatest} catName={catName.CategoryName} catSlug={catSlug} />
                                                 {/* <div className="row">
                                                     <div className="col-md-12 pb-3 ">
