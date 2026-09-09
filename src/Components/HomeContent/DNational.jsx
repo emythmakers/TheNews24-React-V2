@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { ForLazyLoaderImg, getTimeDistance, scrollTop } from '../AllFunctions'
 import FBpagePlugin from '../FBpagePlugin'
 import PrayerTime from './PrayerTime'
-
+import CountryRAdv from '../../assets/media/Advertisement/MBL(9-9-26).jpg'
 var lazyloaded = false
 export default function DNational() {
     const [national, setNational] = useState([])
@@ -130,9 +130,12 @@ export default function DNational() {
                         </div>
                     </div>
                     <div className="col-lg-3">
-                        <div className="DPrayer mb-3">
-                            <PrayerTime />
+                        <div className="DAdd1 d-flex  justify-content-center mb-4">
+                            <a href="https://www.mblbd.com/" onClick={scrollTop} target='blank'><img src={CountryRAdv} alt="Advertisement" title="Advertisement" className="img-fluid img100" width={300} height={250} /></a>
                         </div>
+                        {/* <div className="DPrayer mb-3">
+                            <PrayerTime />
+                        </div> */}
                         <FBpagePlugin />
                         {/* <div className="DRightSideAdd mt-2">
                             <a href="https://www.shwapno.com/" onClick={scrollTop} target='blank'><img src={Ads} alt="ads" title="ads" /></a>
