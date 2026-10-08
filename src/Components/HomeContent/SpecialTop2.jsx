@@ -12,7 +12,7 @@ export default function SpecialTop2() {
             .get(`${process.env.REACT_APP_API_URL}json/file/generateSpecial3.json`)
             .then(({ data }) => {
                 if (data.data.length > 0) {
-                    setState2(data.data.slice(0, 3));
+                    setState2(data.data.slice(0, 2));
                     setTimeout(function () {
                         lazyloaded = false
                         ForLazyLoaderImg(lazyloaded)
