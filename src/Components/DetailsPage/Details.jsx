@@ -325,7 +325,7 @@ export default function Details() {
                                             <div className="col-lg-8 col-12">
                                                 {/* Advertise */}
                                                 <div className="col-md-12 pb-3 m-auto ">
-                                                    <a href="https://www.pubalibangla.com/" target='blank'>
+                                                    <a href="https://waltonbd.com/cables" target='blank'>
                                                         <div className="DAddads d-flex  justify-content-center">
                                                             <img src={pubali} alt="Advertisement" title="Advertisement" className="img-fluid img100" />
                                                         </div>

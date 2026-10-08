@@ -19,7 +19,9 @@ export default function LeadNewsSection() {
                         </div>
                         <div className="col-lg-3 order-3">
                             <div className="DAdd1 d-flex  justify-content-center mb-4">
-                                <img src={protibad} alt="Advertisement" title="Advertisement" className="img-fluid img100" width={300} height={250} />
+                                <a href="https://waltonbd.com/cables" target='blank'>
+                                    <img src={protibad} alt="Advertisement" title="Advertisement" className="img-fluid img100" width={300} height={250} />
+                                </a>
                             </div>
                             <SpecialTop2 />
                         </div>
