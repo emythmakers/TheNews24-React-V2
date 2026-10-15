@@ -14,7 +14,8 @@ import VideoSec from './HomeContent/VideoSec'
 // import Event from './HomeContent/Event'
 import DTrade from './HomeContent/DTrade'
 import HomeLdJson from './HomeContent/HomeLdJson'
-// import HomepageAds from '../assets/media/Advertisement/HomepageAds.png'
+import HeaderBottomAdv from '../assets/media/Advertisement/Citytuch(15-10-26).jpg'
+import HeaderBottomAdvM from '../assets/media/Advertisement/CitytuchM(15-10-26).jpg'
 // import HeaderBottomAds from './HomeContent/HeaderBottomAds'
 // import shopnoADS from '../assets/media/Advertisement/shopno-ads.png'
 // import VideoSecBotmR2 from './HomeContent/VideoSecBotmR2'
@@ -70,6 +71,24 @@ export default function Home() {
                             </a>
                         </div>
                     </div> */}
+                    <div className='HeaderBottomAdv'>
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-lg-12 text-center">
+                                    <div className="DAddDShow d-flex justify-content-center mt-4">
+                                        <a href="https://citytouch.bd/" target='blank'>
+                                            <img src={HeaderBottomAdv} alt="Advertisement" title="Advertisement" className="img-fluid img100" width={970} height={90} />
+                                        </a>
+                                    </div>
+                                    <div className="DAddMShow d-flex justify-content-center my-3">
+                                        <a href="https://citytouch.bd/" target='blank'>
+                                            <img src={HeaderBottomAdvM} alt="Advertisement" title="Advertisement" className="img-fluid img100" width={320} height={82} />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <LeadNewsSection />
                     <>
